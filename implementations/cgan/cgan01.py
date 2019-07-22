@@ -1,6 +1,7 @@
 import argparse
 import os, sys
 import datetime
+import time
 from datetime import datetime
 import numpy as np
 import math
@@ -37,11 +38,8 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 
 cuda = True if torch.cuda.is_available() else False
 
-
-date_string = datetime.now().strftime('%Y-%m-%d_%H-%M')
-date_object = datetime.strptime(date_string, "%d %B, %Y")
-
-pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_object)
+date_string = time.strftime("%Y-%m-%d")
+pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string)
 os.mkdir(pathimage)
 print ("Path is created as " + pathimage)
 
@@ -135,7 +133,7 @@ FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 
 
-def sample_image(n_row, batches_done):
+def sample_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
     # Sample noise
     z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
@@ -143,8 +141,7 @@ def sample_image(n_row, batches_done):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    pathlocation = pathimage + "/%d.png"
-    save_image(gen_imgs.data, pathlocation % batches_done, nrow=n_row, normalize=True)
+    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/%d.png" % batches_done, nrow=n_row, normalize=True)
 
 
 # ----------
@@ -211,4 +208,4 @@ for epoch in range(opt.n_epochs):
 
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
-            sample_image(n_row=10, batches_done=batches_done)
+            sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
