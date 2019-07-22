@@ -1,5 +1,7 @@
 import argparse
-import os
+import os, sys
+import datetime
+from datetime import datetime
 import numpy as np
 import math
 
@@ -35,6 +37,9 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 
 cuda = True if torch.cuda.is_available() else False
 
+pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",datetime.now().strftime('%Y-%m-%d_%H-%M'))
+os.mkdir(pathimage)
+print "Path is created as " + pathimage
 
 class Generator(nn.Module):
     def __init__(self):
@@ -134,7 +139,8 @@ def sample_image(n_row, batches_done):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    save_image(gen_imgs.data, "/content/gdrive/My Drive/TFE/images/%d.png" % batches_done, nrow=n_row, normalize=True)
+    pathlocation = pathimage + "/%d.png"
+    save_image(gen_imgs.data, pathlocation % batches_done, nrow=n_row, normalize=True)
 
 
 # ----------
@@ -201,4 +207,4 @@ for epoch in range(opt.n_epochs):
 
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
-            sample_image(n_row=5, batches_done=batches_done)
+            sample_image(n_row=10, batches_done=batches_done)
