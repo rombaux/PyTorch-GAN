@@ -37,7 +37,11 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 
 cuda = True if torch.cuda.is_available() else False
 
-pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",datetime.now().strftime('%Y-%m-%d_%H-%M'))
+
+date_string = datetime.now().strftime('%Y-%m-%d_%H-%M')
+date_object = datetime.strptime(date_string, "%d %B, %Y")
+
+pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_object)
 os.mkdir(pathimage)
 print ("Path is created as " + pathimage)
 
