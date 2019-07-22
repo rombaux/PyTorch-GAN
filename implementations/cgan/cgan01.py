@@ -39,7 +39,7 @@ cuda = True if torch.cuda.is_available() else False
 
 pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",datetime.now().strftime('%Y-%m-%d_%H-%M'))
 os.mkdir(pathimage)
-print "Path is created as " + pathimage
+print ("Path is created as " + pathimage)
 
 class Generator(nn.Module):
     def __init__(self):
