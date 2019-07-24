@@ -154,8 +154,8 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
  #   save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.genidlabel)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
-
-    save_image(gen_imgs.data[8,4,2],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+842)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+    numbre = [gen_imgs.data[1],gen_imgs.data[6],gen_imgs.data[8]]
+    save_image(numbre,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+168+"_%d.png" % batches_done, nrow=n_row, normalize=True)
 
 
 # ----------
