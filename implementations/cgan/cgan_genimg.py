@@ -139,7 +139,7 @@ def sample_image(n_row, batches_done,date_string):
     # Sample noise
     z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
     # Get labels ranging from 0 to n_classes for n rows
-    labels = np.array([opt.genidlabel])
+    labels = np.array(opt.genidlabel)
     # labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
@@ -210,4 +210,4 @@ for epoch in range(opt.n_epochs):
 
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
-            sample_image(n_row=1, batches_done=batches_done, date_string=date_string)
+            sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
