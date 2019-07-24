@@ -32,7 +32,7 @@ parser.add_argument("--img_size", type=int, default=32, help="size of each image
 parser.add_argument("--channels", type=int, default=1, help="number of image channels")
 parser.add_argument("--sample_interval", type=int, default=400, help="interval between image sampling")
 parser.add_argument("--genidlabel", type=int, default=0, help="generate image whit label id")
-opt = pars er.parse_args()
+opt = parser.parse_args()
 print(opt)
 
 img_shape = (opt.channels, opt.img_size, opt.img_size)
