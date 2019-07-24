@@ -31,8 +31,8 @@ parser.add_argument("--n_classes", type=int, default=10, help="number of classes
 parser.add_argument("--img_size", type=int, default=32, help="size of each image dimension")
 parser.add_argument("--channels", type=int, default=1, help="number of image channels")
 parser.add_argument("--sample_interval", type=int, default=400, help="interval between image sampling")
-parser.add_argument("--genidlabel", type=int, default=0, help="generate image whit label id")
-opt = parser.parse_args()
+parser.add_argument("--genidlabel", type=int, default=0, help="generate image whit label")
+opt = pars er.parse_args()
 print(opt)
 
 img_shape = (opt.channels, opt.img_size, opt.img_size)
@@ -137,14 +137,28 @@ LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 def sample_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
     # Sample noise
-    #z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
-    z = Variable(FloatTensor(np.random.normal(0, 1, (1, opt.latent_dim))))
+    z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
     # Get labels ranging from 0 to n_classes for n rows
-    labels = np.array([1])
-    # labels = np.array([num for _ in range(n_row) for num in range(n_row)])
+    labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
+    save_image(gen_imgs.data[1],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/%d.png" % batches_done, nrow=n_row, normalize=True)
+
+
+def sample_label_id_image(n_row, batches_done,date_string):
+    """Saves a grid of generated digits ranging from 0 to n_classes"""
+    # Sample noise
+    z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
+    # Get labels ranging from 0 to n_classes for n rows
+    labels = np.array([num for _ in range(n_row) for num in range(n_row)])
+    labels = Variable(LongTensor(labels))
+    gen_imgs = generator(z, labels)
+
+
+
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/%d.png" % batches_done, nrow=n_row, normalize=True)
+
+
 
 
 # ----------
