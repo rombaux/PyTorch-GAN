@@ -154,7 +154,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    if opt.genidlabel<10
+    if opt.genidlabel < 10
         save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.genidlabel)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
     if opt.gennumber > 0
         toto = opt.gennumber
