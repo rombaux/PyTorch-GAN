@@ -159,7 +159,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
     if opt.gennumber > 0:
         toto = opt.gennumber
         numbre =[]
-        for a in (toto):
+        for a in str(toto):
             numbre.append(gen_imgs.data[a])
         save_image(numbre,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
         print("nombre : "+str(opt.gennumber+" generated"))
