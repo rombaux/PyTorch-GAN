@@ -31,7 +31,8 @@ parser.add_argument("--n_classes", type=int, default=10, help="number of classes
 parser.add_argument("--img_size", type=int, default=32, help="size of each image dimension")
 parser.add_argument("--channels", type=int, default=1, help="number of image channels")
 parser.add_argument("--sample_interval", type=int, default=400, help="interval between image sampling")
-parser.add_argument("--genidlabel", type=int, default=0, help="generate image whit label")
+parser.add_argument("--genidlabel", type=int, default=10, help="generate image whit label")
+parser.add_argument("--gennumber", type=int, default=0, help="generate number")
 opt = parser.parse_args()
 print(opt)
 
@@ -153,9 +154,15 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
- #   save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.genidlabel)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
-    numbre = [gen_imgs.data[1],gen_imgs.data[6],gen_imgs.data[8]]
-    save_image(numbre,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_168"+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+    if opt.genidlabel<10
+        save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.genidlabel)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+    if opt.gennumber > 0
+        toto = opt.gennumber
+        numbre =[]
+        for a in (toto):
+            numbre.append(gen_imgs.data[a])
+        save_image(numbre,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+        print("nombre : "+str(opt.gennumber+" generated"))
 
 
 # ----------
