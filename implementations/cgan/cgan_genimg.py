@@ -142,7 +142,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    save_image(gen_imgs.data[1],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/%d.png" % batches_done, nrow=n_row, normalize=True)
+    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/%d.png" % batches_done, nrow=n_row, normalize=True)
 
 
 def sample_label_id_image(n_row, batches_done,date_string):
@@ -153,10 +153,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-
-
-
-    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/%d.png" % batches_done, nrow=n_row, normalize=True)
+    save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+opt.genidlabel+"_%d.png" % batches_done, nrow=n_row, normalize=True)
 
 
 
@@ -226,3 +223,5 @@ for epoch in range(opt.n_epochs):
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
             sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
+            sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)                
+
