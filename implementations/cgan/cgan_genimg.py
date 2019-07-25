@@ -43,9 +43,9 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 cuda = True if torch.cuda.is_available() else False
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
-pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"gen09")
-print ("Path is created as " + pathimage)
-os.mkdir(pathimage)
+pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,)
+print ("Path is created as " + pathimage + "/gen09")
+os.mkdir(pathimage+"/gen09")
 
 pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"gen",opt.genidlabel)
 print ("Path is created as " + pathimage)
