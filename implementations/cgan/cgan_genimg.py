@@ -110,7 +110,7 @@ class Generator(nn.Module):
             nn.Linear(1024, int(np.prod(img_shape))),
             nn.Tanh()
         )
-        PATCH = "/content/gdrive/My Drive/TFE/model/"
+        PATCH = "/content/gdrive/My Drive/TFE/model/model.pth"
         torch.save(model.state_dict(), PATCH)   
 
 
