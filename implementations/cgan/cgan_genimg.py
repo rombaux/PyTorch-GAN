@@ -175,8 +175,9 @@ def sample_label_id_image(n_row, batches_done,date_string):
         save_image(numbre,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
         print("nombre : "+str(opt.gennumber)+" generated")
 
-    PATCH = "/content/gdrive/My Drive/TFE/model/modelg.pth"
-    torch.save(generator.model.state_dict(), PATCH)  
+    PATCH = "/content/gdrive/My Drive/TFE/model/model"+batches_done+".pth"
+    torch.save(generator.model.state_dict(), PATCH)
+    print("Model saved in"+PATCH)
 
 # ----------
 #  Training
