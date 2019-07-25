@@ -110,6 +110,9 @@ class Generator(nn.Module):
             nn.Linear(1024, int(np.prod(img_shape))),
             nn.Tanh()
         )
+        PATCH = "/content/gdrive/My Drive/TFE/model/"
+        torch.save(model.state_dict(), PATCH)   
+
 
     def forward(self, noise, labels):
         # Concatenate label embedding and image to produce input
@@ -271,6 +274,5 @@ for epoch in range(opt.n_epochs):
             print("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
             sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
-            PATCH = "/content/gdrive/My\ Drive/TFE/model/lstmmodelgpu.pth"
-            torch.save(Generator.model.state_dict(), PATCH)             
+                     
 
