@@ -17,6 +17,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch
 
+import torch.optim as optim
+
 os.makedirs("images", exist_ok=True)
 
 parser = argparse.ArgumentParser()
@@ -73,7 +75,7 @@ class TheModelClass ( nn . Module ):
 model = TheModelClass ()
 
 # Initialize optimizer
-optimizer = optim . SGD ( model . parameters (), lr = 0.001 , momentum = 0.9 )
+optimizer = optim.SGD ( model . parameters (), lr = 0.001 , momentum = 0.9 )
 
 # Print model's state_dict
 print ( "Model's state_dict:" )
