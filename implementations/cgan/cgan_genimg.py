@@ -51,7 +51,7 @@ pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"gen
 os.mkdir(pathimage)
 print ("Path is created as " + pathimage)
 
-pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string"gen_",gennumber)
+pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"gen_",gennumber)
 os.mkdir(pathimage)
 print ("Path is created as " + pathimage)
 
