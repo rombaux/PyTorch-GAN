@@ -157,7 +157,7 @@ def sample_image(n_row, batches_done,date_string):
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/%d.png" % batches_done, nrow=n_row, normalize=True)
 
 
-def sample_label_id_image(n_row, batches_done,date_string,generator):
+def sample_label_id_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
     # Sample noise
     z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
@@ -238,7 +238,7 @@ for epoch in range(opt.n_epochs):
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
             print("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
-            sample_image(n_row=10, batches_done=batches_done, date_string=date_string,generator=generator)
+            sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
                     
 
