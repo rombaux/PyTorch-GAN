@@ -49,12 +49,12 @@ os.makedirs(pathimage)
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',date_string,'gen',str(opt.genidlabel))
 print ("Path is created as " + pathimage)
-os.mkdir(pathimage)
+os.makedirs(pathimage)
 
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',date_string,'gen',str(opt.gennumber))
 print ("Path is created as " + pathimage)
-os.mkdir(pathimage)
+os.makedirs(pathimage)
 
 class Generator(nn.Module):
     def __init__(self):
