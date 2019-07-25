@@ -78,12 +78,6 @@ class Generator(nn.Module):
         for param_tensor in self.model.state_dict ():
             print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
 
-        # Print optimizer's state_dict
-        print ( "Optimizer's state_dict:" )
-        for var_name in self.optimizer . state_dict ():
-            print(var_name , " \t " , self.optimizer.state_dict ()[ var_name ])
-
-
     def forward(self, noise, labels):
         # Concatenate label embedding and image to produce input
         gen_input = torch.cat((self.label_emb(labels), noise), -1)
