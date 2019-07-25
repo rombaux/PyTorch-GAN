@@ -47,11 +47,11 @@ pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"/ge
 os.mkdir(pathimage)
 print ("Path is created as " + pathimage)
 
-pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"/gen_",genidlabel)
+pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"/gen_",str(opt.genidlabel))
 os.mkdir(pathimage)
 print ("Path is created as " + pathimage)
 
-pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"/gen_",gennumber)
+pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"/gen_",str(opt.gennumber))
 os.mkdir(pathimage)
 print ("Path is created as " + pathimage)
 
@@ -190,13 +190,13 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
     if opt.genidlabel < 10:
-        save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(genidlabel)+"/gen_"+str(opt.genidlabel)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+        save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.genidlabel)+"/gen_"+str(opt.genidlabel)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
     if opt.gennumber > 0:
         toto = opt.gennumber
         numbre =[]
         for a in str(toto):
             numbre.append(gen_imgs.data[int(a)])
-        save_image(numbre,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(gennumber)+"/gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+        save_image(numbre,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.gennumber)+"/gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
         print("nombre : "+str(opt.gennumber)+" generated")
 
     PATCH = "/content/gdrive/My Drive/TFE/model/model_"+str(batches_done)+".pth"
