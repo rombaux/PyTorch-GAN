@@ -47,12 +47,12 @@ pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images
 print ("Path is created as " + pathimage)
 os.makedirs(pathimage)
 
-pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"gen",opt.genidlabel)
+pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',date_string,'gen',str(opt.genidlabel))
 print ("Path is created as " + pathimage)
 os.mkdir(pathimage)
 
 
-pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"gen",str(opt.gennumber))
+pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',date_string,'gen',str(opt.gennumber))
 print ("Path is created as " + pathimage)
 os.mkdir(pathimage)
 
