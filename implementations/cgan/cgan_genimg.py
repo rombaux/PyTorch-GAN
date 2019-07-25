@@ -44,8 +44,8 @@ cuda = True if torch.cuda.is_available() else False
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
 pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"/gen_0_9")
-os.mkdir(pathimage)
 print ("Path is created as " + pathimage)
+os.mkdir(pathimage)
 
 pathimage = os.path.join("/content/gdrive/My Drive/TFE/images/",date_string,"/gen_",str(opt.genidlabel))
 os.mkdir(pathimage)
