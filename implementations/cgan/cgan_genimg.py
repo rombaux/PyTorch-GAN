@@ -122,7 +122,7 @@ if cuda:
     generator.cuda()
     discriminator.cuda()
     adversarial_loss.cuda()
-
+'''
 # Configure data loader
 os.makedirs("../../data/mnist", exist_ok=True)
 dataloader = torch.utils.data.DataLoader(
@@ -137,6 +137,24 @@ dataloader = torch.utils.data.DataLoader(
     batch_size=opt.batch_size,
     shuffle=True,
 )
+'''
+
+# Configure data loader
+os.makedirs("../../data/cifar10", exist_ok=True)
+dataloader = torch.utils.data.DataLoader(
+    datasets.CIFAR10(
+        "../../data/cifar10",
+        train=True,
+        download=True,
+        transform=transforms.Compose(
+            [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+        ),
+    ),
+    batch_size=opt.batch_size,
+    shuffle=True,
+)
+
+
 
 # Optimizers
 optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
@@ -175,9 +193,9 @@ def sample_label_id_image(n_row, batches_done,date_string):
         save_image(numbre,  "/content/gdrive/My Drive/TFE/images/"+date_string+"/gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
         print("nombre : "+str(opt.gennumber)+" generated")
 
-    PATCH = "/content/gdrive/My Drive/TFE/model/model"+str(batches_done)+".pth"
+    PATCH = "/content/gdrive/My Drive/TFE/model/model_"+str(batches_done)+".pth"
     torch.save(generator.model.state_dict(), PATCH)
-    print("Model saved in"+str(PATCH))
+    print("Model saved in "+str(PATCH))
 
 # ----------
 #  Training
