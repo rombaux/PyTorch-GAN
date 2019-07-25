@@ -272,5 +272,5 @@ for epoch in range(opt.n_epochs):
             sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
             PATCH = "/content/gdrive/My\ Drive/TFE/model/lstmmodelgpu.pth"
-            torch.save(model.state_dict(), PATCH)             
+            torch.save(Generator.model.state_dict(), PATCH)             
 
