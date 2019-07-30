@@ -179,7 +179,7 @@ if opt.dataset == 2:
         shuffle=True,
     )
 
-
+print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
 # Optimizers
 optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
