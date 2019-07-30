@@ -35,6 +35,7 @@ parser.add_argument("--channels", type=int, default=1, help="number of image cha
 parser.add_argument("--sample_interval", type=int, default=400, help="interval between image sampling")
 parser.add_argument("--genidlabel", type=int, default=10, help="generate image whit label")
 parser.add_argument("--gennumber", type=int, default=0, help="generate number")
+parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - Nmist = 0 - cifar10 = 1 - cifar100 = 2")
 opt = parser.parse_args()
 print(opt)
 
@@ -129,37 +130,54 @@ if cuda:
     generator.cuda()
     discriminator.cuda()
     adversarial_loss.cuda()
-'''
-# Configure data loader
-os.makedirs("../../data/mnist", exist_ok=True)
-dataloader = torch.utils.data.DataLoader(
-    datasets.MNIST(
-        "../../data/mnist",
-        train=True,
-        download=True,
-        transform=transforms.Compose(
-            [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize([0.5], [0.5])]
-        ),
-    ),
-    batch_size=opt.batch_size,
-    shuffle=True,
-)
-'''
 
-# Configure data loader
-os.makedirs("../../data/cifar10", exist_ok=True)
-dataloader = torch.utils.data.DataLoader(
-    datasets.CIFAR10(
-        "../../data/cifar10",
-        train=True,
-        download=True,
-        transform=transforms.Compose(
-            [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+if opt.dataset == 0:    
+    # Configure data loader
+    os.makedirs("../../data/mnist", exist_ok=True)
+    dataloader = torch.utils.data.DataLoader(
+        datasets.MNIST(
+            "../../data/mnist",
+            train=True,
+            download=True,
+            transform=transforms.Compose(
+                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize([0.5], [0.5])]
+            ),
         ),
-    ),
-    batch_size=opt.batch_size,
-    shuffle=True,
-)
+        batch_size=opt.batch_size,
+        shuffle=True,
+    )
+
+if opt.dataset == 1:
+    # Configure data loader
+    os.makedirs("../../data/cifar10", exist_ok=True)
+    dataloader = torch.utils.data.DataLoader(
+        datasets.CIFAR10(
+            "../../data/cifar10",
+            train=True,
+            download=True,
+            transform=transforms.Compose(
+                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+            ),
+        ),
+        batch_size=opt.batch_size,
+        shuffle=True,
+    )
+
+if opt.dataset == 2:
+    # Configure data loader
+    os.makedirs("../../data/cifar100", exist_ok=True)
+    dataloader = torch.utils.data.DataLoader(
+        datasets.CIFAR100(
+            "../../data/cifar100",
+            train=True,
+            download=True,
+            transform=transforms.Compose(
+                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+            ),
+        ),
+        batch_size=opt.batch_size,
+        shuffle=True,
+    )
 
 
 
