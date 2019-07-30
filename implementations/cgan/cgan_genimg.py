@@ -22,7 +22,7 @@ import torch.optim as optim
 os.makedirs("images", exist_ok=True)
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--n_epochs", type=int, default=200, help="number of epochs of training")
+parser.add_argument("--n_epochs", type=int, default=2, help="number of epochs of training")
 parser.add_argument("--batch_size", type=int, default=64, help="size of the batches")
 parser.add_argument("--lr", type=float, default=0.0002, help="adam: learning rate")
 parser.add_argument("--b1", type=float, default=0.5, help="adam: decay of first order momentum of gradient")
@@ -282,7 +282,9 @@ for epoch in range(opt.n_epochs):
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
             print("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
-            sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
-            sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
+            #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
+            #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
+            sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
+            sample_label_id_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)            
                     
 
