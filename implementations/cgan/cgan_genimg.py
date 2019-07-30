@@ -57,6 +57,8 @@ pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images
 print ("Path is created as " + pathimage)
 os.makedirs(pathimage)
 
+print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
+
 class Generator(nn.Module):
     def __init__(self):
         super(Generator, self).__init__()
@@ -179,7 +181,21 @@ if opt.dataset == 2:
         shuffle=True,
     )
 
-print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
+if opt.dataset == 3:
+    # Configure data loader
+    os.makedirs("../../data/imagenet", exist_ok=True)
+    dataloader = torch.utils.data.DataLoader(
+        datasets.IMAGENET(
+            "../../data/imagenet",
+            train=True,
+            download=True,
+            transform=transforms.Compose(
+                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+            ),
+        ),
+        batch_size=opt.batch_size,
+        shuffle=True,
+    )    
 
 # Optimizers
 optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
