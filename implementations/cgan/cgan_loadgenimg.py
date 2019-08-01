@@ -238,7 +238,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
-print("Load Model in" + PATH)
+print("Load Model in " + PATH)
 device = torch.device("cuda")
 model = Generator()
 model.load_state_dict(torch.load(PATH))
@@ -253,6 +253,7 @@ for k, v in state_dict.items():
     
     if k in model_dict and model_dict[k].size() == v.size():
         new_state_dict[k] = v
+        print(v)
         matched_layers.append(k)
     else:
         discarded_layers.append(k)
