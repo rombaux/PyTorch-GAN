@@ -19,8 +19,6 @@ import torch
 
 import torch.optim as optim
 
-os.makedirs("images", exist_ok=True)
-
 parser = argparse.ArgumentParser()
 parser.add_argument("--n_epochs", type=int, default=2, help="number of epochs of training")
 parser.add_argument("--batch_size", type=int, default=64, help="size of the batches")
@@ -43,20 +41,6 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
-
-date_string = time.strftime("%Y-%m-%d_%H-%M")
-pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
-print ("Path is created as " + pathimage)
-os.makedirs(pathimage)
-
-pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,str(opt.genidlabel))
-print ("Path is created as " + pathimage)
-os.makedirs(pathimage)
-
-
-pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,str(opt.gennumber))
-print ("Path is created as " + pathimage)
-os.makedirs(pathimage)
 
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
@@ -254,7 +238,7 @@ model.load_state_dict(torch.load(PATH))
 print("Load Model in " + PATH)
 model.to(device)
 
-sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
+sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
 
 
 # torch.save(generator.model.state_dict(), PATCH)
