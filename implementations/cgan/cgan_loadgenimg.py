@@ -242,7 +242,7 @@ model.load_state_dict(torch.load(PATH))
 model.to(device)
 
 for k, v in state_dict.items():
-        if k.startswith('module.'):
+        if k.startswith('model.'):
             k = k[7:] # discard module.
         
         if k in model_dict and model_dict[k].size() == v.size():
