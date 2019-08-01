@@ -45,16 +45,16 @@ cuda = True if torch.cuda.is_available() else False
 print("torch cuda - " + str(torch.cuda.is_available()) + " - available ?")
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
-pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',opt.dataset,date_string,'gen09')
+pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',str(opt.dataset),date_string,'gen09')
 print ("Path is created as " + pathimage)
 os.makedirs(pathimage)
 
-pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',opt.dataset,date_string,str(opt.genidlabel))
+pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',str(opt.dataset),date_string,str(opt.genidlabel))
 print ("Path is created as " + pathimage)
 os.makedirs(pathimage)
 
 
-pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',opt.dataset,date_string,str(opt.gennumber))
+pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','images',str(opt.dataset),date_string,str(opt.gennumber))
 print ("Path is created as " + pathimage)
 os.makedirs(pathimage)
 
