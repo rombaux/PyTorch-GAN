@@ -42,6 +42,10 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
+pathimagemodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'modelimage')
+print ("Path of model is created as " + pathimagemodel)
+os.makedirs(pathimagemodel)
+
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
 class Generator(nn.Module):
@@ -199,7 +203,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/gen09/%d.png" % batches_done, nrow=n_row, normalize=True)
+    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/%d.png" % batches_done, nrow=n_row, normalize=True)
 
 
 def sample_label_id_image(n_row, batches_done,date_string):
@@ -238,7 +242,7 @@ model.load_state_dict(torch.load(PATH))
 print("Load Model in " + PATH)
 model.to(device)
 
-sample_image(n_row=opt.n_classes, batches_done=1, date_string=1)
+sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
 
 
 # torch.save(generator.model.state_dict(), PATCH)
