@@ -242,11 +242,9 @@ model.load_state_dict(torch.load(PATH))
 model.to(device)
 
 for k, v in state_dict.items():
-        if k.startswith('model.'):
-            k = k[7:] # discard module.
         
-        if k in model_dict and model_dict[k].size() == v.size():
-            new_state_dict[k] = v
+        if k in state_dict and state_dict[k].size() == v.size():
+            state_dict[k] = v
             matched_layers.append(k)
         else:
             discarded_layers.append(k)
