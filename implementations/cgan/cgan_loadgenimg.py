@@ -238,7 +238,7 @@ model.load_state_dict(torch.load(PATH))
 print("Load Model in " + PATH)
 model.to(device)
 
-sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
+sample_image(n_row=opt.n_classes, batches_done=1, date_string=1)
 
 
 # torch.save(generator.model.state_dict(), PATCH)
