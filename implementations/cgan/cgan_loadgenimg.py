@@ -237,11 +237,16 @@ def sample_label_id_image(n_row, batches_done,date_string):
         print("nombre : "+str(opt.gennumber)+" generated")
 
 
+
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
 
 model_weights = torch.load(PATH)
 print(type(model_weights))
-for k in model_weights: print(k)
+for k in model_weights:
+    print(k)
+    k.append(model)
+    print(k)
+
 
 
 print("ICIIIIIIIIIIIIIIII")
