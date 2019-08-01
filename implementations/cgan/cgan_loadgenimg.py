@@ -244,8 +244,8 @@ model_weights = torch.load(PATH)
 print(type(model_weights))
 for k in model_weights:
     print(k)
-    model_weights[k].append(model)
-    print(k)
+    x = k.append(model)
+    print(x)
 
 
 
