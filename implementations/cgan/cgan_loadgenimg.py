@@ -246,13 +246,8 @@ model_weights = torch.load(PATH)
 print(type(model_weights))
 for k in model_weights:
     print(k)
-    chemin.append(k)
-    print(k)
-
-
 
 print("ICIIIIIIIIIIIIIIII")
-
 
 device = torch.device("cuda")
 model = Generator()
