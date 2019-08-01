@@ -81,7 +81,11 @@ class Generator(nn.Module):
             nn.Linear(1024, int(np.prod(img_shape))),
             nn.Tanh()
         )
-        PATCH = "/content/gdrive/My Drive/TFE/model/modelg.pth"
+
+
+        save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.gennumber)+"/"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+        
+        PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.gennumber)+"modelg.pth"
         torch.save(self.model.state_dict(), PATCH)  
 
         # Print model's state_dict
@@ -301,7 +305,7 @@ for epoch in range(opt.n_epochs):
             sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
             sample_label_id_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
 
-    PATCH = "/content/gdrive/My Drive/TFE/model/model_dataset" + str(opt.dataset) + "_" +str(batches_done)+".pth"
+    PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+"model_" + str(batches_done) + ".pth"
     torch.save(generator.state_dict(), PATCH)
     print("Model saved in "+str(PATCH))           
                     
