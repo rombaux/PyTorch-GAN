@@ -85,7 +85,7 @@ class Generator(nn.Module):
             nn.Tanh()
         )
      
-        PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+str(opt.gennumber)+"modelg.pth"
+        PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/modelg.pth"
         torch.save(self.model.state_dict(), PATCH)  
 
         # Print model's state_dict

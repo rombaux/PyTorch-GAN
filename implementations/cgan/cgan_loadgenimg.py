@@ -237,7 +237,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
         print("nombre : "+str(opt.gennumber)+" generated")
 
 
-PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_1875.pth"
+PATH = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-01_23-01/model/model_2813.pth"
 
 chemin = "model"
 
