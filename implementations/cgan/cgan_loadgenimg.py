@@ -240,11 +240,13 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
 
+chemin = 'model'
+
 model_weights = torch.load(PATH)
 print(type(model_weights))
 for k in model_weights:
     print(k)
-    model.append(k)
+    chemin.append(k)
     print(k)
 
 
