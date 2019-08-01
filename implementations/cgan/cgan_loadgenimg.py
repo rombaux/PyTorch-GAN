@@ -238,10 +238,10 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
-print("Load Model in " + PATH)
 device = torch.device("cuda")
 model = Generator()
 model.load_state_dict(torch.load(PATH))
+print("Load Model in " + PATH)
 model.to(device)
 
 model_dict = model.state_dict()
