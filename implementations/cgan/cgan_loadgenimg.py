@@ -21,6 +21,8 @@ import torch.optim as optim
 
 os.makedirs("images", exist_ok=True)
 
+os.system('cd /content/PyTorch-GAN/implementations/cgan/')
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--n_epochs", type=int, default=2, help="number of epochs of training")
 parser.add_argument("--batch_size", type=int, default=64, help="size of the batches")
@@ -257,7 +259,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
 device = torch.device("cuda")
-model = TheModelClass()
+model = Generator()
 model.load_state_dict(torch.load(PATH))
 model.to(device)
 
