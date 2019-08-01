@@ -46,17 +46,20 @@ print("torch cuda - " + str(torch.cuda.is_available()) + " - available ?")
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
-print ("Path is created as " + pathimage)
+print ("Path \"generateur complet\" is created as " + pathimage)
 os.makedirs(pathimage)
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,str(opt.genidlabel))
-print ("Path is created as " + pathimage)
+print ("Path \"generateur label choisi\" is created as " + pathimage)
 os.makedirs(pathimage)
-
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,str(opt.gennumber))
-print ("Path is created as " + pathimage)
+print ("Path \"generateur du monbre\"is created as " + pathimage)
 os.makedirs(pathimage)
+
+pathmodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,model)
+print ("Path of model is created as " + pathmodel)
+os.makedirs(pathmodel)
 
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
