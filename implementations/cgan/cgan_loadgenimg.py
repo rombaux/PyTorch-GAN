@@ -238,6 +238,15 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
+
+model_weights = torch.load(PATH)
+print(type(model_weights))
+for k in model_weights: print(k)
+for k in model_weights['shared_layers']: print("Shared layer", k)
+
+print("ICIIIIIIIIIIIIIIII")
+
+
 device = torch.device("cuda")
 model = Generator()
 model.load_state_dict(torch.load(PATH))
