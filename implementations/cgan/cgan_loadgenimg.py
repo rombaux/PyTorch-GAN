@@ -237,9 +237,11 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
-checkpoint = torch.load(PATH)
-generator.model.load_state_dict(checkpoint['state_dict'])
-optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+device = torch.device("cuda")
+model = TheModelClass(*args, **kwargs)
+model.load_state_dict(torch.load(PATH))
+model.to(device)
+
 sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
 
 
