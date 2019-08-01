@@ -104,7 +104,7 @@ class Generator(nn.Module):
             self.block2 = block(128, 256)
             self.block3 = block(256, 512)
             self.block4 = block(512, 1024)
-            self.block5 = nn.Linear(1024, int(np.prod(img_shape))
+            self.block5 = nn.Linear(1024, int(np.prod(img_shape)))
             self.block6 = nn.Tanh()
 
         def forward(self, noise, labels):
