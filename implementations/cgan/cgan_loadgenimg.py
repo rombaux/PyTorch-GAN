@@ -254,22 +254,6 @@ model.load_state_dict(torch.load(PATH))
 print("Load Model in " + PATH)
 model.to(device)
 
-model_dict = model.state_dict()
-matched_layers, discarded_layers = [], []
-
-for k, v in state_dict.items():
-    if k.startswith('module.'):
-        k = k[7:] # discard module.
-    
-    if k in model_dict and model_dict[k].size() == v.size():
-        new_state_dict[k] = v
-        print(v)
-        matched_layers.append(k)
-    else:
-        discarded_layers.append(k)
-
-state_dict = new_state_dict
-
 sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
 
 
