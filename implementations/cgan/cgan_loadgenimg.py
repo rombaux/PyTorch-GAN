@@ -236,10 +236,18 @@ def sample_label_id_image(n_row, batches_done,date_string):
         print("nombre : "+str(opt.gennumber)+" generated")
 
 
+PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
+checkpoint = torch.load(PATH)
+model.load_state_dict(checkpoint['model_state_dict'])
+optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
+
+
 # ----------
 #  Training
 # ----------
 
+'''
 for epoch in range(opt.n_epochs):
     for i, (imgs, labels) in enumerate(dataloader):
 
@@ -305,4 +313,4 @@ for epoch in range(opt.n_epochs):
     torch.save(generator.model.state_dict(), PATCH)
     print("Model saved in "+str(PATCH))           
                     
-
+'''
