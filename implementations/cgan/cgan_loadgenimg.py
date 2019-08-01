@@ -85,9 +85,11 @@ class Generator(nn.Module):
         torch.save(self.model.state_dict(), PATCH)  
 
         # Print model's state_dict
+        '''
         print( "Model's state_dict:" )
         for param_tensor in self.model.state_dict ():
             print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
+        '''
 
     def forward(self, noise, labels):
         # Concatenate label embedding and image to produce input
@@ -236,6 +238,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
+print("Load Model in" + PATH)
 device = torch.device("cuda")
 model = Generator()
 model.load_state_dict(torch.load(PATH))
