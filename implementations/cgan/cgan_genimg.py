@@ -57,7 +57,7 @@ pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','datase
 print ("Path \"generateur du monbre\"is created as " + pathimage)
 os.makedirs(pathimage)
 
-pathmodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,model)
+pathmodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'model')
 print ("Path of model is created as " + pathmodel)
 os.makedirs(pathmodel)
 
