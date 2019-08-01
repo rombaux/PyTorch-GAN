@@ -81,10 +81,7 @@ class Generator(nn.Module):
             nn.Linear(1024, int(np.prod(img_shape))),
             nn.Tanh()
         )
-
-
-        save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.gennumber)+"/"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
-        
+     
         PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.gennumber)+"modelg.pth"
         torch.save(self.model.state_dict(), PATCH)  
 
