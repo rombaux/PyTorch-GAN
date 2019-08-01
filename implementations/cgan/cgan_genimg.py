@@ -302,7 +302,7 @@ for epoch in range(opt.n_epochs):
             sample_label_id_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
 
     PATCH = "/content/gdrive/My Drive/TFE/model/model_dataset" + str(opt.dataset) + "_" +str(batches_done)+".pth"
-    torch.save(generator.model.state_dict(), PATCH)
+    torch.save(generator.state_dict(), PATCH)
     print("Model saved in "+str(PATCH))           
                     
 
