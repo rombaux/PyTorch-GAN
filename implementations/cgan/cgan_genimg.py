@@ -73,7 +73,8 @@ class Generator(nn.Module):
             layers.append(nn.LeakyReLU(0.2, inplace=True))
             return layers
 
-        self.model = nn.Sequential(
+        self = nn.Sequential(
+#        self.model = nn.Sequential(
             *block(opt.latent_dim + opt.n_classes, 128, normalize=False),
             *block(128, 256),
             *block(256, 512),
@@ -101,7 +102,7 @@ class Discriminator(nn.Module):
     def __init__(self):
         super(Discriminator, self).__init__()
 
-#        self.label_embedding = nn.Embedding(opt.n_classes, opt.n_classes)
+        self.label_embedding = nn.Embedding(opt.n_classes, opt.n_classes)
 
 #        self.model = nn.Sequential(
         self = nn.Sequential(    
