@@ -42,7 +42,7 @@ print(opt)
 img_shape = (opt.channels, opt.img_size, opt.img_size)
 
 cuda = True if torch.cuda.is_available() else False
-print("torch cuda - " + str(torch.cuda.is_available()) + " - available ?")
+print("torch cuda is available => " + str(torch.cuda.is_available()))
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
