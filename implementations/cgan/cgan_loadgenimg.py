@@ -96,40 +96,6 @@ class Generator(nn.Module):
         img = img.view(img.size(0), *img_shape)
         return img
 
-# Define model
-class TheModelClass(nn.Module):
-    def __init__(self):
-        super(TheModelClass, self).__init__()
-
-        self.label_emb = nn.Embedding(opt.n_classes, opt.n_classes)
-
-        def block(in_feat, out_feat, normalize=True):
-            layers = [nn.Linear(in_feat, out_feat)]
-            if normalize:
-                layers.append(nn.BatchNorm1d(out_feat, 0.8))
-            layers.append(nn.LeakyReLU(0.2, inplace=True))
-            return layers
-
-        self.model = nn.Sequential(
-            *block(opt.latent_dim + opt.n_classes, 128, normalize=False),
-            *block(128, 256),
-            *block(256, 512),
-            *block(512, 1024),
-            nn.Linear(1024, int(np.prod(img_shape))),
-            nn.Tanh()
-        )
-
-        print( "Model's state_dict of TheModelClass :" )
-        for param_tensor in self.model.state_dict ():
-            print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())       
-
-    def forward(self, noise, labels):
-        # Concatenate label embedding and image to produce input
-        gen_input = torch.cat((self.label_emb(labels), noise), -1)
-        img = self.model(gen_input)
-        img = img.view(img.size(0), *img_shape)
-        return img
-
 
 class Discriminator(nn.Module):
     def __init__(self):
@@ -154,7 +120,6 @@ class Discriminator(nn.Module):
         d_in = torch.cat((img.view(img.size(0), -1), self.label_embedding(labels)), -1)
         validity = self.model(d_in)
         return validity
-
 
 # Loss functions
 adversarial_loss = torch.nn.MSELoss()
@@ -272,7 +237,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
 device = torch.device("cuda")
-model = TheModelClass()
+model = Generator()
 model.load_state_dict(torch.load(PATH))
 model.to(device)
 sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
