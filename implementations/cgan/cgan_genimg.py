@@ -101,9 +101,10 @@ class Discriminator(nn.Module):
     def __init__(self):
         super(Discriminator, self).__init__()
 
-        self.label_embedding = nn.Embedding(opt.n_classes, opt.n_classes)
+#        self.label_embedding = nn.Embedding(opt.n_classes, opt.n_classes)
 
-        self.model = nn.Sequential(
+#        self.model = nn.Sequential(
+        self = nn.Sequential(    
             nn.Linear(opt.n_classes + int(np.prod(img_shape)), 512),
             nn.LeakyReLU(0.2, inplace=True),
             nn.Linear(512, 512),

@@ -241,7 +241,7 @@ PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
 print("Load Model in " + PATH)
 device = torch.device("cuda")
 model = Generator()
-model.load_state_dict(model.torch.load(PATH))
+model.load_state_dict(torch.load(PATH))
 model.to(device)
 
 model_dict = model.state_dict()
