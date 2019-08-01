@@ -237,8 +237,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
         print("nombre : "+str(opt.gennumber)+" generated")
 
 
-
-PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
+PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_1875.pth"
 
 chemin = "model"
 
@@ -247,7 +246,7 @@ print(type(model_weights))
 for k in model_weights:
     print(k)
 
-print("ICIIIIIIIIIIIIIIII")
+print("ICIIIIIIIIII")
 
 device = torch.device("cuda")
 model = Generator()
