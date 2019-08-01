@@ -227,11 +227,9 @@ def sample_label_id_image(n_row, batches_done,date_string):
         print("nombre : "+str(opt.gennumber)+" generated")
 
 
-PATH = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-01_23-01/model/model_2813.pth"
-
-chemin = "model"
-
-model_weights = torch.load(PATH)
+pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-01_23-01/model/model_2813.pth"
+print ("Path is " + pmodel)
+model_weights = torch.load(pmodel)
 print(type(model_weights))
 for k in model_weights:
     print(k)
@@ -240,8 +238,8 @@ print("ICIIIIIIIIII")
 
 device = torch.device("cuda")
 model = Generator()
-model.load_state_dict(torch.load(PATH))
-print("Load Model in " + PATH)
+model.load_state_dict(torch.load(pmodel))
+print("Load Model in " + pmodel)
 model.to(device)
 
 sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
