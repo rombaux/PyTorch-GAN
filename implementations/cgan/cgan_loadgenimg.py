@@ -100,7 +100,7 @@ class Generator(nn.Module):
     class TheModelClass(nn.Module):
         def __init__(self):
             super(TheModelClass, self).__init__()
-            self.block1 = (opt.latent_dim + opt.n_classes, 128, normalize=False)
+            self.block1 = (opt.latent_dim + opt.n_classes, 128)
             self.block2 = block(128, 256)
             self.block3 = block(256, 512)
             self.block4 = block(512, 1024)
