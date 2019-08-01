@@ -99,7 +99,18 @@ class Generator(nn.Module):
 # Define model
 class TheModelClass(nn.Module):
     def __init__(self):
-         self.model = nn.Sequential(
+        super(TheModelClass, self).__init__()
+
+        self.label_emb = nn.Embedding(opt.n_classes, opt.n_classes)
+
+        def block(in_feat, out_feat, normalize=True):
+            layers = [nn.Linear(in_feat, out_feat)]
+            if normalize:
+                layers.append(nn.BatchNorm1d(out_feat, 0.8))
+            layers.append(nn.LeakyReLU(0.2, inplace=True))
+            return layers
+
+        self.model = nn.Sequential(
             *block(opt.latent_dim + opt.n_classes, 128, normalize=False),
             *block(128, 256),
             *block(256, 512),
@@ -107,6 +118,10 @@ class TheModelClass(nn.Module):
             nn.Linear(1024, int(np.prod(img_shape))),
             nn.Tanh()
         )
+
+        print( "Model's state_dict of TheModelClass :" )
+        for param_tensor in self.model.state_dict ():
+            print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())       
 
     def forward(self, noise, labels):
         # Concatenate label embedding and image to produce input
@@ -257,7 +272,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 PATH = "/content/gdrive/My Drive/TFE/model/model_dataset0_54049.pth"
 device = torch.device("cuda")
-model = Generator()
+model = TheModelClass()
 model.load_state_dict(torch.load(PATH))
 model.to(device)
 sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
