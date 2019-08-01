@@ -96,7 +96,7 @@ class Generator(nn.Module):
         img = img.view(img.size(0), *img_shape)
         return img
 
-Define model
+# Define model
     class TheModelClass(nn.Module):
         def __init__(self):
             super(TheModelClass, self).__init__()
