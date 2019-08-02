@@ -103,10 +103,14 @@ def sample_image(n_row, batches_done,date_string):
 
 #pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-02_01-27/model/model_738205.pth"
 
+pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
+for base, dirs, files in os.walk(pathmodel):
+        for file in files:
+            fn = os.path.join(base, file)
+            print (fn)
+'''
 
-items = os.listdir("/content/gdrive/My Drive/TFE/dataset/")
-
-fileList = [name for name in items]
+fileList = [name for name in items if name.endswith(".pth")]
 
 for cnt, fileName in enumerate(fileList, 1):
     print("[%d] %s\n\r" % (cnt, fileName))
@@ -116,6 +120,7 @@ choice = int(input("Select log file[1-%s]: " % cnt))
 print(fileList[choice])
 pmodel = fileList[choice]
 
+'''
 print ("Path is " + pmodel)
 generator = Generator()
 if cuda:
