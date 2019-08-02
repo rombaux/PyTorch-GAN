@@ -200,7 +200,7 @@ LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 def sample_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
     # Sample noise
-    z = Variable(FloatTensor[[1, 0, 0, 0]])
+    z = Variable(FloatTensor(np.random.normal(0.5, 0.5, (n_row ** 2, opt.latent_dim))))
     # Get labels ranging from 0 to n_classes for n rows
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
