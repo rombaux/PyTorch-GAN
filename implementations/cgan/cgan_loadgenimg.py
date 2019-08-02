@@ -75,11 +75,11 @@ class Generator(nn.Module):
         torch.save(self.model.state_dict(), PATCH)  
 
         # Print model's state_dict
-        '''
-        print( "Model's state_dict:" )
+        
+        print( "Model's state_dict of generator :" )
         for param_tensor in self.model.state_dict ():
             print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
-        '''
+        
 
     def forward(self, noise, labels):
         # Concatenate label embedding and image to produce input
