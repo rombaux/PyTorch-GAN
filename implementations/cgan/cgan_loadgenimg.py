@@ -226,7 +226,7 @@ model.to(device)
 
 
 print("Generation image")
-sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string,collections.OrderedDict=collections.OrderedDict)
+sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
 print("Image generee")
 
 # torch.save(generator.model.state_dict(), PATCH)
