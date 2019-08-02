@@ -114,21 +114,16 @@ fileList = [name for name in fn if name.endswith(".pth")]
 
 for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
-        
-print("iciiiiii")
 
 choice = int(input("Select log file[1-%s]: " % cnt))
-print(fileList[choice])
+print("Path of model.pth is " + fileList[choice])
 pmodel = fileList[choice]
 
-
-print ("Path is " + pmodel)
 generator = Generator()
 if cuda:
     generator.cuda()
 generator.load_state_dict(torch.load(pmodel))
 
-
-print("Generation image")
+print("Génération image")
 sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
-print("Image generee")
+print("Image generée")
