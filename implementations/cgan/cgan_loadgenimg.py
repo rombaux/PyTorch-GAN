@@ -130,8 +130,8 @@ model = Generator()
 model.load_state_dict(torch.load(pmodel))
 print("Load Model in " + pmodel)
 '''
-pmodel.to(torch.device('cuda'))
-pmodel.to(device)
+model_weights.to(torch.device('cuda'))
+model_weights.to(device)
 
 
 print("Generation image")
