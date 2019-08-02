@@ -106,7 +106,7 @@ def sample_image(n_row, batches_done,date_string):
 
 items = os.listdir("/content/gdrive/My Drive/TFE/dataset/")
 
-fileList = [name for name in items if name.endswith(".pth")]
+fileList = [name for name in items]
 
 for cnt, fileName in enumerate(fileList, 1):
     print("[%d] %s\n\r" % (cnt, fileName))
