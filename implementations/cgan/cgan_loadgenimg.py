@@ -42,7 +42,6 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
-
 date_string = time.strftime("%Y-%m-%d_%H-%M")
 pathimagemodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'modelimage')
 print ("Path of model is created as " + pathimagemodel)
@@ -80,7 +79,6 @@ class Generator(nn.Module):
 #        for param_tensor in self.model.state_dict ():
 #            print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
         
-
     def forward(self, noise, labels):
         # Concatenate label embedding and image to produce input
         gen_input = torch.cat((self.label_emb(labels), noise), -1)
@@ -88,114 +86,24 @@ class Generator(nn.Module):
         img = img.view(img.size(0), *img_shape)
         return img
 
-
-class Discriminator(nn.Module):
-    def __init__(self):
-        super(Discriminator, self).__init__()
-
-        self.label_embedding = nn.Embedding(opt.n_classes, opt.n_classes)
-
-        self.model = nn.Sequential(
-            nn.Linear(opt.n_classes + int(np.prod(img_shape)), 512),
-            nn.LeakyReLU(0.2, inplace=True),
-            nn.Linear(512, 512),
-            nn.Dropout(0.4),
-            nn.LeakyReLU(0.2, inplace=True),
-            nn.Linear(512, 512),
-            nn.Dropout(0.4),
-            nn.LeakyReLU(0.2, inplace=True),
-            nn.Linear(512, 1),
-        )
-
-    def forward(self, img, labels):
-        # Concatenate label embedding and image to produce input
-        d_in = torch.cat((img.view(img.size(0), -1), self.label_embedding(labels)), -1)
-        validity = self.model(d_in)
-        return validity
-
 # Loss functions
 adversarial_loss = torch.nn.MSELoss()
 
 # Initialize generator and discriminator
 generator = Generator()
-discriminator = Discriminator()
 
 if cuda:
     generator.cuda()
-    discriminator.cuda()
     adversarial_loss.cuda()
-
-if opt.dataset == 0:    
-    # Configure data loader
-    os.makedirs("../../data/mnist", exist_ok=True)
-    dataloader = torch.utils.data.DataLoader(
-        datasets.MNIST(
-            "../../data/mnist",
-            train=True,
-            download=True,
-            transform=transforms.Compose(
-                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize([0.5], [0.5])]
-            ),
-        ),
-        batch_size=opt.batch_size,
-        shuffle=True,
-    )
-
-if opt.dataset == 1:
-    # Configure data loader
-    os.makedirs("../../data/cifar10", exist_ok=True)
-    dataloader = torch.utils.data.DataLoader(
-        datasets.CIFAR10(
-            "../../data/cifar10",
-            train=True,
-            download=True,
-            transform=transforms.Compose(
-                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
-            ),
-        ),
-        batch_size=opt.batch_size,
-        shuffle=True,
-    )
-
-if opt.dataset == 2:
-    # Configure data loader
-    os.makedirs("../../data/cifar100", exist_ok=True)
-    dataloader = torch.utils.data.DataLoader(
-        datasets.CIFAR100(
-            "../../data/cifar100",
-            train=True,
-            download=True,
-            transform=transforms.Compose(
-                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
-            ),
-        ),
-        batch_size=opt.batch_size,
-        shuffle=True,
-    )
-
-if opt.dataset == 3:
-    # Configure data loader
-    os.makedirs("../../data/imagenet", exist_ok=True)
-    dataloader = torch.utils.data.DataLoader(
-        datasets.IMAGENET(
-            "../../data/imagenet",
-            train=True,
-            download=True,
-            transform=transforms.Compose(
-                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
-            ),
-        ),
-        batch_size=opt.batch_size,
-        shuffle=True,
-    )    
 
 # Optimizers
 optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
-optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
 
 FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
-LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 
+model.to(torch.device('cuda'))
+
+LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 
 def sample_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
@@ -222,7 +130,7 @@ model = Generator()
 model.load_state_dict(torch.load(pmodel))
 print("Load Model in " + pmodel)
 '''
-model.to(device)
+pmodel.to(device)
 
 
 print("Generation image")
