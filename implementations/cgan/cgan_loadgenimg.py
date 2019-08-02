@@ -5,6 +5,7 @@ import time
 from datetime import datetime
 import numpy as np
 import math
+import array
 
 import torchvision.transforms as transforms
 from torchvision.utils import save_image
@@ -102,6 +103,7 @@ def sample_image(n_row, batches_done,date_string):
 
 
 #pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-02_01-27/model/model_738205.pth"
+fn = array()
 
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
 for base, dirs, files in os.walk(pathmodel):
