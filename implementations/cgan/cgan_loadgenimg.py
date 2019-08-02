@@ -120,10 +120,11 @@ pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-02_01-27/model/model_73
 print ("Path is " + pmodel)
 generator = Generator()
 generator.load_state_dict(torch.load(pmodel))
+'''
 print(type(generator))
 for k in generator:
     print(k)
-
+'''
 print("ICIIIIIIIIII")
 '''
 device = torch.device("cuda")
