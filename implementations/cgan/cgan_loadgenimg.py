@@ -118,7 +118,7 @@ def sample_image(n_row, batches_done,date_string):
 
 pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-02_01-27/model/model_738205.pth"
 print ("Path is " + pmodel)
-generator = Generator(*args, **kwargs)
+generator = Generator()
 generator.load_state_dict(torch.load(pmodel))
 print(type(generator))
 for k in generator:
