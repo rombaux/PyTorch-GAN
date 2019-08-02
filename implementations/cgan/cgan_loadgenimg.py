@@ -235,13 +235,13 @@ for k in model_weights:
     print(k)
 
 print("ICIIIIIIIIII")
-
+'''
 device = torch.device("cuda")
 model = Generator()
 model.load_state_dict(torch.load(pmodel))
 print("Load Model in " + pmodel)
 model.to(device)
-
+'''
 sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
 
 
