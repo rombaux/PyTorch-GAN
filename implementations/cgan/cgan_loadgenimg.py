@@ -197,13 +197,13 @@ FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 
 
-def sample_image(n_row, batches_done,date_string,model):
+def sample_image(n_row, batches_done,date_string,model_weights):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
     # Sample noise
     z = Variable(FloatTensor(np.random.normal(0.5, 0.5, (n_row ** 2, opt.latent_dim))))
     # Get labels ranging from 0 to n_classes for n rows
     #labels = np.array([num for _ in range(n_row) for num in range(n_row)])
-    labels = Variable(LongTensor(model))
+    labels = Variable(LongTensor(model_weights))
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/%d.png" % batches_done, nrow=n_row, normalize=True)
 
