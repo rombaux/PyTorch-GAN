@@ -109,7 +109,7 @@ items = os.listdir("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset))
 fileList = [name for name in items if name.endswith(".pth")]
 
 for cnt, fileName in enumerate(fileList, 1):
-    sys.stdout.write("[%d] %s\n\r" % (cnt, fileName))
+    print("[%d] %s\n\r" % (cnt, fileName))
 
 choice = int(input("Select log file[1-%s]: " % cnt))
 print(fileList[choice])
