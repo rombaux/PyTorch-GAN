@@ -101,7 +101,7 @@ optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1,
 
 FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 
-model.to(torch.device('cuda'))
+
 
 LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 
@@ -130,6 +130,7 @@ model = Generator()
 model.load_state_dict(torch.load(pmodel))
 print("Load Model in " + pmodel)
 '''
+pmodel.to(torch.device('cuda'))
 pmodel.to(device)
 
 
