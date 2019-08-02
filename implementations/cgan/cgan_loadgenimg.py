@@ -71,14 +71,14 @@ class Generator(nn.Module):
             nn.Linear(1024, int(np.prod(img_shape))),
             nn.Tanh()
         )
-        PATCH = "/content/gdrive/My Drive/TFE/model/modelg.pth"
-        torch.save(self.model.state_dict(), PATCH)  
+#        PATCH = "/content/gdrive/My Drive/TFE/model/modelg.pth"
+ #       torch.save(self.model.state_dict(), PATCH)  
 
         # Print model's state_dict
         
-        print( "Model's state_dict of generator :" )
-        for param_tensor in self.model.state_dict ():
-            print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
+#        print( "Model's state_dict of generator :" )
+#        for param_tensor in self.model.state_dict ():
+#            print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
         
 
     def forward(self, noise, labels):
