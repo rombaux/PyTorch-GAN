@@ -208,7 +208,7 @@ def sample_image(n_row, batches_done,date_string,model):
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/%d.png" % batches_done, nrow=n_row, normalize=True)
 
 
-pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-02_00-36/model/model_738205.pth"
+pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-02_01-27/model/model_738205.pth"
 print ("Path is " + pmodel)
 model_weights = torch.load(pmodel)
 print(type(model_weights))
