@@ -106,21 +106,20 @@ def sample_image(n_row, batches_done,date_string):
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
 for base, dirs, files in os.walk(pathmodel):
         for file in files:
-            fn = os.path.join(base, file)
-            print (fn)
-'''
-
-fileList = [name for name in items if name.endswith(".pth")]
+            fn = [os.path.join(base, file)]
+ 
+fileList = [name for name in fn if name.endswith(".pth")]
 
 for cnt, fileName in enumerate(fileList, 1):
     print("[%d] %s\n\r" % (cnt, fileName))
+        
 print("iciiiiii")
 
 choice = int(input("Select log file[1-%s]: " % cnt))
 print(fileList[choice])
 pmodel = fileList[choice]
 
-'''
+
 print ("Path is " + pmodel)
 generator = Generator()
 if cuda:
