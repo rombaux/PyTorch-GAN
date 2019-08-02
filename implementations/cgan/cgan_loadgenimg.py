@@ -109,12 +109,11 @@ pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
 for base, dirs, files in os.walk(pathmodel):
         for file in files:
             fn.append(os.path.join(base, file))
-print(fn)
  
 fileList = [name for name in fn if name.endswith(".pth")]
 
-for cnt, fileName in enumerate(fileList, 1):
-    print("[%d] %s\n\r" % (cnt, fileName))
+for cnt, fileName in enumerate(fileList, 0):
+    print("[%d] %s" % (cnt, fileName))
         
 print("iciiiiii")
 
