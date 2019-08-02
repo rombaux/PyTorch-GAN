@@ -91,7 +91,7 @@ class Generator(nn.Module):
         # Print model's state_dict
         print( "Model's state_dict:" )
         for param_tensor in self.model.state_dict ():
-            param_tensor = param_tensor + "model."
+            param_tensor = "model." + param_tensor
             print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
 
     def forward(self, noise, labels):
