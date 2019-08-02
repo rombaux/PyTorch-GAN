@@ -104,12 +104,13 @@ def sample_image(n_row, batches_done,date_string):
 #pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-02_01-27/model/model_738205.pth"
 
 
-items = os.listdir("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset))
+items = os.listdir("/content/gdrive/My Drive/TFE/dataset/")
 
 fileList = [name for name in items if name.endswith(".pth")]
 
 for cnt, fileName in enumerate(fileList, 1):
     print("[%d] %s\n\r" % (cnt, fileName))
+print("iciiiiii")
 
 choice = int(input("Select log file[1-%s]: " % cnt))
 print(fileList[choice])
