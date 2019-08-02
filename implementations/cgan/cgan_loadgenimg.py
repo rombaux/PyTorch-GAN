@@ -108,19 +108,19 @@ LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 def sample_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
     # Sample noise
-    z = Variable(FloatTensor(np.random.normal(0.5, 0.5, (n_row ** 2, opt.latent_dim))))
+    z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
     # Get labels ranging from 0 to n_classes for n rows
-    #labels = np.array([num for _ in range(n_row) for num in range(n_row)])
-    labels = Variable(LongTensor(pmodel))
+    labels = np.array([num for _ in range(n_row) for num in range(n_row)])
+    labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/%d.png" % batches_done, nrow=n_row, normalize=True)
 
 
 pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-02_01-27/model/model_738205.pth"
 print ("Path is " + pmodel)
-model_weights = torch.load(pmodel)
-print(type(model_weights))
-for k in model_weights:
+generator = torch.load(pmodel)
+print(type(generator))
+for k in generator:
     print(k)
 
 print("ICIIIIIIIIII")
@@ -129,10 +129,10 @@ device = torch.device("cuda")
 model = Generator()
 model.load_state_dict(torch.load(pmodel))
 print("Load Model in " + pmodel)
-'''
+
 model_weights.to(torch.device('cuda'))
 model_weights.to(device)
-
+'''
 
 print("Generation image")
 sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
