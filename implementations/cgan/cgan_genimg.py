@@ -188,10 +188,10 @@ if opt.dataset == 2:
 
 if opt.dataset == 3:
     # Configure data loader
-    os.makedirs("../../data/coco", exist_ok=True)
+    os.makedirs("../../data/STL10", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
-        datasets.COCO(
-            "../../data/coco",
+        datasets.STL10(
+            "../../data/STL10",
             train=True,
             download=True,
             transform=transforms.Compose(
