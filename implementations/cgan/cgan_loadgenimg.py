@@ -115,7 +115,7 @@ fileList = [name for name in fn if name.endswith(".pth")]
 for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
 
-choice = int(input("Choisissez le model à tester [1-%s]: " % cnt))
+choice = int(input("Choisissez le modèle à tester [1-%s]: " % cnt))
 print("Path of model.pth is " + fileList[choice])
 pmodel = fileList[choice]
 
@@ -127,3 +127,6 @@ generator.load_state_dict(torch.load(pmodel))
 print("Génération de l'image")
 sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
+
+from IPython.display import Image
+Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
