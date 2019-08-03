@@ -126,8 +126,18 @@ print("Génération de l'image")
 sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
 
+'''
 from IPython.display import Image, display
 image = Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
 
 #image = Image.open("/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png")
 image.open()
+'''
+def upload_files():
+  from google.colab import files
+  uploaded = files.upload()
+  for k, v in uploaded.items():
+    open(k, 'wb').write(v)
+  return list(uploaded.keys())
+
+upload_files('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
