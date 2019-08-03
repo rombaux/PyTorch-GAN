@@ -113,7 +113,7 @@ fileList = [name for name in fn if name.endswith(".pth")]
 for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
 
-choice = int(input("Choisissez le modèle à tester [1-%s]: " % cnt))
+#choice = int(input("Choisissez le modèle à tester [1-%s]: " % cnt))
 
 choice = 999
 
@@ -146,3 +146,9 @@ from IPython.display import display # to display images
 
 pil_im = Image.open('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
 display(pil_im)
+
+
+from scipy import ndimage
+im = ndimage.imread('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
+im.shape
+im
