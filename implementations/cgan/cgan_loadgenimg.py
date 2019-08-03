@@ -101,8 +101,6 @@ def sample_image(n_row, batches_done,date_string):
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/%d.png" % batches_done, nrow=n_row, normalize=True)
 
-
-#pmodel = "/content/gdrive/My Drive/TFE/dataset/0/2019-08-02_01-27/model/model_738205.pth"
 fn = []
 
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
@@ -129,4 +127,4 @@ sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
 
 from IPython.display import Image
-Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
+display(Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png'))
