@@ -134,6 +134,5 @@ from matplotlib.pyplot import imshow
 import numpy as np
 from PIL import Image
 
-%matplotlib inline
 pil_im = Image.open('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png', 'r')
 imshow(np.asarray(pil_im))
