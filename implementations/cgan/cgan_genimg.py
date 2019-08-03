@@ -191,12 +191,7 @@ if opt.dataset == 3:
     os.makedirs("../../data/STL10", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
         datasets.STL10(
-            "../../data/STL10",
-            train=True,
-            download=True,
-            transform=transforms.Compose(
-                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
-            ),
+            "../../data/STL10", split='train', transform=None, target_transform=None, download=False),
         ),
         batch_size=opt.batch_size,
         shuffle=True,
