@@ -120,18 +120,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
         save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/"+"gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
         print("nombre : "+str(opt.gennumber)+" generated")
 
-
-#%%
-msg = "Hello World"
-print(msg)
-
-#%%
-msg = "Hello again"
-print(msg)
-
-
 fn = []
-cnt = 0
 
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
 for base, dirs, files in os.walk(pathmodel):
@@ -144,7 +133,6 @@ for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
 
 choice = int(input("Choisissez le modèle à tester [1-%s]: " % cnt))
-
 
 print("Path of model.pth is " + fileList[choice])
 pmodel = fileList[choice]
