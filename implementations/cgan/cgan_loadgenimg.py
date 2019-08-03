@@ -121,6 +121,15 @@ def sample_label_id_image(n_row, batches_done,date_string):
         print("nombre : "+str(opt.gennumber)+" generated")
 
 
+#%%
+msg = "Hello World"
+print(msg)
+
+#%%
+msg = "Hello again"
+print(msg)
+
+
 fn = []
 
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
