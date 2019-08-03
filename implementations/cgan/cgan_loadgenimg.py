@@ -142,11 +142,11 @@ pil_im.show()
 def url_to_image(url):
  # download the image, convert it to a NumPy array, and then read
  # it into OpenCV format
- resp = urllib.request.urlopen(url)
- image = np.asarray(bytearray(resp.read()), dtype="uint8")
- image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    resp = urllib.request.urlopen(url)
+    image = np.asarray(bytearray(resp.read()), dtype="uint8")
+    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
  
  # return the image
- return image
+    return image
 
- url_to_image('https://medias.psychologies.com/storage/images/planete/les-animaux-et-nous/articles-et-dossiers/penser-chat/327462-6-fre-FR/Penser-chat_imagePanoramique647_286.jpg')
+url_to_image('https://medias.psychologies.com/storage/images/planete/les-animaux-et-nous/articles-et-dossiers/penser-chat/327462-6-fre-FR/Penser-chat_imagePanoramique647_286.jpg')
