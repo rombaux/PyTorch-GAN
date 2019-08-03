@@ -101,6 +101,26 @@ def sample_image(n_row, batches_done,date_string):
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/%d.png" % batches_done, nrow=n_row, normalize=True)
 
+def sample_label_id_image(n_row, batches_done,date_string):
+    """Saves a grid of generated digits ranging from 0 to n_classes"""
+    # Sample noise
+    z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
+    # Get labels ranging from 0 to n_classes for n rows
+    labels = np.array([num for _ in range(n_row) for num in range(n_row)])
+    labels = Variable(LongTensor(labels))
+    gen_imgs = generator(z, labels)
+    if opt.genidlabel < 10:
+        save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/"+"gen_"+str(opt.genidlabel)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+        print("label : "+str(opt.gennumber)+" generated")
+    if opt.gennumber > 0:
+        toto = opt.gennumber
+        numbre =[]
+        for a in str(toto):
+            numbre.append(gen_imgs.data[int(a)])
+        save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/"+"gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+        print("nombre : "+str(opt.gennumber)+" generated")
+
+
 fn = []
 
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
@@ -127,8 +147,10 @@ generator.load_state_dict(torch.load(pmodel))
 
 print("Génération de l'image")
 sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
+sample_label_id_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
 
+'''
 
 from IPython.display import Image, display
 Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
@@ -160,3 +182,4 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 plt.imshow(gray)
 plt.title('my picture')
 plt.show()
+'''
