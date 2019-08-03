@@ -130,4 +130,4 @@ from IPython.display import Image, display
 image = Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
 
 #image = Image.open("/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png")
-image.show()
+image.open()
