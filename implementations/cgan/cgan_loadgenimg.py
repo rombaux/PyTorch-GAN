@@ -144,6 +144,7 @@ for cnt, fileName in enumerate(fileList, 0):
 
 choice = int(input("Choisissez le modèle à tester [1-%s]: " % cnt))
 
+
 print("Path of model.pth is " + fileList[choice])
 pmodel = fileList[choice]
 
@@ -157,7 +158,7 @@ sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
 sample_label_id_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
 
-
+'''
 
 from IPython.display import Image, display
 Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
@@ -189,3 +190,4 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 plt.imshow(gray)
 plt.title('my picture')
 plt.show()
+'''
