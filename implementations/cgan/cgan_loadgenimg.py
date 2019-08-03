@@ -40,7 +40,7 @@ cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
-pathimagemodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'modelimage')
+pathimagemodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset','modelimage')
 print ("Path of model is created as " + pathimagemodel)
 os.makedirs(pathimagemodel, exist_ok=True)
 
@@ -99,7 +99,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/%d.png" % batches_done, nrow=n_row, normalize=True)
+    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/modelimage/%d.png" % batches_done, nrow=n_row, normalize=True)
 
 def sample_label_id_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
@@ -110,14 +110,14 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
     if opt.genidlabel < 10:
-        save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/"+"gen_"+str(opt.genidlabel)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+        save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/dataset/modelimage/"+"gen_"+str(opt.genidlabel)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
         print("label : "+str(opt.gennumber)+" generated")
     if opt.gennumber > 0:
         toto = opt.gennumber
         numbre =[]
         for a in str(toto):
             numbre.append(gen_imgs.data[int(a)])
-        save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/modelimage/"+"gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
+        save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/modelimage/"+"gen_"+str(opt.gennumber)+"_%d.png" % batches_done, nrow=n_row, normalize=True)
         print("nombre : "+str(opt.gennumber)+" generated")
 
 fn = []
@@ -147,33 +147,3 @@ print("Génération de l'image")
 sample_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 sample_label_id_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
-
-#%%
-msg = "Hello World"
-print(msg)
-
-#%%
-msg = "Hello again"
-print(msg)
-
-#%%
-from IPython.display import Image, display
-Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
-print(Image)
-from matplotlib.pyplot import imshow
-import numpy as np
-from PIL import Image
-pil_im = Image.open('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png', 'r')
-pil_im.show()
-pathi = '/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png'
-from PIL import Image               # to load images
-from IPython.display import display # to display images
-pil_im = Image.open(pathi)
-display(pil_im)
-from matplotlib import pyplot as plt
-import cv2
-img = cv2.imread(pathi)
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-plt.imshow(gray)
-plt.title('my picture')
-plt.show()
