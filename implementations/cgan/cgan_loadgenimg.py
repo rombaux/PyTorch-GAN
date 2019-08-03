@@ -140,15 +140,21 @@ from PIL import Image
 pil_im = Image.open('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png', 'r')
 pil_im.show()
 
+pathi = '/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png'
 
 from PIL import Image               # to load images
 from IPython.display import display # to display images
 
-pil_im = Image.open('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
+pil_im = Image.open(pathi)
 display(pil_im)
 
 
-from scipy import ndimage
-im = ndimage.imread('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
-im.shape
-im
+from matplotlib import pyplot as plt
+import cv2
+
+img = cv2.imread(pathi)
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+plt.imshow(gray)
+plt.title('my picture')
+plt.show()
