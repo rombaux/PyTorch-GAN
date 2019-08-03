@@ -148,35 +148,32 @@ sample_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 sample_label_id_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
 
+#%%
+msg = "Hello World"
+print(msg)
 
+#%%
+msg = "Hello again"
+print(msg)
 
+#%%
 from IPython.display import Image, display
 Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
-
 print(Image)
-
 from matplotlib.pyplot import imshow
 import numpy as np
 from PIL import Image
-
 pil_im = Image.open('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png', 'r')
 pil_im.show()
-
 pathi = '/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png'
-
 from PIL import Image               # to load images
 from IPython.display import display # to display images
-
 pil_im = Image.open(pathi)
 display(pil_im)
-
-
 from matplotlib import pyplot as plt
 import cv2
-
 img = cv2.imread(pathi)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
 plt.imshow(gray)
 plt.title('my picture')
 plt.show()
