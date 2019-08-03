@@ -131,6 +131,7 @@ print(msg)
 
 
 fn = []
+cnt = 0
 
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
 for base, dirs, files in os.walk(pathmodel):
