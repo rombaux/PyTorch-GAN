@@ -127,6 +127,7 @@ sample_image(n_row=opt.n_classes, batches_done=1, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
 
 from IPython.display import Image, display
-display(Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png'))
+#display(Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png'))
 
-<img src='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png' />
+image = Image.open("/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png")
+image.show()
