@@ -188,10 +188,10 @@ if opt.dataset == 2:
 
 if opt.dataset == 3:
     # Configure data loader
-    os.makedirs("../../data/imagenet", exist_ok=True)
+    os.makedirs("../../data/coco", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
-        datasets.IMAGENET(
-            "../../data/imagenet",
+        datasets.COCO(
+            "../../data/coco",
             train=True,
             download=True,
             transform=transforms.Compose(
