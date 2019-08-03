@@ -133,6 +133,8 @@ print("Image generée dans " + pathimagemodel)
 from IPython.display import Image, display
 Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
 
+print(Image)
+
 from matplotlib.pyplot import imshow
 import numpy as np
 from PIL import Image
