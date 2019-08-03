@@ -144,5 +144,5 @@ pil_im.show()
 from PIL import Image               # to load images
 from IPython.display import display # to display images
 
-pil_im = Image.open('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.pngg')
+pil_im = Image.open('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
 display(pil_im)
