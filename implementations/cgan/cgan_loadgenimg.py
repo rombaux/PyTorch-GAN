@@ -140,4 +140,4 @@ def upload_files():
     open(k, 'wb').write(v)
   return list(uploaded.keys())
 
-upload_files('/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png')
+#upload_files("/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png")
