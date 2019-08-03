@@ -128,3 +128,5 @@ print("Image generée dans " + pathimagemodel)
 
 from IPython.display import Image, display
 display(Image(filename='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png'))
+%%html
+<img src='/content/gdrive/My Drive/TFE/dataset/1/2019-08-03_09-36/modelimage/1.png' />
