@@ -64,6 +64,11 @@ os.makedirs(pathmodel, exist_ok=True)
 
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
+fichier = open("/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/" + "config.txt", "a")
+fichier.write(opt)
+fichier.close()
+print("Fichier de configuartion créé")
+
 class Generator(nn.Module):
     def __init__(self):
         super(Generator, self).__init__()
