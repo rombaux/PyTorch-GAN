@@ -248,8 +248,11 @@ def sample_label_id_image(n_row, batches_done,date_string):
 # ----------
 cpt = 0
 
-dloss = [a]
-gloss = [b]
+dloss = []
+gloss = []
+
+dloss.append('a')
+gloss.append('b')
 
 for epoch in range(opt.n_epochs):
 
