@@ -314,7 +314,7 @@ for epoch in range(opt.n_epochs):
             gloss.append(g_loss.item())
             print(d_loss.item())
             print(g_loss.item())
-            print(np.concatenate((dloss,d_loss.item()))
+            print(np.concatenate((dloss,d_loss.item())))
                      
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
