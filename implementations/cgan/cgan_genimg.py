@@ -156,7 +156,6 @@ if opt.dataset == 0:
     )
 
 if opt.dataset == 1:
-    opt.channels = 3
     # Configure data loader
     os.makedirs("../../data/cifar10", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
@@ -173,8 +172,6 @@ if opt.dataset == 1:
     )
 
 if opt.dataset == 2:
-    opt.channels = 3
-    opt.n_classes = 100
     # Configure data loader
     os.makedirs("../../data/cifar100", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
@@ -191,9 +188,6 @@ if opt.dataset == 2:
     )
 
 if opt.dataset == 3:
-    opt.channels = 3
-    opt.n_classes = 10
-    opt.img_size = 96
     # Configure data loader
     os.makedirs("../../data/STL10", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
