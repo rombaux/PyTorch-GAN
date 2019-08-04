@@ -55,7 +55,7 @@ print ("Path \"generateur label choisi\" is created as " + pathimage)
 os.makedirs(pathimage)
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,str(opt.gennumber))
-print ("Path \"generateur du monbre\"is created as " + pathimage)
+print ("Path \"generateur du nombre\"is created as " + pathimage)
 os.makedirs(pathimage)
 
 pathmodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'model')
@@ -312,10 +312,12 @@ for epoch in range(opt.n_epochs):
             print("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
             a = int(d_loss.item())
             b = int(g_loss.item())
-            dloss.append(d_loss.item())
-            gloss.append(g_loss.item())
+            print(a)
+            print(b)
             print(d_loss.item())
             print(g_loss.item())
+            dloss.append(a)
+            gloss.append(b)            
             #print(np.concatenate((dloss,d_loss.item())))
                      
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
