@@ -226,7 +226,25 @@ if opt.dataset == 4:
         
         batch_size=opt.batch_size,
         shuffle=True,
-    )       
+    )   
+
+if opt.dataset == 5:
+    # Configure data loader
+    os.makedirs("../../data/ImageNet", exist_ok=True)
+    dataloader = torch.utils.data.DataLoader(
+        datasets.ImageNet(
+            "../../data/ImageNet",
+            split='train',
+            transform=transforms.Compose(
+                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+            ),
+            #target_transform=None,
+            download=True
+            ),
+        
+        batch_size=opt.batch_size,
+        shuffle=True,
+    )         
 
 # Optimizers
 optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
