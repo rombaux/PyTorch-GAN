@@ -248,6 +248,9 @@ def sample_label_id_image(n_row, batches_done,date_string):
 # ----------
 cpt = 0
 
+dloss = []
+gloss = []
+
 for epoch in range(opt.n_epochs):
 
     for i, (imgs, labels) in enumerate(dataloader):
@@ -301,10 +304,7 @@ for epoch in range(opt.n_epochs):
 
         d_loss.backward()
         optimizer_D.step()
-
-        dloss = []
-        gloss = []
-        
+      
 
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
