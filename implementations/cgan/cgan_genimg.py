@@ -326,6 +326,6 @@ with open('/content/gdrive/My Drive/TFE/dataset/loss.csv', mode='w') as loss_fil
     loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     #for f in range(cpt):
     #    loss_writer.writerow([dloss[f], gloss[f]])
-    loss_writer.writerows([dloss[], gloss[]])        
+    loss_writer.writerows([dloss, gloss])        
                     
 
