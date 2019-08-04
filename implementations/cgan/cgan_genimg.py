@@ -65,7 +65,7 @@ os.makedirs(pathmodel, exist_ok=True)
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
 fichier = open("/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/" + "config.txt", "a")
-fichier.write(opt)
+fichier.write(str(opt))
 fichier.close()
 print("Fichier de configuartion créé")
 
