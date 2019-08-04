@@ -308,21 +308,17 @@ for epoch in range(opt.n_epochs):
 
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
-            cpt = cpt + 1
+            
             print("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
             a = float(d_loss.item())
             b = float(g_loss.item())
-            print(a)
-            print(b)
-            print(d_loss.item())
-            print(g_loss.item())
+            
             dloss.append(a)
             gloss.append(b)
              
             print(dloss)
             print(gloss) 
-            
-            #print(np.concatenate((dloss,d_loss.item())))
+            cpt = cpt + 1
                      
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
@@ -337,7 +333,7 @@ for epoch in range(opt.n_epochs):
 
 with open('/content/gdrive/My Drive/TFE/dataset/loss.csv', mode='w') as loss_file:
     loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    for f in dloss:
+    for f in cpt:
         print(dloss)
         loss_writer.writerow([dloss[f], gloss[f]])
         
