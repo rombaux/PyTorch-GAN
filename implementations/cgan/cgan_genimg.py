@@ -35,14 +35,14 @@ parser.add_argument("--channels", type=int, default=1, help="number of image cha
 parser.add_argument("--sample_interval", type=int, default=400, help="interval between image sampling")
 parser.add_argument("--genidlabel", type=int, default=10, help="generate image whit label")
 parser.add_argument("--gennumber", type=int, default=0, help="generate number")
-parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - Nmist = 0 - cifar10 = 1 - cifar100 = 2")
+parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - Nmist = 0 - cifar10 = 1 - cifar100 = 2 - stl10 = 3")
 opt = parser.parse_args()
 print(opt)
 
 img_shape = (opt.channels, opt.img_size, opt.img_size)
 
 cuda = True if torch.cuda.is_available() else False
-print("torch cuda - " + str(torch.cuda.is_available()) + " - available ?")
+print("torch cuda is available => " + str(torch.cuda.is_available()))
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
@@ -245,8 +245,10 @@ def sample_label_id_image(n_row, batches_done,date_string):
 # ----------
 #  Training
 # ----------
+cpt = 0
 
 for epoch in range(opt.n_epochs):
+
     for i, (imgs, labels) in enumerate(dataloader):
 
         batch_size = imgs.shape[0]
@@ -299,9 +301,16 @@ for epoch in range(opt.n_epochs):
         d_loss.backward()
         optimizer_D.step()
 
+        dloss = []
+        gloss = []
+        
+
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
+            cpt = cpt + 1
             print("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
+            dloss[cpt] = d_loss.item()
+            gloss[cpt] = g_loss.item()
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
             sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
@@ -309,6 +318,14 @@ for epoch in range(opt.n_epochs):
 
     PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_" + str(batches_done) + ".pth"
     torch.save(generator.state_dict(), PATCH)
-    print("Model saved in "+str(PATCH))           
+    print("Model saved in "+str(PATCH))  
+
+import csv
+
+with open('/content/gdrive/My Drive/TFE/dataset/loss.csv', mode='w') as loss_file:
+    loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    for f in range(cpt) 
+        loss_writer.writerow([dloss[f], gloss[f],])
+             
                     
 
