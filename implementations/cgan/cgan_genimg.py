@@ -251,8 +251,8 @@ cpt = 0
 dloss = []
 gloss = []
 
-dloss.append('a')
-gloss.append('b')
+dloss.append('DLoss')
+gloss.append('GLoss')
 
 for epoch in range(opt.n_epochs):
 
@@ -319,10 +319,9 @@ for epoch in range(opt.n_epochs):
             dloss.append(a)
             gloss.append(b)
              
-            print(dloss)
-            print(gloss) 
+            #print(dloss)
+            #print(gloss) 
             cpt = cpt + 1
-
                      
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
