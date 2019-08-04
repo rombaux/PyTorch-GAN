@@ -337,5 +337,5 @@ with open('/content/gdrive/My Drive/TFE/dataset/loss.csv', mode='w') as loss_fil
     '''for f in cpt:
         print(dloss)
         loss_writer.writerow([dloss[f], gloss[f]])'''
-    loss_writer.writerows([dloss, gloss])   
+    loss_writer.writerows(zip(*[dloss, gloss]))   
                     
