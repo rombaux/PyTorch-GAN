@@ -310,6 +310,8 @@ for epoch in range(opt.n_epochs):
         if batches_done % opt.sample_interval == 0:
             cpt = cpt + 1
             print("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
+            a = int(d_loss.item())
+            b = int(g_loss.item())
             dloss.append(d_loss.item())
             gloss.append(g_loss.item())
             print(d_loss.item())
