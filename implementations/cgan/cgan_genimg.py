@@ -317,7 +317,10 @@ for epoch in range(opt.n_epochs):
             print(d_loss.item())
             print(g_loss.item())
             dloss.append(a)
-            gloss.append(b)            
+            gloss.append(b)
+            print(dloss)
+            print(gloss) 
+            
             #print(np.concatenate((dloss,d_loss.item())))
                      
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
