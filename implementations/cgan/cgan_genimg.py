@@ -218,7 +218,7 @@ if opt.dataset == 4:
             "../../data/FashionMNIST",
             train=True,
             transform=transforms.Compose(
-                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize((0.5,),(0.5,))]
             ),
             #target_transform=None,
             download=True
