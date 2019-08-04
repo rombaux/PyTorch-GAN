@@ -20,7 +20,7 @@ import torch
 
 import torch.optim as optim
 
-os.makedirs("images", existexist_ok=True)
+os.makedirs("images", exist_ok=True)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n_epochs", type=int, default=2, help="number of epochs of training")
@@ -48,19 +48,19 @@ print("torch cuda is available => " + str(torch.cuda.is_available()))
 date_string = time.strftime("%Y-%m-%d_%H-%M")
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
 print ("Path \"generateur complet\" is created as " + pathimage)
-os.makedirs(pathimage, existexist_ok=True)
+os.makedirs(pathimage, exist_ok=True)
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,str(opt.genidlabel))
 print ("Path \"generateur label choisi\" is created as " + pathimage)
-os.makedirs(pathimage, existexist_ok=True)
+os.makedirs(pathimage, exist_ok=True)
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,str(opt.gennumber))
 print ("Path \"generateur du nombre\"is created as " + pathimage)
-os.makedirs(pathimage, existexist_ok=True)
+os.makedirs(pathimage, exist_ok=True)
 
 pathmodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'model')
 print ("Path of model is created as " + pathmodel)
-os.makedirs(pathmodel, existexist_ok=True)
+os.makedirs(pathmodel, exist_ok=True)
 
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
