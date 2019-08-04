@@ -309,8 +309,8 @@ for epoch in range(opt.n_epochs):
         if batches_done % opt.sample_interval == 0:
             cpt = cpt + 1
             print("[Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
-            dloss[cpt] = d_loss.item()
-            gloss[cpt] = g_loss.item()
+            append.dloss(d_loss.item())
+            append.gloss(g_loss.item())
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
             sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
