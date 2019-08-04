@@ -67,7 +67,7 @@ print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) +
 fichier = open("/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/" + "config.txt", "a")
 fichier.write(str(opt))
 fichier.close()
-print("Fichier de configuartion créé")
+print("Fichier de configuration créé")
 
 class Generator(nn.Module):
     def __init__(self):
@@ -208,7 +208,25 @@ if opt.dataset == 3:
         
         batch_size=opt.batch_size,
         shuffle=True,
-    )    
+    )  
+
+if opt.dataset == 4:
+    # Configure data loader
+    os.makedirs("../../data/FashionMNIST", exist_ok=True)
+    dataloader = torch.utils.data.DataLoader(
+        datasets.FashionMNIST(
+            "../../data/FashionMNIST",
+            train=True,
+            transform=transforms.Compose(
+                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+            ),
+            #target_transform=None,
+            download=True
+            ),
+        
+        batch_size=opt.batch_size,
+        shuffle=True,
+    )       
 
 # Optimizers
 optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
