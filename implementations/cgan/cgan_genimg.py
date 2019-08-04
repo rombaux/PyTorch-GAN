@@ -5,6 +5,7 @@ import time
 from datetime import datetime
 import numpy as np
 import math
+import csv
 
 import torchvision.transforms as transforms
 from torchvision.utils import save_image
@@ -312,9 +313,9 @@ for epoch in range(opt.n_epochs):
             dloss.append(d_loss.item())
             gloss.append(g_loss.item())
             print(d_loss.item())
-            print(g_loss.item())  
-            print(d_loss[])
-            print(g_loss[])                       
+            print(g_loss.item())
+            print(np.concatenate((dloss,d_loss.item()))
+                     
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
             sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
@@ -324,7 +325,7 @@ for epoch in range(opt.n_epochs):
     torch.save(generator.state_dict(), PATCH)
     print("Model saved in "+str(PATCH))  
 
-import csv
+
 
 with open('/content/gdrive/My Drive/TFE/dataset/loss.csv', mode='w') as loss_file:
     loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -332,4 +333,3 @@ with open('/content/gdrive/My Drive/TFE/dataset/loss.csv', mode='w') as loss_fil
     #    loss_writer.writerow([dloss[f], gloss[f]])
     loss_writer.writerows([dloss, gloss])        
                     
-
