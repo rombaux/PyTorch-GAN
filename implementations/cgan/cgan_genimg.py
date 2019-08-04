@@ -319,6 +319,7 @@ for epoch in range(opt.n_epochs):
             print(dloss)
             print(gloss) 
             cpt = cpt + 1
+
                      
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
@@ -333,8 +334,8 @@ for epoch in range(opt.n_epochs):
 
 with open('/content/gdrive/My Drive/TFE/dataset/loss.csv', mode='w') as loss_file:
     loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    for f in cpt:
+    '''for f in cpt:
         print(dloss)
-        loss_writer.writerow([dloss[f], gloss[f]])
-        
+        loss_writer.writerow([dloss[f], gloss[f]])'''
+    loss_writer.writerows([dloss, gloss])   
                     
