@@ -319,7 +319,7 @@ for epoch in range(opt.n_epochs):
             dloss.append(a)
             gloss.append(b)
             print(dloss[0],dloss[1])
-            print(gloss[0,]dloss[1]) 
+            print(gloss[0],gloss[1]) 
             
             #print(np.concatenate((dloss,d_loss.item())))
                      
