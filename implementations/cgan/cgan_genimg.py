@@ -385,10 +385,27 @@ for epoch in range(opt.n_epochs):
             
             dloss.append(a)
             gloss.append(b)
-             
+
+            # Procedure des création des log des Loss - Fichier.csv + Graphe
+            #  
             with open('/content/gdrive/My Drive/TFE/dataset/' + str(opt.dataset) + '/' + date_string +'/loss/loss.csv', mode='w') as loss_file:
                 loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                 loss_writer.writerows(zip(*[dloss, gloss]))
+
+            fig = plt.figure(figsize=(10, 10))
+            ax = fig.add_subplot(3, 1, 1)
+
+            ax.plot(dloss, color='xkcd:dark pink')
+            ax.plot(gloss, color='xkcd:navy blue')
+
+            ax.set_xlabel("Epoch")
+            ax.set_ylabel("LOSS")
+
+            ax.set_title("Evolution des Loss")
+            plt.legend(['Generator Loss', 'Discriminator Loss'])
+
+            plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss.png")
+            
                                      
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
