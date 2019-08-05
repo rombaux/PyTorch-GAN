@@ -420,12 +420,12 @@ for epoch in range(opt.n_epochs):
             fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
 
-            ax.plot(dloss,xdloss, color='xkcd:dark pink')
-            ax.plot(gloss,xdloss, color='xkcd:navy blue')
+            ax.plot(xdloss,dloss, color='xkcd:dark pink')
+            ax.plot(xgloss,gloss, color='xkcd:navy blue')
 
             ax.set_xlabel("Samples")
             ax.set_ylabel("LOSS")
-            ax.set_title("Evolution des Loss" + str(opt.sample_interval))
+            ax.set_title("Evolution des Loss avec un interval de " + str(opt.sample_interval) + " images")
             plt.legend(['Discriminator Loss', 'Generator Loss'])
 
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss_dloss_xdloss.png")
