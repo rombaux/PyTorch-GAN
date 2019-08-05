@@ -419,9 +419,9 @@ for epoch in range(opt.n_epochs):
 
             fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
-            
+
             ax.plot(dloss,xdloss, color='xkcd:dark pink')
-            ax.plot(gloss,xdloss color='xkcd:navy blue')
+            ax.plot(gloss,xdloss, color='xkcd:navy blue')
 
             ax.set_xlabel("Samples")
             ax.set_ylabel("LOSS")
