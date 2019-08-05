@@ -404,26 +404,10 @@ for epoch in range(opt.n_epochs):
 
             fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
-            
-            plt.plot(xdloss,dloss)
+                        
+            plt.plot(xdloss,dloss,color='green')
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss.png")
-            
 
-'''
-            ax.plot(np.array(xdloss), color='xkcd:dark pink')
-            ax.plot(np.array(xgloss), color='xkcd:navy blue')
-
-            ax.set_xlabel("Epoch")
-            ax.set_ylabel("LOSS")
-
-            ax.set_title("Evolution des Loss")
-            plt.legend(['Discriminator Loss', 'Generator Loss'])
-'''
-        #    plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss.png")
-            
-                                     
-            #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
-            #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
             sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
             sample_label_id_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
 
