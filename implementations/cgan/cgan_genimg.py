@@ -393,11 +393,11 @@ for epoch in range(opt.n_epochs):
                 loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                 loss_writer.writerows(zip(*[dloss, gloss]))
 
-            fig = plt.figure(figsize=(10, 10))
+            fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
 
-            ax.plot(np.array(dloss), color='xkcd:dark pink')
-            ax.plot(np.array(gloss), color='xkcd:navy blue')
+            ax.plot(np.array(zip(*dloss)), color='xkcd:dark pink')
+            ax.plot(np.array(zip(*gloss)), color='xkcd:navy blue')
 
             ax.set_xlabel("Epoch")
             ax.set_ylabel("LOSS")
