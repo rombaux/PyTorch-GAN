@@ -389,8 +389,7 @@ for epoch in range(opt.n_epochs):
             with open('/content/gdrive/My Drive/TFE/dataset/' + str(opt.dataset) + '/' + date_string +'/loss/loss.csv', mode='w') as loss_file:
                 loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                 loss_writer.writerows(zip(*[dloss, gloss]))
-                loss_writer.close()   
-                     
+                                     
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
             sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
