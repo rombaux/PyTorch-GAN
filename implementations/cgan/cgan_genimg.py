@@ -210,7 +210,7 @@ if opt.dataset == 3:
         shuffle=True,
     )  
 
-if opt.dataset == 4:
+if opt.dataset == 4:                #FASHION MNIST
     # Configure data loader
     os.makedirs("../../data/FashionMNIST", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
@@ -254,7 +254,7 @@ if opt.dataset == 6:            # DATASET EMNIST
             "../../data/EMNIST",
             split='byclass',
             transform=transforms.Compose(
-                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize((0.5,),(0.5,))]
             ),
             #target_transform=None,
             download=True
