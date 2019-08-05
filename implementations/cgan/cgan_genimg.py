@@ -319,8 +319,14 @@ cpt = 0
 dloss = []
 gloss = []
 
+xdloss = []
+xgloss = []
+
 dloss.append('DLoss')
 gloss.append('GLoss')
+
+xdloss.append('XDLoss')
+xgloss.append('XGLoss')
 
 for epoch in range(opt.n_epochs):
 
@@ -387,6 +393,9 @@ for epoch in range(opt.n_epochs):
             dloss.append(a)
             gloss.append(b)
 
+            xdloss.append([batches_done,a])
+            xgloss.append([batches_done,b])
+
             # Procedure des création des log des Loss - Fichier.csv + Graphe
             #  
             with open('/content/gdrive/My Drive/TFE/dataset/' + str(opt.dataset) + '/' + date_string +'/loss/loss.csv', mode='w') as loss_file:
@@ -396,8 +405,9 @@ for epoch in range(opt.n_epochs):
             fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
 
-            ax.plot(np.array(zip(*dloss)), color='xkcd:dark pink')
-            ax.plot(np.array(zip(*gloss)), color='xkcd:navy blue')
+
+            ax.plot(xdloss, color='xkcd:dark pink')
+            ax.plot(np.array(xgloss), color='xkcd:navy blue')
 
             ax.set_xlabel("Epoch")
             ax.set_ylabel("LOSS")
