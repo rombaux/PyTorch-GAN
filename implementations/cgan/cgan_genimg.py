@@ -322,11 +322,11 @@ gloss = []
 xdloss = []
 xgloss = []
 
-dloss.append('DLoss')
-gloss.append('GLoss')
+#dloss.append('DLoss')
+#gloss.append('GLoss')
 
-xdloss.append('XDLoss')
-xgloss.append('XGLoss')
+#xdloss.append('XDLoss')
+#xgloss.append('XGLoss')
 
 for epoch in range(opt.n_epochs):
 
@@ -404,7 +404,7 @@ for epoch in range(opt.n_epochs):
 
             fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
-                        
+
             plt.plot(xdloss,dloss,color='green')
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss.png")
 
