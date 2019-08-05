@@ -386,7 +386,7 @@ for epoch in range(opt.n_epochs):
             dloss.append(a)
             gloss.append(b)
              
-            with open('/content/gdrive/My Drive/TFE/dataset/'+str(opt.dataset) + date_string +'/loss/loss.csv', mode='w') as loss_file:
+            with open('/content/gdrive/My Drive/TFE/dataset/' + str(opt.dataset) + '/' + date_string +'/loss/loss.csv', mode='w') as loss_file:
                 loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                 loss_writer.writerows(zip(*[dloss, gloss]))
                 loss_writer.close()   
