@@ -417,7 +417,7 @@ for epoch in range(opt.n_epochs):
             ax.set_title("Evolution des Loss")
             plt.legend(['Discriminator Loss', 'Generator Loss'])
 '''
-            plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss.png")
+            savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss.png")
             
                                      
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
