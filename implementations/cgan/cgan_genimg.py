@@ -410,13 +410,13 @@ for epoch in range(opt.n_epochs):
 '''
             ax.plot(np.array(xdloss), color='xkcd:dark pink')
             ax.plot(np.array(xgloss), color='xkcd:navy blue')
-'''
+
             ax.set_xlabel("Epoch")
             ax.set_ylabel("LOSS")
 
             ax.set_title("Evolution des Loss")
             plt.legend(['Discriminator Loss', 'Generator Loss'])
-
+'''
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss.png")
             
                                      
