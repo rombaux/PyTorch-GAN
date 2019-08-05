@@ -405,7 +405,16 @@ for epoch in range(opt.n_epochs):
             fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
 
-            plt.plot(xdloss,dloss,color='green')
+            #plt.plot(xdloss,dloss,color='green')
+
+            ax.plot(gloss, color='xkcd:dark pink')
+            ax.plot(dloss, color='xkcd:navy blue')
+
+            ax.set_xlabel("Epoch")
+            ax.set_ylabel("LOSS")
+
+            ax.set_title("Evolution des Loss")
+
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss.png")
 
             sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
