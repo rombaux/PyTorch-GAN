@@ -406,7 +406,7 @@ for epoch in range(opt.n_epochs):
             ax = fig.add_subplot(3, 1, 1)
 
 
-            ax.plot(xdloss, color='xkcd:dark pink')
+            ax.plot(np.array(xdloss), color='xkcd:dark pink')
             ax.plot(np.array(xgloss), color='xkcd:navy blue')
 
             ax.set_xlabel("Epoch")
