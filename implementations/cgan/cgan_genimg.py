@@ -6,6 +6,7 @@ from datetime import datetime
 import numpy as np
 import math
 import csv
+import matplotlib.pyplot as plt
 
 import torchvision.transforms as transforms
 from torchvision.utils import save_image
