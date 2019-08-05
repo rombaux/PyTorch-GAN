@@ -144,7 +144,7 @@ if cuda:
     discriminator.cuda()
     adversarial_loss.cuda()
 
-if opt.dataset == 0:    
+if opt.dataset == 0:                # MNIST
     # Configure data loader
     os.makedirs("../../data/mnist", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
@@ -160,7 +160,7 @@ if opt.dataset == 0:
         shuffle=True,
     )
 
-if opt.dataset == 1:
+if opt.dataset == 1:                # CIFAR 10
     # Configure data loader
     os.makedirs("../../data/cifar10", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
@@ -176,7 +176,7 @@ if opt.dataset == 1:
         shuffle=True,
     )
 
-if opt.dataset == 2:
+if opt.dataset == 2:                # CIFAR 100
     # Configure data loader
     os.makedirs("../../data/cifar100", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
@@ -200,7 +200,7 @@ if opt.dataset == 3:                # STL 10
             "../../data/STL10",
             split='train',
             transform=transforms.Compose(
-                [transforms.Resize(opt.img_size), transforms.ToTensor()]
+                [transforms.Resize(opt.img_size), transforms.ToTensor(),transforms.Normalize(( 0.4 , 0.4 , 0.4 ), ( 0.3 , 0.3 , 0.3 ))]
             ),
             #target_transform=None,
             download=True
@@ -210,7 +210,7 @@ if opt.dataset == 3:                # STL 10
         shuffle=True,
     )  
 
-if opt.dataset == 4:                #FASHION MNIST
+if opt.dataset == 4:                # FASHION MNIST
     # Configure data loader
     os.makedirs("../../data/FashionMNIST", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
