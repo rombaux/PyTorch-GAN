@@ -393,8 +393,8 @@ for epoch in range(opt.n_epochs):
             dloss.append(a)
             gloss.append(b)
 
-            xdloss.append([batches_done,a])
-            xgloss.append([batches_done,b])
+            xdloss.append(batches_done)
+            xgloss.append(batches_done)
 
             # Procedure des création des log des Loss - Fichier.csv + Graphe
             #  
@@ -405,10 +405,12 @@ for epoch in range(opt.n_epochs):
             fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
 
+            plt.plot(xdloss,dloss)
 
+'''
             ax.plot(np.array(xdloss), color='xkcd:dark pink')
             ax.plot(np.array(xgloss), color='xkcd:navy blue')
-
+'''
             ax.set_xlabel("Epoch")
             ax.set_ylabel("LOSS")
 
