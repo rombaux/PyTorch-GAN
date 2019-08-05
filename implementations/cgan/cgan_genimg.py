@@ -62,6 +62,10 @@ pathmodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','datase
 print ("Path of model is created as " + pathmodel)
 os.makedirs(pathmodel, exist_ok=True)
 
+pathmodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'loss')
+print ("Path of model is created as " + pathmodel)
+os.makedirs(pathmodel, exist_ok=True)
+
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
 fichier = open("/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/" + "config.txt", "a")
@@ -382,9 +386,10 @@ for epoch in range(opt.n_epochs):
             dloss.append(a)
             gloss.append(b)
              
-            #print(dloss)
-            #print(gloss) 
-            cpt = cpt + 1
+            with open('/content/gdrive/My Drive/TFE/dataset/'+str(opt.dataset) + date_string +'/loss/loss.csv', mode='w') as loss_file:
+            loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            loss_writer.writerows(zip(*[dloss, gloss]))
+            loss_writer.close()   
                      
             #sample_image(n_row=10, batches_done=batches_done, date_string=date_string)
             #sample_label_id_image(n_row=10, batches_done=batches_done, date_string=date_string)
@@ -397,10 +402,5 @@ for epoch in range(opt.n_epochs):
 
 
 
-with open('/content/gdrive/My Drive/TFE/dataset/loss.csv', mode='w') as loss_file:
-    loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    '''for f in cpt:
-        print(dloss)
-        loss_writer.writerow([dloss[f], gloss[f]])'''
-    loss_writer.writerows(zip(*[dloss, gloss]))   
+
                     
