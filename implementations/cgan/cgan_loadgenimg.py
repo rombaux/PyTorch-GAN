@@ -102,6 +102,9 @@ def sample_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+str(date_string)+"/modelimage/full_%d.png" % batches_done, nrow=n_row, normalize=True)
+        src = '/content/gdrive/My Drive/TFE/dataset/'+str(opt.dataset)+'/'+str(date_string)+'/modelimage/full__1.png'
+        dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/full_1.png'
+        copyfile(src,dst)
 
 def sample_label_id_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
@@ -113,7 +116,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
     gen_imgs = generator(z, labels)
     if opt.genidlabel < 10:
         save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+str(date_string)+"/modelimage/"+"gen_label_id_%d.png" % batches_done, nrow=n_row, normalize=True)
-        src = '/content/gdrive/My Drive/TFE/dataset/'+str(opt.dataset)+'/'+str(date_string)+'/modelimage/gen_label_id_' + str(opt.genidlabel) + '.png'
+        src = '/content/gdrive/My Drive/TFE/dataset/'+str(opt.dataset)+'/'+str(date_string)+'/modelimage/gen_label_id_1.png'
         dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/full.png'
         copyfile(src,dst)
         print("label : "+str(opt.gennumber)+" generated")
@@ -123,6 +126,9 @@ def sample_label_id_image(n_row, batches_done,date_string):
         for a in str(toto):
             numbre.append(gen_imgs.data[int(a)])
         save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+str(date_string)+"/modelimage/"+"gen_multiple_%d.png" % batches_done, nrow=n_row, normalize=True)
+        src = '/content/gdrive/My Drive/TFE/dataset/'+str(opt.dataset)+'/'+str(date_string)+'/modelimage/gen_multiple_1.png'
+        dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/gen_multiple_1.png'
+        copyfile(src,dst)        
         print("nombre : "+str(opt.gennumber)+" generated")
 
 fn = []
