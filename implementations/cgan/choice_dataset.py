@@ -24,7 +24,8 @@ Labeldataset6List = [u"Chiffre 0",u"Chiffre 1",u"Chiffre 2",u"Chiffre 3",u"Chiff
                     u"Chiffre k",u"Chiffre l",u"Chiffre m",u"Chiffre n",u"Chiffre o",u"Chiffre p",u"Chiffre q",u"Chiffre r",u"Chiffre s",u"Chiffre t",
                     u"Chiffre u",u"Chiffre v",u"Chiffre w",u"Chiffre x",u"Chiffre y",u"Chiffre z",
                     ]
-
+                    
+LabeldatasetList = []
 
     # CHOIX DU DATASET
 for cnt,listedataset in enumerate(DatasetList, 0):
