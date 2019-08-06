@@ -265,7 +265,7 @@ if opt.dataset == 6:            # DATASET EMNIST
                 torchvision.transforms.ToTensor(),
                 transforms.Normalize((0.5,),(0.5,))
                 ]),
-            target_transform=True,
+            #target_transform=True,
             download=True
             ),
         
