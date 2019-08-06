@@ -11,7 +11,8 @@ print("\r\n")
 
 DatasetList = [u"dataset 0 - MNIST",u"dataset 1 - CIFAR 10",u"dataset 2 - CIFAR 100",u"dataset 3 - STL 10",u"dataset 4 - Fashion MNIST",u"dataset 5 - ImageNet",u"dataset 6 - EMNIST"]
 Batch_sizeList = [u"4",u"8",u"16",u"32",u"64",u"128",u"256",u"512",u"1024",u"2048"]
-Labeldataset1List = [u"Chiffre 0",u"Chiffre 1",u"Chiffre 2",u"Chiffre 3",u"Chiffre 4",u"Chiffre 5",u"Chiffre 6",u"Chiffre 7",u"Chiffre 8",u"Chiffre 9"]
+Labeldataset0List = [u"Chiffre 0",u"Chiffre 1",u"Chiffre 2",u"Chiffre 3",u"Chiffre 4",u"Chiffre 5",u"Chiffre 6",u"Chiffre 7",u"Chiffre 8",u"Chiffre 9"]
+Labeldataset1List = [u"Airplane",u"Auto",u"Bird",u"Cat",u"Deer",u"Dog",u"Frog",u"Horse",u"Ship",u"Truck"]
 
 for cnt,listedonnee in enumerate(DatasetList, 0):
     print("[%d] %s" % (cnt, listedonnee))
@@ -39,7 +40,8 @@ print("\r\n")
     
     # CHOIX DU LABEL à GENERER
 optgenidlabel = int(input("Choisissez le label à générer [0-%s]: " % cnt))
-print("DaLe label nommé " + Labeldataset1List[optgenidlabel] + " sélectionné")
+if optdataset == 0 : print("DaLe label nommé " + Labeldataset0List[optgenidlabel] + " sélectionné")
+if optdataset == 1 : print("DaLe label nommé " + Labeldataset1List[optgenidlabel] + " sélectionné")    
 print("\r\n")  
     # FIN DU DU LABEL à GENERER
     
