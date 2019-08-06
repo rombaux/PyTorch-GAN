@@ -122,6 +122,8 @@ def sample_label_id_image(n_row, batches_done,date_string):
 
 fn = []
 
+cnt = 0
+
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
 for base, dirs, files in os.walk(pathmodel):
         for file in files:
