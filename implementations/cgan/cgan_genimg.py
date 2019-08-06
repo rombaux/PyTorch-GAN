@@ -258,7 +258,7 @@ if opt.dataset == 6:            # DATASET EMNIST
         datasets.EMNIST(
             "../../data/EMNIST",
             split='byclass',
-            transform=transforms.Compose([
+           transform=transforms.Compose([
                 transforms.Resize(opt.img_size),
                 lambda img: torchvision.transforms.functional.rotate(img, -90),
                 lambda img: torchvision.transforms.functional.hflip(img),
