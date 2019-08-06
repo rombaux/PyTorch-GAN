@@ -13,7 +13,7 @@ for cnt,listebatch in enumerate(Batch_sizeList, 0):
     print("[%d] %s" % (cnt, listebatch))
 print("\r")    
 
-optdataset = int(input("Choisissez le batch size à tester [0-%s]: " % cnt))
+optbatch_size = int(input("Choisissez le batch size à tester [0-%s]: " % cnt))
 
 print("Batch de " + Batch_sizeList[optbatch_size] + " sélectionné")
 
