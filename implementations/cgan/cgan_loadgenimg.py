@@ -100,7 +100,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data, b + "/modelimage/full_" + date_string + "_%d.png" % batches_done, nrow=n_row, normalize=True)
-    src = b + '/modelimage/full_1.png'
+    src = b + '/modelimage/full_' + date_string + '_1.png'
     dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/full_1.png'
     copyfile(src,dst)
 
@@ -114,7 +114,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
     gen_imgs = generator(z, labels)
     if opt.genidlabel < 10:
         save_image(gen_imgs.data[opt.genidlabel], b + "/modelimage/gen_label_" + str(opt.genidlabel) + "_" + date_string + "_%d.png" % batches_done, nrow=n_row, normalize=True)
-        src = b + '/modelimage/gen_label_id_1.png'
+        src = b + '/modelimage/gen_label_' + str(opt.genidlabel) + '_' + date_string + '_1.png'
         dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/gen_label_id_1.png'
         copyfile(src,dst)
         print("label : "+str(opt.genidlabel)+" generated")
@@ -124,7 +124,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
         for a in str(toto):
             numbre.append(gen_imgs.data[int(a)])
         save_image(numbre, b + "/modelimage/gen_number_" + str(opt.gennumber) + "_" + date_string + "_%d.png" % batches_done, nrow=n_row, normalize=True)
-        src = b +'/modelimage/gen_multiple_1.png'
+        src = b +'/modelimage/gen_number_' + str(opt.gennumber) + '_' + date_string + '_1.png'
         dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/gen_multiple_1.png'
         copyfile(src,dst)        
         print("nombre : "+str(opt.gennumber)+" generated")
