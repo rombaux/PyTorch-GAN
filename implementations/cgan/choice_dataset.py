@@ -21,10 +21,8 @@ print("\r")
     # FIN DU CHOIX DU BATCH SIZE
     
     # CHOIX DU NOMBRE D'EPOCH
-optn_epoch = int(input("Choisissez le nombre d'EPoch : "))
-print(str(optn_epoch) + " EPOCH sélectionnée")
-for cnt,listedonnee in enumerate(Labeldataset1List, 0):
-    print("[%d] %s" % (cnt, listedonnee))
+optn_epochs = int(input("Choisissez le nombre d'EPoch : "))
+print(str(optn_epochs) + " EPOCH sélectionnée")
 print("\r")    
     # FIN DU CHOIX DU NOMBRE D'EPOCH
     
