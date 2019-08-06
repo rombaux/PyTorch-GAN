@@ -428,6 +428,8 @@ for epoch in range(opt.n_epochs):
 
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss_dloss_xdloss.png")
 
+            plt.close('all')
+
             sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
             sample_label_id_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
 
