@@ -4,9 +4,9 @@ for cnt,listedonnee in enumerate(DatasetList, 0):
     print("[%d] %s" % (cnt, listedonnee))
 print("\r")    
 
-choice = int(input("Choisissez le dataset à tester [0-%s]: " % cnt))
+optdataset = int(input("Choisissez le dataset à tester [0-%s]: " % cnt))
 
-print("Dataset " + DatasetList[choice] + " sélectionné")
+print("Dataset " + DatasetList[optdataset] + " sélectionné")
 
 if choice == 0:
     optchannel = 1
