@@ -17,10 +17,11 @@ optbatch_size = int(input("Choisissez le batch size à tester [0-%s]: " % cnt))
 
 print("Batch de " + Batch_sizeList[optbatch_size] + " sélectionné")
 
+optbatch_size = Batch_sizeList[optbatch_size]
+
 optdn_epoch = int(input("Choisissez le nombre d'EPoch : "))
 
-print(optdn_epoch + " EPOCH sélectionnée")
-
+print(str(optdn_epoch) + " EPOCH sélectionnée")
 
 
 if optdataset == 0:
