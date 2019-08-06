@@ -1,4 +1,3 @@
-print("\r\n")
 print("-------------------------------------------------")
 print("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN")    
 print("-------------------------------------------------")   
@@ -17,14 +16,14 @@ Labeldataset3List = [u"Airplane",u"Bird",u"Auto",u"Cat",u"Deer",u"Dog",u"Horse",
 Labeldataset4List = [u"T-shirt/top",u"Trouser",u"Pullover",u"Dress",u"Coat",u"Sandal",u"Shirt",u"Sneaker",u"Bag",u"Ankle boot"]
 
 Labeldataset6List = [u"Chiffre 0",u"Chiffre 1",u"Chiffre 2",u"Chiffre 3",u"Chiffre 4",u"Chiffre 5",u"Chiffre 6",u"Chiffre 7",u"Chiffre 8",u"Chiffre 9",
-                    u"Chiffre A",u"Chiffre B",u"Chiffre C",u"Chiffre D",u"Chiffre E",u"Chiffre F",u"Chiffre G",u"Chiffre H",u"Chiffre I",u"Chiffre J",
-                    u"Chiffre K",u"Chiffre L",u"Chiffre M",u"Chiffre N",u"Chiffre O",u"Chiffre P",u"Chiffre Q",u"Chiffre R",u"Chiffre S",u"Chiffre T",
-                    u"Chiffre U",u"Chiffre V",u"Chiffre W",u"Chiffre X",u"Chiffre Y",u"Chiffre Z",
-                    u"Chiffre a",u"Chiffre b",u"Chiffre c",u"Chiffre d",u"Chiffre e",u"Chiffre f",u"Chiffre g",u"Chiffre h",u"Chiffre i",u"Chiffre j",
-                    u"Chiffre k",u"Chiffre l",u"Chiffre m",u"Chiffre n",u"Chiffre o",u"Chiffre p",u"Chiffre q",u"Chiffre r",u"Chiffre s",u"Chiffre t",
-                    u"Chiffre u",u"Chiffre v",u"Chiffre w",u"Chiffre x",u"Chiffre y",u"Chiffre z",
+                    u"Lettre A",u"Chiffre B",u"Lettre C",u"Lettre D",u"Lettre E",u"Lettre F",u"Lettre G",u"Lettre H",u"Lettre I",u"Lettre J",
+                    u"Lettre K",u"Lettre L",u"Lettre M",u"Lettre N",u"Lettre O",u"Lettre P",u"Lettre Q",u"Lettre R",u"Lettre S",u"Lettre T",
+                    u"Lettre U",u"Lettre V",u"Lettre W",u"Lettre X",u"Lettre Y",u"Lettre Z",
+                    u"Lettre a",u"Lettre b",u"Lettre c",u"Lettre d",u"Lettre e",u"Lettre f",u"Lettre g",u"Lettre h",u"Lettre i",u"Lettre j",
+                    u"Lettre k",u"Lettre l",u"Lettre m",u"Lettre n",u"Lettre o",u"Lettre p",u"Lettre q",u"Lettre r",u"Lettre s",u"Lettre t",
+                    u"Lettre u",u"Lettre v",u"Lettre w",u"Lettre x",u"Lettre y",u"Lettre z",
                     ]
-                    
+
 LabeldatasetList = []
 
     # CHOIX DU DATASET
@@ -56,7 +55,7 @@ if optdataset == 6 : LabeldatasetList = Labeldataset6List
 for cnt,listelabel in enumerate(LabeldatasetList, 0):
     print("[%d] %s" % (cnt, listelabel))    
 optgenidlabel = int(input("Choisissez le label à générer [0-%s]: " % cnt))
-print("Le label \"" + LabeldatasetList[optgenidlabel] + "\" a été sélectionné")
+print("Le symbole \"" + LabeldatasetList[optgenidlabel] + "\" a été sélectionné")
 print("\r\n")  
     # FIN DU DU LABEL à GENERER
     
