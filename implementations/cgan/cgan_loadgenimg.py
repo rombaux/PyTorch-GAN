@@ -113,7 +113,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
     gen_imgs = generator(z, labels)
     if opt.genidlabel < 10:
         save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+str(date_string)+"/modelimage/"+"gen_label_id_" + str(opt.genidlabel) + ".png", nrow=n_row, normalize=True)
-        src = '/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+str(date_string)+"/modelimage/"+"gen_label_id_" + str(opt.genidlabel) + ".png'
+        src = '/content/gdrive/My Drive/TFE/dataset/'+str(opt.dataset)+'/'+str(date_string)+'/modelimage/gen_label_id_' + str(opt.genidlabel) + '.png'
         dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/full.png'
         copyfile(src,dst)
         print("label : "+str(opt.gennumber)+" generated")
