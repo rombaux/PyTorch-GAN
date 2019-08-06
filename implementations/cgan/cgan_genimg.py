@@ -381,7 +381,6 @@ for epoch in range(opt.n_epochs):
 
         d_loss.backward()
         optimizer_D.step()
-      
 
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
