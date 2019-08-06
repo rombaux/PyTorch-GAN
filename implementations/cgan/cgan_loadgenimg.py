@@ -42,7 +42,7 @@ cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
-pathimagemodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),'modelimage')
+pathimagemodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),str(date_string),'modelimage')
 print ("Path of model is created as " + pathimagemodel)
 os.makedirs(pathimagemodel, exist_ok=True)
 
