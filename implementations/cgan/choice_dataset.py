@@ -1,4 +1,5 @@
 DatasetList = [u"dataset 0 - MNIST",u"dataset 1 - CIFAR 10",u"dataset 2 - CIFAR 100",u"dataset 3 - STL 10",u"dataset 4 - Fashion MNIST",u"dataset 5 - ImageNet",u"dataset 6 - EMNIST"]
+Batch_sizeList = [4,8,16,32,64,128,256,512,1024,2048]
 
 for cnt,listedonnee in enumerate(DatasetList, 0):
     print("[%d] %s" % (cnt, listedonnee))
@@ -7,6 +8,20 @@ print("\r")
 optdataset = int(input("Choisissez le dataset à tester [0-%s]: " % cnt))
 
 print("Dataset " + DatasetList[optdataset] + " sélectionné")
+
+for cnt,listebatch in enumerate(Batch_sizeList, 0):
+    print("[%d] %s" % (cnt, listebatch))
+print("\r")    
+
+optdataset = int(input("Choisissez le batch size à tester [0-%s]: " % cnt))
+
+print("Batch de " + Batch_sizeList[optbatch_size] + " sélectionné")
+
+optdn_epoch = int(input("Choisissez le nombre d'EPoch : "))
+
+print(optdn_epoch + " EPOCH sélectionnée")
+
+
 
 if optdataset == 0:
     optchannel = 1
