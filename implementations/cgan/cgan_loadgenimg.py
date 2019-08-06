@@ -148,3 +148,12 @@ print("Génération de l'image")
 sample_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 sample_label_id_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
+
+
+from IPython.display import Image
+print('All label')
+display(Image(filename='/content/gdrive/My Drive/TFE/dataset/modelimage/1.png'))
+print('Label Choisi')
+display(Image(filename='/content/gdrive/My Drive/TFE/dataset/modelimage/gen_label_id_1.png'))
+print('Mot Choisi')
+display(Image(filename='/content/gdrive/My Drive/TFE/dataset/modelimage/gen_multiple_1.png'))
