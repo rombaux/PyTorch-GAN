@@ -262,7 +262,7 @@ if opt.dataset == 6:            # DATASET EMNIST
                 transforms.Resize(opt.img_size),
                 lambda img: torchvision.transforms.functional.rotate(img, -90),
                 lambda img: torchvision.transforms.functional.hflip(img),
-                torchvision.transforms.ToTensor(),
+                transforms.ToTensor(),
                 transforms.Normalize((0.5,),(0.5,))
                 ]),
             #target_transform=True,
