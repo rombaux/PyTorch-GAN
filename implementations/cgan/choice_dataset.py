@@ -7,3 +7,38 @@ print("\r")
 choice = int(input("Choisissez le dataset à tester [0-%s]: " % cnt))
 
 print("Dataset " + DatasetList[choice] + " sélectionné")
+
+if choice == 0:
+    optchannel = 1
+    optn_classes = 10
+    optimg_size = 32
+
+if choice == 1:
+    optchannel = 3
+    optn_classes = 10
+    optimg_size = 32
+
+if choice == 2:
+    optchannel = 3
+    optn_classes = 100
+    optimg_size = 32
+
+if choice == 3:
+    optchannel = 3
+    optn_classes = 10
+    optimg_size = 96
+
+if choice == 4:
+    optchannel = 1
+    optn_classes = 10
+    optimg_size = 28
+
+if choice == 5:
+    optchannel = 3
+    optn_classes = 1000
+    optimg_size = 256
+
+if choice == 6:
+    optchannel = 1
+    optn_classes = 62
+    optimg_size = 28    
