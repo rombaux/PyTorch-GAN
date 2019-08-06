@@ -102,7 +102,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+str(date_string)+"/modelimage/full_%d.png" % batches_done, nrow=n_row, normalize=True)
-    src = '/content/gdrive/My Drive/TFE/dataset/'+str(opt.dataset)+'/'+str(date_string)+'/modelimage/full__1.png'
+    src = '/content/gdrive/My Drive/TFE/dataset/'+str(opt.dataset)+'/'+str(date_string)+'/modelimage/full_1.png'
     dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/full_1.png'
     copyfile(src,dst)
 
