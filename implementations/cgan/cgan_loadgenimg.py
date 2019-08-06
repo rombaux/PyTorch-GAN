@@ -155,7 +155,7 @@ choice = int(input("Choisissez le modèle à tester [0-%s]: " % cnt))
 print("Path of model.pth is " + fileList[choice])
 pmodel = fileList[choice]
 
-a = dirname(pmodel)
+a = os.path.dirname(pmodel)
 
 print("Root path of model.pth is " + str(a))
 
