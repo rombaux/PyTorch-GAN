@@ -156,8 +156,10 @@ print("Path of model.pth is " + fileList[choice])
 pmodel = fileList[choice]
 
 a = os.path.dirname(pmodel)
+b = os.path.dirname(a)
 
 print("Root path of model.pth is " + str(a))
+print("Root path of model is " + str(b))
 
 generator = Generator()
 if cuda:
