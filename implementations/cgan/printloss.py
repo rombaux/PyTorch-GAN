@@ -13,6 +13,6 @@ for cnt, fileName in enumerate(fileList, 0):
 #choice = int(input("Choisissez le modèle à tester [0-%s]: " % cnt))
 
 from IPython.display import Image
-print('Evolution')
+print('Evolution des LOSS')
 
 display(Image(filename=fileList[cnt]))

@@ -260,12 +260,12 @@ if opt.dataset == 6:            # DATASET EMNIST
             split='byclass',
             transform=transforms.Compose(
                 [transforms.Resize(opt.img_size),
-                lambda img: torchvision.transforms.functional.rotate(img, -90),
-                lambda img: torchvision.transforms.functional.hflip(img),
-                torchvision.transforms.ToTensor(),
+                transforms.functional.rotate(img, -90),
+                transforms.functional.hflip(img),
+                transforms.ToTensor(),
                 transforms.Normalize((0.5,),(0.5,))]
             ),
-            #target_transform=None,
+            target_transform=True,
             download=True
             ),
         
@@ -405,8 +405,6 @@ for epoch in range(opt.n_epochs):
             fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
 
-            #plt.plot(xdloss,dloss,color='green')
-
             ax.plot(dloss, color='xkcd:dark pink')
             ax.plot(gloss, color='xkcd:navy blue')
 
@@ -429,9 +427,6 @@ for epoch in range(opt.n_epochs):
             plt.legend(['Discriminator Loss', 'Generator Loss'])
 
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss_dloss_xdloss.png")
-
-
-
 
             sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
             sample_label_id_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
