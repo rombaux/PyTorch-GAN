@@ -129,7 +129,7 @@ for base, dirs, files in os.walk(pathmodel):
         for file in files:
             fn.append(os.path.join(base, file))
 print("Recherche dans : " + pathmodel + "\n\r") 
-fileList = [name for name in fn if name.endswith("model_750399.pth")]
+fileList = [name for name in fn if name.endswith("model*.pth")]
 
 for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
