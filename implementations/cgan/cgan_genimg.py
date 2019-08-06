@@ -260,8 +260,8 @@ if opt.dataset == 6:            # DATASET EMNIST
             split='byclass',
             transform=transforms.Compose([
                 transforms.Resize(opt.img_size),
-                lambda img: torchvision.transforms.functional.rotate(img, -90),
-                lambda img: torchvision.transforms.functional.hflip(img),
+                lambda img: transforms.functional.rotate(img, -90),
+                lambda img: transforms.functional.hflip(img),
                 transforms.ToTensor(),
                 transforms.Normalize((0.5,),(0.5,))
                 ]),
