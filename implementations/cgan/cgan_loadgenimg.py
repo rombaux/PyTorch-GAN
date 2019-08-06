@@ -132,7 +132,7 @@ print("Recherche dans : " + pathmodel + "\n\r")
 
 fileList = [name for name in fn if name.endswith(".pth")]
 
-for cnt, fileName in (fileList, 0):
+for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
 
 choice = int(input("Choisissez le modèle à tester [0-%s]: " % cnt))
