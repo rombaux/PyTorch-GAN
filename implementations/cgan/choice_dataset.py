@@ -1,5 +1,5 @@
 DatasetList = [u"dataset 0 - MNIST",u"dataset 1 - CIFAR 10",u"dataset 2 - CIFAR 100",u"dataset 3 - STL 10",u"dataset 4 - Fashion MNIST",u"dataset 5 - ImageNet",u"dataset 6 - EMNIST"]
-Batch_sizeList = [4,8,16,32,64,128,256,512,1024,2048]
+Batch_sizeList = [u"4",u"8",u"16",u"32",u"64",u"128",u"256",u"512",u"1024",u"2048"]
 
 for cnt,listedonnee in enumerate(DatasetList, 0):
     print("[%d] %s" % (cnt, listedonnee))
