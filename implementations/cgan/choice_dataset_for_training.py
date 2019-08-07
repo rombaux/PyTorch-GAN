@@ -109,7 +109,7 @@ if optdataset == 4:
 if optdataset == 5:
     optchannel = 3
     optn_classes = 20
-    optimg_size = 256
+    optimg_size = 128
 
 if optdataset == 6:
     optchannel = 1
