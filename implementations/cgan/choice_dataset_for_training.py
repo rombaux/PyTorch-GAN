@@ -78,13 +78,15 @@ print("\r\n")
         optn_classes = 62
         optimg_size = 28    
 
-    # CHOIX DU NOMBRE à GENERER
+    # CHOIX DE LA TAILLE D'IMAGE
 optimg_size = int(input("Entrer la taille de l'image par défaut le dataset est de "+ str(optimg_size) + " pixel par " + str(optimg_size) + " : "))
-if input() == NULL : optimg_size = optimg_size
-print("Le nombre \"" + str(optimg_size) + "\" va être généré")
-print("\r\n")      
-    # FIN DU CHOIX DU NOMBRE
 
+if input() == NULL:
+    optimg_size = optimg_size
+
+print("L'image va être resize en " + str(optimg_size) + " pixels")
+print("\r\n")      
+    # FIN DE LA TAILLE D'IMAGE
 
     # CHOIX DU BATCH SIZE
 for cnt,listebatch in enumerate(Batch_sizeList, 0):
