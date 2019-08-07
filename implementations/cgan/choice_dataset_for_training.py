@@ -3,11 +3,10 @@ import time
 print("-------------------------------------------------")
 print("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN")
 print("-------------------------------------------------")
-hour_date_string_plus_2 = []
 date_string = time.strftime("%Y-%m-%d_%H-%M")
-hour_date_string_plus_2 = hour_date_string.replace(hour_date_string, str(int(date_string[11:13])+2), 1)
+hour_date_string = hour_date_string.replace(hour_date_string, str(int(date_string[11:13])+2), 1)
 heure = list(date_string)
-heure[11:13] = hour_date_string_plus_2[0:2]
+heure[11:13] = hour_date_string[0:2]
 date_string = ''.join(heure)
 print("-----------------" + date_string + "----------------")
 print("-------------------------------------------------")
@@ -45,7 +44,7 @@ optdataset = int(input("Choisissez le dataset à tester [0-%s]: " % cnt))
 print("Dataset " + DatasetList[optdataset] + " sélectionné")
 print("\r\n")
     # FIN DU CHOIX DU DATASET
-
+ 
 if optdataset == 0:
     optchannel = 1
     optn_classes = 10
