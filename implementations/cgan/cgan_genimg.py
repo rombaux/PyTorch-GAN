@@ -450,7 +450,7 @@ for epoch in range(opt.n_epochs):
             compteur = compteur + 1
             sample_image(n_row=opt.n_classes, batches_done=compteur, date_string=date_string)
             sample_label_id_image(n_row=opt.n_classes, batches_done=compteur, date_string=date_string)
-            print("Les images pour l'interval n° : " + str(compteur) + ".png et batches_done = " + str(batches_done))
+            print("Les images pour l'interval n° : " + str(compteur) + " et batches_done = " + str(batches_done))
             print("sauvée dans /content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string + "/")
  
     PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_from_epoch_" + str(epoch) + ".pth"
