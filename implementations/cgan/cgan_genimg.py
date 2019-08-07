@@ -250,7 +250,6 @@ if opt.dataset == 5:
         
         batch_size=opt.batch_size,
         shuffle=True,
-        print("image redimensionné à " + str(opt.img_size))
     )    
 
 if opt.dataset == 6:            # DATASET EMNIST
@@ -334,6 +333,7 @@ for epoch in range(opt.n_epochs):
 
     for i, (imgs, labels) in enumerate(dataloader):
 
+        print("image redimensionné à " + str(opt.img_size))
         batch_size = imgs.shape[0]
 
         # Adversarial ground truths
