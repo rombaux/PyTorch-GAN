@@ -391,6 +391,9 @@ for epoch in range(opt.n_epochs):
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
             attime = time.strftime("%Y-%m-%d_%H-%M-%S")
+            attime = attime.replace(attime[11], str(int(attime[11:13])+2)[0], 1)
+            attime = attime.replace(attime[12], str(int(attime[11:13])+2)[1], 1)
+
             print(attime + " [Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
             a = float(d_loss.item())
             b = float(g_loss.item())
