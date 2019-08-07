@@ -42,11 +42,14 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
-date_string = time.strftime("%Y-%m-%d_%H-%M")
-hour_date_string_plus_2 = hour_date_string.replace(hour_date_string, str(int(date_string[11:13])+2), 1)
-heure = list(date_string)
-heure[11:13] = hour_date_string_plus_2[0:2]
-date_string = ''.join(heure)
+heure = time.strftime("%Y-%m-%d_%H-%M")
+a = heure[11:13]
+b = str(int(a) + 2)
+date_string = heure
+list1 = list(date_string)
+list1[11] = b[0]
+list1[12] = b[1]
+date_string = ''.join(list1)
 
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
