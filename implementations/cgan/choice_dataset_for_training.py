@@ -3,6 +3,7 @@ import time
 print("-------------------------------------------------")
 print("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN")
 print("-------------------------------------------------")
+hour_date_string = []
 date_string = time.strftime("%Y-%m-%d_%H-%M")
 hour_date_string = hour_date_string.replace(hour_date_string, str(int(date_string[11:13])+2), 1)
 heure = list(date_string)
