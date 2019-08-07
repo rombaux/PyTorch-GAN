@@ -3,12 +3,13 @@ import time
 print("-------------------------------------------------")
 print("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN")
 print("-------------------------------------------------")
-hour_date_string = []
-date_string = time.strftime("%Y-%m-%d_%H-%M")
-hour_date_string = hour_date_string.replace(hour_date_string, str(int(date_string[11:13])+2), 1)
-heure = list(date_string)
-heure[11:13] = hour_date_string[0:2]
-date_string = ''.join(heure)
+heure = time.strftime("%Y-%m-%d_%H-%M")
+b = str(int(a) + 2)
+date_string = heure
+list1 = list(date_string)
+list1[11] = b[0]
+list1[12] = b[1]
+date_string = ''.join(list1)
 print("-----------------" + date_string + "----------------")
 print("-------------------------------------------------")
 print("---           ENTRAINEMENT DU MODELE          ---")
