@@ -79,10 +79,7 @@ if optdataset == 6:
     optimg_size = 28    
 
     # CHOIX DE LA TAILLE D'IMAGE
-optimg_size = int(input(("Entrer la taille de l'image par défaut le dataset est de " + str(optimg_size) + " pixel par " + str(optimg_size) + " : ") or '32'))
-
-if not input("Entrer la taille de l'image (Défaut : "+ str(optimg_size) + "px x " + str(optimg_size) + "px : ") :
-    optimg_size = optimg_size
+optimg_size = int(input("Entrer la taille de l'image (Défaut : "+ str(optimg_size) + "px x " + str(optimg_size) + "px) : "))
 
 print("L'image va être resize en " + str(optimg_size) + " pixels")
 print("\r\n")      
