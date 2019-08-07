@@ -454,6 +454,9 @@ for epoch in range(opt.n_epochs):
             print("epoch : " + str(epoch))
             print("i : " + str(i))
 '''
+    PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_epoch_" + str(epoch) + ".pth"
+    torch.save(generator.state_dict(), PATCH)
+    print("Model saved in "+str(PATCH))
 
     sample_image(n_row=opt.n_classes, batches_done=epoch, date_string=date_string)
     sample_label_id_image(n_row=opt.n_classes, batches_done=epoch, date_string=date_string)
@@ -461,10 +464,6 @@ for epoch in range(opt.n_epochs):
     print("len(dataloader) : " + str(len(dataloader)))
     print("epoch : " + str(epoch))
     print("i : " + str(i))
-
-    PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_epoch_" + str(epoch) + ".pth"
-    torch.save(generator.state_dict(), PATCH)
-    print("Model saved in "+str(PATCH))  
 
 
 
