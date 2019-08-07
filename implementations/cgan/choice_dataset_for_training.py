@@ -81,7 +81,7 @@ print("\r\n")
     # CHOIX DE LA TAILLE D'IMAGE
 optimg_size = int(input("Entrer la taille de l'image par défaut le dataset est de "+ str(optimg_size) + " pixel par " + str(optimg_size) + " : "))
 
-if input() == NULL:
+if not input("Entrer la taille de l'image par défaut le dataset est de "+ str(optimg_size) + " pixel par " + str(optimg_size) + " : ") :
     optimg_size = optimg_size
 
 print("L'image va être resize en " + str(optimg_size) + " pixels")
