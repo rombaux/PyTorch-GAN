@@ -46,7 +46,7 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
-date_string = time.strftime("%Y-%m-%d_%H-%M")
+date_string = time.strftime("%Y-%m-%d_%H-%M") + time.strftime(00, 00, 00, 02, 00)
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
 print ("Path \"generateur complet\" is created as " + pathimage)
 os.makedirs(pathimage, exist_ok=True)
@@ -236,12 +236,11 @@ if opt.dataset == 4:                # FASHION MNIST
 if opt.dataset == 5:
     print("image redimensionné à " + str(opt.img_size))
     # Configure data loader
-    os.makedirs("../../data/VOCDetection", exist_ok=True)
+    os.makedirs("../../data/church_train", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
-        datasets.VOCDetection(
-            "../../data/VOCDetection",
-            year='2012',
-            image_set='train',
+        datasets.church_train(
+            "../../data/church_train",
+            classes='church_train',
             transform=transforms.Compose(
                 [transforms.Resize((opt.img_size,opt.img_size)), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
             ),
