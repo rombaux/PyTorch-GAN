@@ -454,7 +454,7 @@ for epoch in range(opt.n_epochs):
             print("image sauvée" + str(compteur) + ".png et batches_done = " + str(batches_done))
             print("batches_done : " + str(batches_done))
  
-    PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_" + str(epoch) + ".pth"
+    PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_from_epoch_" + str(epoch) + ".pth"
     torch.save(generator.state_dict(), PATCH)
     print("Model saved in "+str(PATCH))  
 
