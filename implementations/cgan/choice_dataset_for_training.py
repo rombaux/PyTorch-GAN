@@ -123,7 +123,7 @@ print("\r\n")
     
     # CHOIX DU NOMBRE D'INTERVAL à SAMPLER
 optsample_interval = int(input("Entrer l'interval de génération d'image : "))
-print(str(optsample_interval) + " va petre généré")
+print(str(optsample_interval) + " va être généré")
 print("\r\n")  
     # FIN DU DU NOMBRE D'INTERVAL à SAMPLER
     
