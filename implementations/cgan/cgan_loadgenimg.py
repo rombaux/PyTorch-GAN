@@ -43,6 +43,9 @@ cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
+date_string = time.strftime("%Y-%m-%d_%H-%M")
+date_string = date_string.replace(date_string[11], str(int(date_string[11:13])+2)[0], 1)
+date_string = date_string.replace(date_string[12], str(int(date_string[11:13])+2)[1], 1)
 
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 

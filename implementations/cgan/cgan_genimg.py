@@ -46,9 +46,9 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
-
-
 date_string = time.strftime("%Y-%m-%d_%H-%M")
+date_string = date_string.replace(date_string[11], str(int(date_string[11:13])+2)[0], 1)
+date_string = date_string.replace(date_string[12], str(int(date_string[11:13])+2)[1], 1)
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
 print ("Path \"generateur complet\" is created as " + pathimage)
