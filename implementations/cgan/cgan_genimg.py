@@ -243,7 +243,7 @@ if opt.dataset == 5:
             year='2012',
             image_set='train',
             transform=transforms.Compose(
-                [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
+                [transforms.Resize((opt.img_size,opt.img_size)), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
             ),
             target_transform=True,
             download=True
