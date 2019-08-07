@@ -4,6 +4,7 @@ print("-------------------------------------------------")
 print("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN")
 print("-------------------------------------------------")
 heure = time.strftime("%Y-%m-%d_%H-%M")
+a = heure[11:13]
 b = str(int(a) + 2)
 date_string = heure
 list1 = list(date_string)
