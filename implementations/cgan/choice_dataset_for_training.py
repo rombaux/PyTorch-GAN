@@ -1,3 +1,5 @@
+import time
+
 print("-------------------------------------------------")
 print("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN")
 print("-------------------------------------------------")
