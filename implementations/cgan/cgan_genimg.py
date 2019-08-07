@@ -144,7 +144,6 @@ class Discriminator(nn.Module):
         validity = self.model(d_in)
         return validity
 
-
 # Loss functions
 adversarial_loss = torch.nn.MSELoss()
 
@@ -289,7 +288,6 @@ optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=opt.lr, betas=(opt
 FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 
-
 def sample_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
     # Sample noise
@@ -299,7 +297,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/gen09/%d.png" % batches_done, nrow=n_row, normalize=True)
-
+    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/gen09/%d.png" % batches_done, nrow=n_row, normalize=True)
 
 def sample_label_id_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
@@ -336,6 +334,8 @@ xgloss = []
 
 #xdloss.append('XDLoss')
 #xgloss.append('XGLoss')
+
+compteur = 0
 
 for epoch in range(opt.n_epochs):
 
@@ -442,9 +442,9 @@ for epoch in range(opt.n_epochs):
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss_dloss_xdloss.png")
 
             plt.close('all')
-
-            sample_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
-            sample_label_id_image(n_row=opt.n_classes, batches_done=batches_done, date_string=date_string)
+            compteur = compteur + 1
+            sample_image(n_row=opt.n_classes, batches_done=compteur, date_string=date_string)
+            sample_label_id_image(n_row=opt.n_classes, batches_done=compteur, date_string=date_string)
 
     PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_" + str(batches_done) + ".pth"
     torch.save(generator.state_dict(), PATCH)
