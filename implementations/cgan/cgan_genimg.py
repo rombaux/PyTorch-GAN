@@ -336,6 +336,9 @@ xgloss = []
 #xdloss.append('XDLoss')
 #xgloss.append('XGLoss')
 
+sample_image(n_row=opt.n_classes, batches_done=0, date_string=date_string)
+sample_label_id_image(n_row=opt.n_classes, batches_done=0, date_string=date_string)
+
 for epoch in range(opt.n_epochs):
 
     print("image redimensionné à " + str(opt.img_size))
