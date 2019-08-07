@@ -235,11 +235,12 @@ if opt.dataset == 4:                # FASHION MNIST
 
 if opt.dataset == 5:
     # Configure data loader
-    os.makedirs("../../data/ImageNet", exist_ok=True)
+    os.makedirs("../../data/VOCDetection", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
-        datasets.ImageNet(
-            "../../data/ImageNet",
-            split='train',
+        datasets.VOCDetection(
+            "../../data/VOCDetection",
+            year='2012',
+            image_set='train',
             transform=transforms.Compose(
                 [transforms.Resize(opt.img_size), transforms.ToTensor(), transforms.Normalize(( 0.5 , 0.5 , 0.5 ), ( 0.5 , 0.5 , 0.5 ))]
             ),
