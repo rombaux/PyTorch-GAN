@@ -10,7 +10,7 @@ fileList = [name for name in fn if name.endswith("loss.png")]
 for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
 
-choice = int(input("Choisissez le modèle à tester [0-%s]: " % cnt))
+choice = int(input("Choisissez le compte-rendu LOSS à afficher [0-%s]: " % cnt))
 
 from IPython.display import Image
 print('Evolution des LOSS')

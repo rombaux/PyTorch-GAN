@@ -234,6 +234,7 @@ if opt.dataset == 4:                # FASHION MNIST
     )   
 
 if opt.dataset == 5:
+    print("image redimensionné à " + str(opt.img_size))
     # Configure data loader
     os.makedirs("../../data/VOCDetection", exist_ok=True)
     dataloader = torch.utils.data.DataLoader(
@@ -332,7 +333,7 @@ xgloss = []
 for epoch in range(opt.n_epochs):
 
     print("image redimensionné à " + str(opt.img_size))
-    
+
     for i, (imgs, labels) in enumerate(dataloader):
 
         batch_size = imgs.shape[0]
