@@ -21,8 +21,8 @@ print("---           MENU DE CONFIGURATION           ---")
 print("-------------------------------------------------")
 print("\r\n")
 
-DatasetList = [u"dataset 0 - MNIST",u"dataset 1 - CIFAR 10",u"dataset 2 - CIFAR 100",u"dataset 3 - STL 10",u"dataset 4 - Fashion MNIST",u"dataset 5 - VOCDetection",u"dataset 6 - EMNIST"]
-Batch_sizeList = [u"4",u"8",u"16",u"32",u"64",u"128",u"256",u"512",u"1024",u"2048"]
+DatasetList = [u"Dataset 0 - MNIST",u"Dataset 1 - CIFAR 10",u"Dataset 2 - CIFAR 100",u"Dataset 3 - STL 10",u"Dataset 4 - Fashion MNIST",u"Dataset 5 - VOCDetection",u"Dataset 6 - EMNIST"]
+Batch_sizeList = [u"1",u"2",u"4",u"8",u"16",u"32",u"64",u"128",u"256",u"512",u"1024",u"2048"]
 Labeldataset0List = [u"Chiffre 0",u"Chiffre 1",u"Chiffre 2",u"Chiffre 3",u"Chiffre 4",u"Chiffre 5",u"Chiffre 6",u"Chiffre 7",u"Chiffre 8",u"Chiffre 9"]
 Labeldataset1List = [u"Airplane",u"Auto",u"Bird",u"Cat",u"Deer",u"Dog",u"Frog",u"Horse",u"Ship",u"Truck"]
 
@@ -44,7 +44,7 @@ LabeldatasetList = []
 for cnt,listedataset in enumerate(DatasetList, 0):
     print("[%d] %s" % (cnt, listedataset))
 optdataset = int(input("Choisissez le dataset à tester [0-%s]: " % cnt))
-print("Dataset " + DatasetList[optdataset] + " sélectionné")
+print(DatasetList[optdataset] + " sélectionné")
 print("\r\n")
     # FIN DU CHOIX DU DATASET
  
@@ -123,13 +123,13 @@ print("\r\n")
     
     # CHOIX DU NOMBRE D'INTERVAL à SAMPLER
 optsample_interval = int(input("Entrer l'interval de génération d'image : "))
-print(str(optsample_interval) + " va être généré")
+print("L'interval de " + str(optsample_interval) + " a été choisi")
 print("\r\n")  
     # FIN DU DU NOMBRE D'INTERVAL à SAMPLER
     
     # CHOIX DU NOMBRE D'EPOCH
 optn_epochs = int(input("Choisissez le nombre d'EPoch : "))
-print(str(optn_epochs) + " EPOCH sélectionnée")
+print("L'apprentissage durera " + str(optn_epochs) + " EPOCH")
 print("\r\n")    
     # FIN DU CHOIX DU NOMBRE D'EPOCH    
 
