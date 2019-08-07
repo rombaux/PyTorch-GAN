@@ -1,6 +1,13 @@
+import time
+
 print("-------------------------------------------------")
 print("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN")    
-print("-------------------------------------------------")   
+print("-------------------------------------------------")
+date_string = time.strftime("%Y-%m-%d_%H-%M")
+hour_date_string_plus_2 = hour_date_string.replace(hour_date_string, str(int(date_string[11:13])+2), 1)
+heure = list(date_string)
+heure[11:13] = hour_date_string_plus_2[0:2]
+date_string = ''.join(heure)
 print("\r\n")
 print("-------------------------------------------------")
 print("---           MENU DE CONFIGURATION           ---")    

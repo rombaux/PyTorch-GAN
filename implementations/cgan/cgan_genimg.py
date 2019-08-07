@@ -47,8 +47,10 @@ cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
 date_string = time.strftime("%Y-%m-%d_%H-%M")
-date_string = date_string.replace(date_string[11], str(int(date_string[11:13])+2)[0], 1)
-date_string = date_string.replace(date_string[12], str(int(date_string[11:13])+2)[1], 1)
+hour_date_string_plus_2 = hour_date_string.replace(hour_date_string, str(int(date_string[11:13])+2), 1)
+heure = list(date_string)
+heure[11:13] = hour_date_string_plus_2[0:2]
+date_string = ''.join(heure)
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
 print ("Path \"generateur complet\" is created as " + pathimage)
