@@ -43,6 +43,49 @@ print("Dataset " + DatasetList[optdataset] + " sélectionné")
 print("\r\n")
     # FIN DU CHOIX DU DATASET
 
+    if optdataset == 0:
+        optchannel = 1
+        optn_classes = 10
+        optimg_size = 32
+    
+    if optdataset == 1:
+        optchannel = 3
+        optn_classes = 10
+        optimg_size = 32
+    
+    if optdataset == 2:
+        optchannel = 3
+        optn_classes = 100
+        optimg_size = 32
+    
+    if optdataset == 3:
+        optchannel = 3
+        optn_classes = 10
+        optimg_size = 96
+    
+    if optdataset == 4:
+        optchannel = 1
+        optn_classes = 10
+        optimg_size = 28
+    
+    if optdataset == 5:
+        optchannel = 3
+        optn_classes = 20
+        optimg_size = 128
+    
+    if optdataset == 6:
+        optchannel = 1
+        optn_classes = 62
+        optimg_size = 28    
+
+    # CHOIX DU NOMBRE à GENERER
+optimg_size = int(input("Entrer la taille de l'image par défaut le dataset est de "+ str(optimg_size) + " pixel par " + str(optimg_size) + " : "))
+if input() == NULL : optimg_size = optimg_size
+print("Le nombre \"" + str(optimg_size) + "\" va être généré")
+print("\r\n")      
+    # FIN DU CHOIX DU NOMBRE
+
+
     # CHOIX DU BATCH SIZE
 for cnt,listebatch in enumerate(Batch_sizeList, 0):
     print("[%d] %s" % (cnt, listebatch))     
@@ -86,37 +129,4 @@ print(str(optn_epochs) + " EPOCH sélectionnée")
 print("\r\n")    
     # FIN DU CHOIX DU NOMBRE D'EPOCH    
 
-if optdataset == 0:
-    optchannel = 1
-    optn_classes = 10
-    optimg_size = 32
 
-if optdataset == 1:
-    optchannel = 3
-    optn_classes = 10
-    optimg_size = 32
-
-if optdataset == 2:
-    optchannel = 3
-    optn_classes = 100
-    optimg_size = 32
-
-if optdataset == 3:
-    optchannel = 3
-    optn_classes = 10
-    optimg_size = 96
-
-if optdataset == 4:
-    optchannel = 1
-    optn_classes = 10
-    optimg_size = 28
-
-if optdataset == 5:
-    optchannel = 3
-    optn_classes = 20
-    optimg_size = 128
-
-if optdataset == 6:
-    optchannel = 1
-    optn_classes = 62
-    optimg_size = 28    
