@@ -331,9 +331,10 @@ xgloss = []
 
 for epoch in range(opt.n_epochs):
 
+    print("image redimensionné à " + str(opt.img_size))
+    
     for i, (imgs, labels) in enumerate(dataloader):
 
-        print("image redimensionné à " + str(opt.img_size))
         batch_size = imgs.shape[0]
 
         # Adversarial ground truths
