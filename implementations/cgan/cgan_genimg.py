@@ -401,12 +401,13 @@ for epoch in range(opt.n_epochs):
             heure = time.strftime("%Y-%m-%d_%H-%M-%S")
             a = heure[11:13]
             b = str(int(a) + 2)
-            date_string = heure
-            list1 = list(date_string)
+            attime = heure
+            list1 = list(attime)
             list1[11] = b[0]
             list1[12] = b[1]
-            date_string = ''.join(list1)           
-            print(date_string + " [Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
+            attime = ''.join(list1)
+
+            print(attime + " [Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
             a = float(d_loss.item())
             b = float(g_loss.item())
             
