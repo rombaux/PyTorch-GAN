@@ -106,7 +106,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    save_image(gen_imgs.data, b + "/modelimage/full_" + date_string + "_%d.png" % batches_done, nrow=n_row, normalize=True)
+    save_image(gen_imgs.data, b + "/modelimage/full_" + date_string + "_%s.png" % (str(batches_done).zfill(3), nrow=n_row, normalize=True)
     src = b + '/modelimage/full_' + date_string + '_1.png'
     dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/full_1.png'
     copyfile(src,dst)
@@ -120,7 +120,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
     if opt.genidlabel < 10:
-        save_image(gen_imgs.data[opt.genidlabel], b + "/modelimage/gen_label_" + str(opt.genidlabel) + "_" + date_string + "_%d.png" % batches_done, nrow=n_row, normalize=True)
+        save_image(gen_imgs.data[opt.genidlabel], b + "/modelimage/gen_label_" + str(opt.genidlabel) + "_" + date_string + "_%s.png" % (str(batches_done).zfill(3), nrow=n_row, normalize=True)
         src = b + '/modelimage/gen_label_' + str(opt.genidlabel) + '_' + date_string + '_1.png'
         dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/gen_label_id_1.png'
         copyfile(src,dst)
@@ -130,7 +130,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
         numbre =[]
         for a in str(toto):
             numbre.append(gen_imgs.data[int(a)])
-        save_image(numbre, b + "/modelimage/gen_number_" + str(opt.gennumber) + "_" + date_string + "_%d.png" % batches_done, nrow=n_row, normalize=True)
+        save_image(numbre, b + "/modelimage/gen_number_" + str(opt.gennumber) + "_" + date_string + "_%s.png" % (str(batches_done).zfill(3), nrow=n_row, normalize=True)
         src = b +'/modelimage/gen_number_' + str(opt.gennumber) + '_' + date_string + '_1.png'
         dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/gen_multiple_1.png'
         copyfile(src,dst)        
