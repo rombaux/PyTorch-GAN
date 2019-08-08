@@ -314,7 +314,9 @@ def sample_label_id_image(n_row, batches_done,date_string):
         numbre =[]
         for a in str(toto):
             numbre.append(gen_imgs.data[int(a)])
-        save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.gennumber)+"/gen"+str(opt.gennumber)+"_interval_%s.png" % (str(batches_done).zfill(3)), nrow=n_row, normalize=True)
+        pathimagegen = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.gennumber)+"/gen"+str(opt.gennumber)+"_interval_%s.png" % (str(batches_done).zfill(3))
+        print("image save in" + pathimagegen)
+        save_image(numbre, pathimagegen , nrow=n_row, normalize=True)
         print("nombre : "+str(opt.gennumber)+" generated")
 
 
@@ -455,7 +457,7 @@ for epoch in range(opt.n_epochs):
             compteur = compteur + 1
             sample_image(n_row=opt.n_classes, batches_done=compteur, date_string=date_string)
             sample_label_id_image(n_row=opt.n_classes, batches_done=compteur, date_string=date_string)
-            print("Les images pour l'interval n° : " + str(compteur) + " et batches_done = " + str(batches_done))
+            print("Les images pour l'interval n° : " + str(compteur).zfill(3) + " et batches_done = " + str(batches_done).zfill(3))
             print("sauvée dans /content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string + "/")
  
     PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_from_epoch_" + str(epoch).zfill(3) + ".pth"
