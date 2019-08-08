@@ -47,28 +47,6 @@ optdataset = int(input("Choisissez le dataset à tester [0-%s]: " % cnt))
 print("Dataset " + DatasetList[optdataset] + " sélectionné")
 print("\r\n")
     # FIN DU CHOIX DU DATASET
-    
-    # CHOIX DU LABEL à GENERER
-if optdataset == 0 : LabeldatasetList = Labeldataset0List
-if optdataset == 1 : LabeldatasetList = Labeldataset1List
-if optdataset == 2 : LabeldatasetList = Labeldataset2List
-if optdataset == 3 : LabeldatasetList = Labeldataset3List
-if optdataset == 4 : LabeldatasetList = Labeldataset4List
-if optdataset == 5 : LabeldatasetList = Labeldataset5List
-if optdataset == 6 : LabeldatasetList = Labeldataset6List
-
-for cnt,listelabel in enumerate(LabeldatasetList, 0):
-    print("[%d] %s" % (cnt, listelabel))    
-optgenidlabel = int(input("Choisissez le label à générer [0-%s]: " % cnt))
-print("Le symbole \"" + LabeldatasetList[optgenidlabel] + "\" a été sélectionné")
-print("\r\n")  
-    # FIN DU DU LABEL à GENERER
-    
-    # CHOIX DU NOMBRE à GENERER
-optgennumber = int(input("Entrer le nombre à générer : "))
-print("Le nombre \"" + str(optgennumber) + "\" va être généré")
-print("\r\n")      
-    # FIN DU CHOIX DU NOMBRE  
 
 if optdataset == 0:
     optchannel = 1
@@ -103,4 +81,26 @@ if optdataset == 5:
 if optdataset == 6:
     optchannel = 1
     optn_classes = 62
-    optimg_size = 28    
+    optimg_size = 28        
+    
+    # CHOIX DU LABEL à GENERER
+if optdataset == 0 : LabeldatasetList = Labeldataset0List
+if optdataset == 1 : LabeldatasetList = Labeldataset1List
+if optdataset == 2 : LabeldatasetList = Labeldataset2List
+if optdataset == 3 : LabeldatasetList = Labeldataset3List
+if optdataset == 4 : LabeldatasetList = Labeldataset4List
+if optdataset == 5 : LabeldatasetList = Labeldataset5List
+if optdataset == 6 : LabeldatasetList = Labeldataset6List
+
+for cnt,listelabel in enumerate(LabeldatasetList, 0):
+    print("[%d] %s" % (cnt, listelabel))    
+optgenidlabel = int(input("Choisissez le label à générer [0-%s]: " % cnt))
+print("Le symbole \"" + LabeldatasetList[optgenidlabel] + "\" a été sélectionné")
+print("\r\n")  
+    # FIN DU DU LABEL à GENERER
+    
+    # CHOIX DU NOMBRE à GENERER
+optgennumber = int(input("Entrer le nombre à générer : "))
+print("Le nombre \"" + str(optgennumber) + "\" va être généré")
+print("\r\n")      
+    # FIN DU CHOIX DU NOMBRE  
