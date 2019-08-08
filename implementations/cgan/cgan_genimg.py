@@ -297,7 +297,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/gen09/full_interval_%d.png" % batches_done, nrow=n_row, normalize=True)
+    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/gen09/full_interval_%s.png" % (str(batches_done).zfill(3)), nrow=n_row, normalize=True)
     
 def sample_label_id_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
@@ -308,13 +308,13 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
     if opt.genidlabel < 10:
-        save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.genidlabel)+"/gen_"+str(opt.genidlabel)+"_interval_%d.png" % batches_done, nrow=n_row, normalize=True)
+        save_image(gen_imgs.data[opt.genidlabel],  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.genidlabel)+"/gen_"+str(opt.genidlabel)+"_interval_%s.png" % (str(batches_done).zfill(3)), nrow=n_row, normalize=True)
     if opt.gennumber > 0:
         toto = opt.gennumber
         numbre =[]
         for a in str(toto):
             numbre.append(gen_imgs.data[int(a)])
-        save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.gennumber)+"/gen"+str(opt.gennumber)+"_interval_%d.png" % batches_done, nrow=n_row, normalize=True)
+        save_image(numbre,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/"+str(opt.gennumber)+"/gen"+str(opt.gennumber)+"_interval_%s.png" % (str(batches_done).zfill(3)), nrow=n_row, normalize=True)
         print("nombre : "+str(opt.gennumber)+" generated")
 
 
@@ -458,6 +458,6 @@ for epoch in range(opt.n_epochs):
             print("Les images pour l'interval n° : " + str(compteur) + " et batches_done = " + str(batches_done))
             print("sauvée dans /content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string + "/")
  
-    PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_from_epoch_" + str(epoch) + ".pth"
+    PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_from_epoch_" + str(epoch).zfill(3) + ".pth"
     torch.save(generator.state_dict(), PATCH)
     print("Model saved in "+str(PATCH))       
