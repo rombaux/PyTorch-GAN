@@ -398,11 +398,15 @@ for epoch in range(opt.n_epochs):
 
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
-            attime = time.strftime("%Y-%m-%d_%H-%M-%S")
-            attime = attime.replace(attime[11], str(int(attime[11:13])+2)[0], 1)
-            attime = attime.replace(attime[12], str(int(attime[11:13])+2)[1], 1)
-
-            print(attime + " [Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
+            heure = time.strftime("%Y-%m-%d_%H-%M-%S")
+            a = heure[11:13]
+            b = str(int(a) + 2)
+            date_string = heure
+            list1 = list(date_string)
+            list1[11] = b[0]
+            list1[12] = b[1]
+            date_string = ''.join(list1)           
+            print(date_string + " [Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
             a = float(d_loss.item())
             b = float(g_loss.item())
             
@@ -455,9 +459,4 @@ for epoch in range(opt.n_epochs):
  
     PATCH = "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/model/"+"model_from_epoch_" + str(epoch) + ".pth"
     torch.save(generator.state_dict(), PATCH)
-    print("Model saved in "+str(PATCH))  
-
-
-
-
-                    
+    print("Model saved in "+str(PATCH))       
