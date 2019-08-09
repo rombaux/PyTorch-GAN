@@ -6,17 +6,12 @@ print("-------------------------------------------------")
 heure = time.strftime("%Y-%m-%d_%H-%M")
 a = heure[11:13]
 a= str(a)
-print(a)
 b = str(int(a) + 2)
 b = b.zfill(2)
-print(b)
 date_string = heure
 list1 = list(date_string)
-print(list1)
 list1[11] = b[0]
-print(b[0])
 list1[12] = b[1]
-print(b[1])
 date_string = ''.join(list1)
 print("-----------------" + date_string + "----------------")
 print("-------------------------------------------------")
