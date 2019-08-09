@@ -412,6 +412,7 @@ for epoch in range(opt.n_epochs):
             list1[11] = b[0]
             list1[12] = b[1]
             attime = ''.join(list1)
+            date_string = attime
 
             print(attime + " [Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
             a = float(d_loss.item())
