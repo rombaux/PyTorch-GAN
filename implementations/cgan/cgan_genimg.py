@@ -407,13 +407,11 @@ for epoch in range(opt.n_epochs):
             a= str(a)
             b = str(int(a) + 2)
             b = b.zfill(2)
-            date_string = heure
-            list1 = list(date_string)
+            list1 = list(heure)
             list1[11] = b[0]
             list1[12] = b[1]
             attime = ''.join(list1)
-            date_string = attime
-
+            
             print(attime + " [Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
             a = float(d_loss.item())
             b = float(g_loss.item())
