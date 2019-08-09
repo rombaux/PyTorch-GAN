@@ -53,6 +53,7 @@ date_string = heure
 list1 = list(date_string)
 list1[11] = b[0]
 list1[12] = b[1]
+print(list1[11],list1[12])
 date_string = ''.join(list1)
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
