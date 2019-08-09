@@ -12,9 +12,9 @@ date_string = heure
 list1 = list(date_string)
 print(list1)
 list1[11] = b[0]
-print(liste1[11])
+print(b[0])
 list1[12] = b[1]
-print(liste1[12])
+print(b[1])
 date_string = ''.join(list1)
 print("-----------------" + date_string + "----------------")
 print("-------------------------------------------------")
