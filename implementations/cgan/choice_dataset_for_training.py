@@ -4,7 +4,7 @@ print("-------------------------------------------------")
 print("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN")
 print("-------------------------------------------------")
 heure = time.strftime("%Y-%m-%d_%H-%M")
-a = heure[8:10]
+a = heure[12:14]
 print(a)
 b = str(int(a) + 2)
 print(b)
