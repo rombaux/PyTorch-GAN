@@ -7,7 +7,7 @@ heure = time.strftime("%Y-%m-%d_%H-%M")
 a = heure[11:13]
 print(a)
 b = str(int(a) + 2)
-b = b[0;2]
+b = b[0:2]
 print(b)
 date_string = heure
 list1 = list(date_string)
