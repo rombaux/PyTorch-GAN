@@ -48,15 +48,13 @@ print("torch cuda is available => " + str(torch.cuda.is_available()))
 
 heure = time.strftime("%Y-%m-%d_%H-%M")
 a = heure[11:13]
-print (a)
+a= str(a)
 b = str(int(a) + 2)
-print(b)
+b = b.zfill(2)
 date_string = heure
 list1 = list(date_string)
-print(list1)
 list1[11] = b[0]
 list1[12] = b[1]
-print(list1[11],list1[12])
 date_string = ''.join(list1)
 
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
@@ -404,11 +402,13 @@ for epoch in range(opt.n_epochs):
 
         batches_done = epoch * len(dataloader) + i
         if batches_done % opt.sample_interval == 0:
-            heure = time.strftime("%Y-%m-%d_%H-%M-%S")
+            heure = time.strftime("%Y-%m-%d_%H-%M")
             a = heure[11:13]
+            a= str(a)
             b = str(int(a) + 2)
-            attime = heure
-            list1 = list(attime)
+            b = b.zfill(2)
+            date_string = heure
+            list1 = list(date_string)
             list1[11] = b[0]
             list1[12] = b[1]
             attime = ''.join(list1)

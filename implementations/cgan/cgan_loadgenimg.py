@@ -44,7 +44,9 @@ print("torch cuda is available => " + str(torch.cuda.is_available()))
 
 heure = time.strftime("%Y-%m-%d_%H-%M")
 a = heure[11:13]
+a= str(a)
 b = str(int(a) + 2)
+b = b.zfill(2)
 date_string = heure
 list1 = list(date_string)
 list1[11] = b[0]
