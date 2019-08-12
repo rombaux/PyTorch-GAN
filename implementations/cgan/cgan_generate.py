@@ -164,7 +164,7 @@ pathconfig = b + "/config.txt"
 fichier = open(pathconfig, "r")
 file_config = fichier.read()
 print("Config : " + file_config)
-config = file_config.spit(',')
+config = file_config.split(',')
 print(config)
 config = []
 for param in file_config.split(','):
