@@ -49,7 +49,7 @@ LabeldatasetList = []
     # CHOIX DU DATASET
 for cnt,listedataset in enumerate(DatasetList, 0):
     print("[%d] %s" % (cnt, listedataset))
-optdataset = int(input("Choisissez le dataset à entraîner [0-%s]: (Défaut = MNIST) " % cnt) or "0")
+optdataset = int(input("Choisissez le dataset à entraîner [0-%s] (Défaut = MNIST) : " % cnt) or "0")
 print(DatasetList[optdataset] + " sélectionné")
 print("\r\n")
     # FIN DU CHOIX DU DATASET
@@ -94,14 +94,14 @@ print("\r\n")
 # CHOIX DU BATCH SIZE
 for cnt,listebatch in enumerate(Batch_sizeList, 0):
     print("[%d]\t %s\t" % (cnt, listebatch) + "\t soit " + str(round(int(DatasetSize[optdataset])/int(listebatch))) + " Batches par Epoch")    
-optbatch_size = int(input("Choisissez le batch size à tester [0-%s]: (Défaut = 64) " % cnt) or 5)
+optbatch_size = int(input("Choisissez le batch size à tester [0-%s] (Défaut = 64) : " % cnt) or 5)
 print("Batch de " + Batch_sizeList[optbatch_size] + " sélectionné")
 optbatch_size = Batch_sizeList[optbatch_size]
 print("\r\n")  
 # FIN DU CHOIX DU BATCH SIZE
   
 # CHOIX DU NOMBRE D'INTERVAL à SAMPLER
-optsample_interval = int(input("Entrer l'interval de génération d'image : "))
+optsample_interval = int(input("Entrer l'interval de génération d'image (Défaut = 1000) : ") or 1000)
 print("L'interval de " + str(optsample_interval) + " a été choisi")
 print("\r\n")  
 # FIN DU DU NOMBRE D'INTERVAL à SAMPLER
