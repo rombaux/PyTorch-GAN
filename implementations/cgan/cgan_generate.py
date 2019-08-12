@@ -165,9 +165,10 @@ file_config = fichier.read()
 print("Config : " + file_config)
 index = file_config.find('img_size=')
 if index == -1:
-     print ('Not Found')
+     print('Not Found')
 else:
-     print ("Found at index" + str(index))
+     print("Found at index" + str(index))
+     print(file_config[str(index):(str(index)+2)])
 
 fichier.close()
 
