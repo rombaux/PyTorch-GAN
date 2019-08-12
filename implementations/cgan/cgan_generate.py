@@ -168,6 +168,7 @@ config = []
 for param in file_config.split(', \''):
     if 'img_size=' in param :
         config.append(str(param))
+        print(str(param) +"\n\r")
         config.append()
 print(config)
 fichier.close()
