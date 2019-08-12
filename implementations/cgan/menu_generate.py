@@ -117,4 +117,10 @@ print("\r\n")
 optgennumber = int(input("Entrer une suite de label à générer : "))
 print("La suite \"" + str(optgennumber) + "\" va être généré")
 print("\r\n")      
-    # FIN DU CHOIX DU NOMBRE  
+    # FIN DU CHOIX DU NOMBRE 
+
+    # CHOIX DU NOMBRE à GENERER
+    optimg_size = int(input("Entrer la taille de l'image à générer : "))
+    print("La taille de l'image générée sera de \"" + str(optimg_size) + "pixels")
+    print("\r\n")      
+        # FIN DU CHOIX DU NOMBRE      
