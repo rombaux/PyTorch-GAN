@@ -22,7 +22,7 @@ print(colored("----------------------" + date_string[11:16] + "-----------------
 print(colored("-------------------------------------------------","green"))
 print(colored("---           ENTRAINEMENT DU MODELE          ---","green"))
 print(colored("-------------------------------------------------","green"))
-display(Image(filename='/content/PyTorch-GAN/assets/reseau.jpg'))
+display(Image(filename='/content/PyTorch-GAN/assets/reseau.jpg',width=450,height=217))
 print(colored("-------------------------------------------------","green"))
 print(colored("---           MENU DE CONFIGURATION           ---","green"))
 print(colored("-------------------------------------------------","green"))
