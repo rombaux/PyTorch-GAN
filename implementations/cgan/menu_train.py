@@ -87,14 +87,14 @@ if optdataset == 5:
 
 # CHOIX DE LA TAILLE D'IMAGE
 optimg_size = int(input("Entrer la taille de l'image (Défaut : "+ str(optimg_size) + "px x " + str(optimg_size) + "px) : ") or optimg_size)
-print("L'image va être resize en " + str(optimg_size) + " pixels")
+print("La taille de l'image sera " + str(optimg_size) + " pixels sur " + str(optimg_size) + " pixels")
 print("\r\n")      
 # FIN DE LA TAILLE D'IMAGE
 
 # CHOIX DU BATCH SIZE
 for cnt,listebatch in enumerate(Batch_sizeList, 0):
     print("[%d]\t %s\t" % (cnt, listebatch) + "\t soit " + str(round(int(DatasetSize[optdataset])/int(listebatch))) + " Batches par Epoch")    
-optbatch_size = int(input("Choisissez le batch size à tester [0-%s]: " % cnt))
+optbatch_size = int(input("Choisissez le batch size à tester [0-%s]: " % cnt) or 64)
 print("Batch de " + Batch_sizeList[optbatch_size] + " sélectionné")
 optbatch_size = Batch_sizeList[optbatch_size]
 print("\r\n")  
@@ -107,7 +107,7 @@ print("\r\n")
 # FIN DU DU NOMBRE D'INTERVAL à SAMPLER
 
 # CHOIX DU NOMBRE D'EPOCH
-optn_epochs = int(input("Choisissez le nombre d'EPoch : "))
+optn_epochs = int(input("Choisissez le nombre d'EPoch (Défaut = 100) : ") or 100)
 print("L'apprentissage durera " + str(optn_epochs) + " EPOCH")
 print("\r\n")    
 # FIN DU CHOIX DU NOMBRE D'EPOCH
