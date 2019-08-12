@@ -28,7 +28,7 @@ print(colored('---    **   **','grey'),colored('  ** ** ** **  **   **  ** ** **
 print(colored('---    *******','grey'),colored('  **  ***  **  *******  **   ***      **','red'),colored('    ---','grey'))
 print(colored('---     ***** ','grey'),colored('  **   *   **   *****   **    **  ***** ','red'),colored('    ---','grey'))
 print(colored('---                                                         ---','grey'))
-print(colored('---','grey'),colored('    *******                                            ','red'),colored('---','grey'))
+print(colored('---','grey'),colored('   *******                                             ','red'),colored('---','grey'))
 print(colored('---                                  Université de Mons     ---','grey'))
 print(colored('---                                                         ---','grey'))
 print(colored('---------------------------------------------------------------','grey'))
