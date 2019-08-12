@@ -1,6 +1,9 @@
 import time
 from termcolor import colored
+from IPython.display import Image
 
+print('\r\nAll label')
+display(Image(filename='/content/PyTorch-GAN/assets/cgan/reseau.jpg'))
 
 print(colored("-------------------------------------------------","green"))
 print(colored("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN","green"))
@@ -15,12 +18,12 @@ list1 = list(date_string)
 list1[11] = b[0]
 list1[12] = b[1]
 date_string = ''.join(list1)
-print(colored("-------------------" + date_string[0:10] + "-------------------","green"))
-print(colored("-------------------" + date_string[11:16] + "------------------------","green"))
+print(colored("--------------------" + date_string[0:10] + "-------------------","green"))
+print(colored("----------------------" + date_string[11:16] + "----------------------","green"))
 print(colored("-------------------------------------------------","green"))
 print(colored("---           ENTRAINEMENT DU MODELE          ---","green"))
 print(colored("-------------------------------------------------","green"))
-print("\r\n")    
+print(colored("---                                           ---","green"))
 print(colored("-------------------------------------------------","green"))
 print(colored("---           MENU DE CONFIGURATION           ---","green"))
 print(colored("-------------------------------------------------","green"))
