@@ -129,7 +129,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
         src = b +'/modelimage/gen_number_' + str(opt.gennumber) + '_' + date_string + '_0001.png'
         dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/gen_multiple_0001.png'
         copyfile(src,dst)        
-        print("nombre : "+str(opt.gennumber)+" generated")
+        print("Suite : "+str(opt.gennumber)+" générée")
 
 
 # Recherche du modèle
