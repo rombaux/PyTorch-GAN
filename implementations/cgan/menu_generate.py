@@ -12,8 +12,6 @@ list1 = list(date_string)
 list1[11] = b[0]
 list1[12] = b[1]
 date_string = ''.join(list1)
-
-
 print(colored('---------------------------------------------------------------','grey'))
 print(colored('---    BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN    ---','grey'))
 print(colored('---------------------------------------------------------------','grey'))
