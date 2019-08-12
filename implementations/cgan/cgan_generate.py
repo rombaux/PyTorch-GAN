@@ -168,7 +168,7 @@ if index == -1:
      print('Not Found')
 else:
      print("Found at index" + str(index))
-     print(file_config[(index + 9:(index + 11)])
+     print(file_config[(index + 9):(index + 11)])
 
 fichier.close()
 
