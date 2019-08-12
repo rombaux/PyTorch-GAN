@@ -36,7 +36,7 @@ parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - 
 opt = parser.parse_args()
 print(opt)
 
-img_shape = (opt.channels, opt.img_size, opt.img_size)
+#img_shape = (opt.channels, opt.img_size, opt.img_size)
 
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
@@ -168,18 +168,17 @@ if index_of_img_size == -1:
      print('Not Found')
 else:
      print("Found at index" + str(index_of_img_size))
-
 index_of_latent_dim = file_config.find('latent_dim')
 if index_of_latent_dim == -1:
      print('Not Found')
 else:
      print("Found at index" + str(index_of_latent_dim))
-
-print(file_config[(index_of_img_size+9):(index_of_latent_dim-3)])         
-
-taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-3)])
-
+print(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])         
+taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
 fichier.close()
+
+img_shape = (opt.channels, opt.img_size, opt.img_size)
+print(img_shape)
 
 generator = Generator()
 if cuda:
