@@ -165,10 +165,10 @@ fichier = open(pathconfig, "r")
 print (fichier.read())
 file_config = fichier.read()
 print(file_config)
-congif = file_config.spit(',')
+config = file_config.spit(',')
 print(config)
 config = []
-for param in line.split(','):
+for param in file_config.split(','):
     config.append(int(param))
 print(config)
 fichier.close()
