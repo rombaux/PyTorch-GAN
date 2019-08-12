@@ -94,7 +94,7 @@ print("\r\n")
 # CHOIX DU BATCH SIZE
 for cnt,listebatch in enumerate(Batch_sizeList, 0):
     print("[%d]\t %s\t" % (cnt, listebatch) + "\t soit " + str(round(int(DatasetSize[optdataset])/int(listebatch))) + " Batches par Epoch")    
-optbatch_size = int(input("Choisissez le batch size à tester [0-%s]: " % cnt) or 64)
+optbatch_size = int(input("Choisissez le batch size à tester [0-%s]: (Défaut = 64) " % cnt) or 5)
 print("Batch de " + Batch_sizeList[optbatch_size] + " sélectionné")
 optbatch_size = Batch_sizeList[optbatch_size]
 print("\r\n")  
