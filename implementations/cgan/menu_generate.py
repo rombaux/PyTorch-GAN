@@ -17,7 +17,7 @@ print(colored("---     **   **  ** ** ** **  **   **  ** ** **   ****      ---",
 print(colored("---     *******  **  ***  **  *******  **   ***      **     ---","green"))
 print(colored("---      *****   **   *   **   *****   **    **  *****      ---","green"))
 print(colored("---                                                         ---","green"))
-print(colored('---'),'green',colored('    *******                                             '),'red',colored('---'),'green')
+print(colored('---','green',colored('    *******                                             ','red',colored('---','green'))
 print(colored("---------------------------------------------------------------","green"))
 
 
