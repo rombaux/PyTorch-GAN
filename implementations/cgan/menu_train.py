@@ -104,7 +104,7 @@ print("\r\n")
 print("optdataset = " + str(optdataset))
 print("DatasetSize[optdataset] = " + DatasetSize[optdataset])
 print("optbatch_size = " + optbatch_size)
-print("Batch_sizeList[optbatch_size] = " + Batch_sizeList[optbatch_size])
+print("Batch_sizeList[optbatch_size] = " + Batch_sizeList[int(optbatch_size)])
 print("listebatch = " + listebatch)
 
 
