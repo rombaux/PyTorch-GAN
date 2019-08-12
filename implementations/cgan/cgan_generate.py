@@ -162,9 +162,8 @@ print("Root path of model is " + str(b))
 
 pathconfig = b + "/config.txt"
 fichier = open(pathconfig, "r")
-print (fichier.read())
 file_config = fichier.read()
-print(file_config)
+print("Config : " + file_config)
 config = file_config.spit(',')
 print(config)
 config = []
