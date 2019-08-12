@@ -164,7 +164,7 @@ pathconfig = b + "/config.txt"
 fichier = open(pathconfig, "r")
 print (fichier.read())
 file_config = fichier.read()
-print(config)
+print(file_config)
 congif = file_config.spit(',')
 print(config)
 config = []
