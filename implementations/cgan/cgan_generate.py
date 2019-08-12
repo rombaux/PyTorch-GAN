@@ -163,16 +163,12 @@ pathconfig = b + "/config.txt"
 fichier = open(pathconfig, "r")
 file_config = fichier.read()
 print("Config : " + file_config)
-config = file_config.split(', \'')
-config = []
-for param in file_config.split(', \''):
-    if 'img_size' in param :
-        config.append(str(param))
-        print("ici " + str(param) +"\n\r")
-        config.append('')
-    else:
-    print(" iciii ")
-print(config)
+index = file_config.find('img_size=')
+if index == -1:
+     print ('Not Found')
+else:
+     print ("Found at index" + str(index))
+
 fichier.close()
 
 generator = Generator()
