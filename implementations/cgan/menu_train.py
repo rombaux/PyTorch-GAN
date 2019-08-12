@@ -101,6 +101,9 @@ print("\r\n")
 # FIN DU CHOIX DU BATCH SIZE
   
 # CHOIX DU NOMBRE D'INTERVAL à SAMPLER
+print(DatasetSize[optdataset])
+print(DatasetSize[optdataset])
+print(round(int(DatasetSize[optdataset])/int(listebatch)))
 optsample_interval = int(input("Entrer l'interval de génération d'image (Défaut = " + str(round(int(DatasetSize[optdataset])/(Batch_sizeList[optbatch_size]))) + ") : ") or round(int(DatasetSize[optdataset])/int(listebatch)))
 print("L'interval de " + str(optsample_interval) + " a été choisi")
 print("\r\n")  
