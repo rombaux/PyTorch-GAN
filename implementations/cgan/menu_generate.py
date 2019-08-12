@@ -66,7 +66,7 @@ LabeldatasetList = []
     # CHOIX DU DATASET
 for cnt,listedataset in enumerate(DatasetList, 0):
     print("[%d] %s" % (cnt, listedataset))
-optdataset = int(input("Choisissez le dataset à tester [0-%s]: " % cnt))
+optdataset = int(input("Choisissez le dataset à tester [0-%s]: " % cnt) or 0)
 print("Dataset " + DatasetList[optdataset] + " sélectionné")
 print("\r\n")
     # FIN DU CHOIX DU DATASET
@@ -104,7 +104,7 @@ if optdataset == 3 : LabeldatasetList = Labeldataset3List
 if optdataset == 4 : LabeldatasetList = Labeldataset4List
 if optdataset == 5 : LabeldatasetList = Labeldataset5List
 
-print(" Voici la liste des labels disponibles pour le Dataset " + str(optdataset) or 0)
+print(" Voici la liste des labels disponibles pour le Dataset " + str(optdataset))
 print(" ------------------------------------------------------- ")
 for cnt,listelabel in enumerate(LabeldatasetList, 0):
     print("[%d] %s" % (cnt, listelabel))    
