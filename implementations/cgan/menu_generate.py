@@ -41,8 +41,7 @@ print(colored("---                  MENU DE CONFIGURATION                  ---",
 print(colored("---------------------------------------------------------------","grey"))
 print("\r\n")
 
-DatasetList = [u"dataset 0 - MNIST",u"dataset 1 - CIFAR 10",u"dataset 2 - CIFAR 100",u"dataset 3 - STL 10",u"dataset 4 - Fashion MNIST",u"dataset 5 - ImageNet",u"dataset 6 - EMNIST"]
-
+DatasetList = [u"Dataset 0 - MNIST",u"Dataset 1 - CIFAR 10",u"Dataset 2 - CIFAR 100",u"Dataset 3 - STL 10",u"Dataset 4 - Fashion MNIST",u"Dataset 5 - EMNIST"]
 Labeldataset0List = [u"Chiffre 0",u"Chiffre 1",u"Chiffre 2",u"Chiffre 3",u"Chiffre 4",u"Chiffre 5",u"Chiffre 6",u"Chiffre 7",u"Chiffre 8",u"Chiffre 9"]
 Labeldataset1List = [u"Airplane",u"Auto",u"Bird",u"Cat",u"Deer",u"Dog",u"Frog",u"Horse",u"Ship",u"Truck"]
 Labeldataset2List = [u"beaver",u"dolphin",u"otter",u"seal",u"whale",u"aquarium fish",u"flatfish",u"ray",u"shark",u"trout,orchids",u"poppies",u"roses",u"sunflowers",u"tulips",

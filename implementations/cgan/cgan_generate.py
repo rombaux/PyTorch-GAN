@@ -106,6 +106,7 @@ def sample_image(n_row, batches_done,date_string):
     # Get labels ranging from 0 to n_classes for n rows
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
+    print(str(labels))
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data, b + "/modelimage/full_" + date_string + "_%s.png" % (str(batches_done).zfill(4)), nrow=n_row, normalize=True)
     src = b + '/modelimage/full_' + date_string + '_0001.png'
