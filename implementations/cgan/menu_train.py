@@ -4,7 +4,7 @@ from termcolor import colored
 
 print(colored("-------------------------------------------------","green"))
 print(colored("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN","green"))
-print("-------------------------------------------------")
+print(colored("-------------------------------------------------","green"))
 heure = time.strftime("%Y-%m-%d_%H-%M")
 a = heure[11:13]
 a= str(a)
@@ -15,15 +15,15 @@ list1 = list(date_string)
 list1[11] = b[0]
 list1[12] = b[1]
 date_string = ''.join(list1)
-print("-----------------" + date_string[0:11] + "----------------")
-print("-----------------" + date_string[11:15] + "----------------")
-print("-------------------------------------------------")
-print("---           ENTRAINEMENT DU MODELE          ---")
-print("-------------------------------------------------")
+print(colored("-------------------" + date_string[0:10] + "-------------------","green"))
+print(colored("-------------------" + date_string[11:16] + "------------------------","green"))
+print(colored("-------------------------------------------------","green"))
+print(colored("---           ENTRAINEMENT DU MODELE          ---","green"))
+print(colored("-------------------------------------------------","green"))
 print("\r\n")    
-print("-------------------------------------------------")
-print("---           MENU DE CONFIGURATION           ---")
-print("-------------------------------------------------")
+print(colored("-------------------------------------------------","green"))
+print(colored("---           MENU DE CONFIGURATION           ---","green"))
+print(colored("-------------------------------------------------","green"))
 print("\r\n")
 
 DatasetList = [u"Dataset 0 - MNIST",u"Dataset 1 - CIFAR 10",u"Dataset 2 - CIFAR 100",u"Dataset 3 - STL 10",u"Dataset 4 - Fashion MNIST",u"Dataset 5 - EMNIST"]
