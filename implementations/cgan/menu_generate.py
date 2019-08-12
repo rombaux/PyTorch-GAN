@@ -2,8 +2,6 @@ import time
 from termcolor import colored
 from IPython.display import Image
 
-display(Image(filename='/content/PyTorch-GAN/assets/umons.jpg',width=512,height=186))
-
 print(colored("---------------------------------------------------------------","grey"))
 print(colored("---    BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN    ---","grey"))
 print(colored("---------------------------------------------------------------","grey"))
