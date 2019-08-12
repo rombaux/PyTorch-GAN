@@ -101,7 +101,7 @@ print("\r\n")
 # FIN DU CHOIX DU BATCH SIZE
   
 # CHOIX DU NOMBRE D'INTERVAL à SAMPLER
-print("optdataset = " + optdataset)
+print("optdataset = " + str(optdataset))
 print("DatasetSize[optdataset] = " + DatasetSize[optdataset])
 print("optbatch_size = " + optbatch_size)
 print("Batch_sizeList[optbatch_size] = " + Batch_sizeList[optbatch_size])
