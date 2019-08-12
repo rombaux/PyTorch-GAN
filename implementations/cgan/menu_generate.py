@@ -104,7 +104,7 @@ if optdataset == 3 : LabeldatasetList = Labeldataset3List
 if optdataset == 4 : LabeldatasetList = Labeldataset4List
 if optdataset == 5 : LabeldatasetList = Labeldataset5List
 
-print(" Voici la liste des labels disponibles pour le Dataset " + str(optdataset))
+print(" Voici la liste des labels disponibles pour le Dataset " + str(optdataset) or 0)
 print(" ------------------------------------------------------- ")
 for cnt,listelabel in enumerate(LabeldatasetList, 0):
     print("[%d] %s" % (cnt, listelabel))    
