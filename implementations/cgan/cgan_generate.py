@@ -166,14 +166,14 @@ file_config = fichier.read()
 print("Config : " + file_config)
 index_of_img_size = file_config.find('img_size')
 if index_of_img_size == -1:
-     print('Not Found')
+    print('Not Found')
 else:
-     print("Found at index" + str(index_of_img_size))
+    print("Found at index" + str(index_of_img_size))
 index_of_latent_dim = file_config.find('latent_dim')
 if index_of_latent_dim == -1:
-     print('Not Found')
+    print('Not Found')
 else:
-     print("Found at index" + str(index_of_latent_dim))
+    print("Found at index" + str(index_of_latent_dim))
 print("Taille image dans le Training : " + file_config[(index_of_img_size+9):(index_of_latent_dim-2)] + " pixels")         
 taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
 fichier.close()
