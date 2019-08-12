@@ -49,7 +49,7 @@ LabeldatasetList = []
     # CHOIX DU DATASET
 for cnt,listedataset in enumerate(DatasetList, 0):
     print("[%d] %s" % (cnt, listedataset))
-optdataset = int(input("Choisissez le dataset à entraîner [0-%s]: " % cnt) or "0")
+optdataset = int(input("Choisissez le dataset à entraîner [0-%s]: (Défaut = MNIST) " % cnt) or "0")
 print(DatasetList[optdataset] + " sélectionné")
 print("\r\n")
     # FIN DU CHOIX DU DATASET
