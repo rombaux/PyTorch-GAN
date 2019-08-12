@@ -4,9 +4,9 @@ from IPython.display import Image
 
 display(Image(filename='/content/PyTorch-GAN/assets/umons.jpg',width=512,height=186))
 
-print(colored("-------------------------------------------------","green"))
-print(colored("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN","green"))
-print(colored("-------------------------------------------------","green"))
+print(colored("---------------------------------------------------------------","green"))
+print(colored("---    BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN    ---","green"))
+print(colored("---------------------------------------------------------------","green"))
 heure = time.strftime("%Y-%m-%d_%H-%M")
 a = heure[11:13]
 a= str(a)
@@ -17,17 +17,18 @@ list1 = list(date_string)
 list1[11] = b[0]
 list1[12] = b[1]
 date_string = ''.join(list1)
-print(colored("--------------------" + date_string[0:10] + "-------------------","green"))
-print(colored("----------------------" + date_string[11:16] + "----------------------","green"))
-print(colored("-------------------------------------------------","green"))
-print(colored("---           ENTRAINEMENT DU MODELE          ---","green"))
-print(colored("-------------------------------------------------","green"))
+print(colored("---------------------------","green" + date_string[0:10] + "--------------------------","red"))
+print(colored("-----------------------------" + date_string[11:16] + "-----------------------------","green"))
+print(colored("---------------------------------------------------------------","green"))
+print(colored("---                  ENTRAINEMENT DU MODELE                 ---","green"))
+print(colored("---------------------------------------------------------------","green"))
 display(Image(filename='/content/PyTorch-GAN/assets/reseau.jpg',width=450,height=217))
-print(colored("-------------------------------------------------","green"))
-print(colored("---           MENU DE CONFIGURATION           ---","green"))
-print(colored("-------------------------------------------------","green"))
+print(colored("---------------------------------------------------------------","green"))
+print(colored("---                  MENU DE CONFIGURATION                  ---","green"))
+print(colored("---------------------------------------------------------------","green"))
 print("\r\n")
-
+-------
+-------
 DatasetList = [u"Dataset 0 - MNIST",u"Dataset 1 - CIFAR 10",u"Dataset 2 - CIFAR 100",u"Dataset 3 - STL 10",u"Dataset 4 - Fashion MNIST",u"Dataset 5 - EMNIST"]
 DatasetSize = [u"60000",u"50000",u"50000",u"5000",u"70000",u"697932"]
 Batch_sizeList = [u"2",u"4",u"8",u"16",u"32",u"64",u"128",u"256",u"512",u"1024",u"2048"]
