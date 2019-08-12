@@ -162,7 +162,7 @@ print("Root path of model is " + str(b))
 
 pathconfig = b + "/config.txt"
 fichier = open(pathconfig, "r")
-print fichier.read()
+print (fichier.read())
 fichier.close()
 
 generator = Generator()
