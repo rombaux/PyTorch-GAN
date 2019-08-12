@@ -86,7 +86,7 @@ if optdataset == 5:
 
 
 # CHOIX DE LA TAILLE D'IMAGE
-optimg_size = int(input("Entrer la taille de l'image (Défaut : "+ str(optimg_size) + "px x " + str(optimg_size) + "px) : "))
+optimg_size = int(input("Entrer la taille de l'image (Défaut : "+ str(optimg_size) + "px x " + str(optimg_size) + "px) : ") or optimg_size)
 print("L'image va être resize en " + str(optimg_size) + " pixels")
 print("\r\n")      
 # FIN DE LA TAILLE D'IMAGE
