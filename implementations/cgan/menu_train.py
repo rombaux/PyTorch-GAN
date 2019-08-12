@@ -24,7 +24,8 @@ print("-------------------------------------------------")
 print("\r\n")
 
 DatasetList = [u"Dataset 0 - MNIST",u"Dataset 1 - CIFAR 10",u"Dataset 2 - CIFAR 100",u"Dataset 3 - STL 10",u"Dataset 4 - Fashion MNIST",u"Dataset 5 - EMNIST"]
-Batch_sizeList = [u"1",u"2",u"4",u"8",u"16",u"32",u"64",u"128",u"256",u"512",u"1024",u"2048"]
+DatasetSize = [u"60000",u"50000",u"50000",u"5000",u"70000",u"697932"]
+Batch_sizeList = [u"2",u"4",u"8",u"16",u"32",u"64",u"128",u"256",u"512",u"1024",u"2048"]
 Labeldataset0List = [u"Chiffre 0",u"Chiffre 1",u"Chiffre 2",u"Chiffre 3",u"Chiffre 4",u"Chiffre 5",u"Chiffre 6",u"Chiffre 7",u"Chiffre 8",u"Chiffre 9"]
 Labeldataset1List = [u"Airplane",u"Auto",u"Bird",u"Cat",u"Deer",u"Dog",u"Frog",u"Horse",u"Ship",u"Truck"]
 Labeldataset2List = [u"Airplane",u"Auto",u"Bird",u"Cat",u"Deer",u"Dog",u"Frog",u"Horse",u"Ship",u"Truck"]  #TO COMPLETTTTTTTEEE
@@ -43,7 +44,7 @@ LabeldatasetList = []
     # CHOIX DU DATASET
 for cnt,listedataset in enumerate(DatasetList, 0):
     print("[%d] %s" % (cnt, listedataset))
-optdataset = int(input("Choisissez le dataset à tester [0-%s]: " % cnt))
+optdataset = int(input("Choisissez le dataset à entraîner [0-%s]: " % cnt))
 print(DatasetList[optdataset] + " sélectionné")
 print("\r\n")
     # FIN DU CHOIX DU DATASET
@@ -79,30 +80,29 @@ if optdataset == 5:
     optimg_size = 28
 
 
-    # CHOIX DE LA TAILLE D'IMAGE
+# CHOIX DE LA TAILLE D'IMAGE
 optimg_size = int(input("Entrer la taille de l'image (Défaut : "+ str(optimg_size) + "px x " + str(optimg_size) + "px) : "))
-
 print("L'image va être resize en " + str(optimg_size) + " pixels")
 print("\r\n")      
-    # FIN DE LA TAILLE D'IMAGE
+# FIN DE LA TAILLE D'IMAGE
 
-    # CHOIX DU BATCH SIZE
+# CHOIX DU BATCH SIZE
 for cnt,listebatch in enumerate(Batch_sizeList, 0):
-    print("[%d] %s" % (cnt, listebatch))     
+    print("[%d] %s" % (cnt, listebatch) + " soit " + int(DatasetSize[cnt]) )     
 optbatch_size = int(input("Choisissez le batch size à tester [0-%s]: " % cnt))
 print("Batch de " + Batch_sizeList[optbatch_size] + " sélectionné")
 optbatch_size = Batch_sizeList[optbatch_size]
 print("\r\n")  
-    # FIN DU CHOIX DU BATCH SIZE
+# FIN DU CHOIX DU BATCH SIZE
   
-    # CHOIX DU NOMBRE D'INTERVAL à SAMPLER
+# CHOIX DU NOMBRE D'INTERVAL à SAMPLER
 optsample_interval = int(input("Entrer l'interval de génération d'image : "))
 print("L'interval de " + str(optsample_interval) + " a été choisi")
 print("\r\n")  
-    # FIN DU DU NOMBRE D'INTERVAL à SAMPLER
+# FIN DU DU NOMBRE D'INTERVAL à SAMPLER
 
-    # CHOIX DU NOMBRE D'EPOCH
+# CHOIX DU NOMBRE D'EPOCH
 optn_epochs = int(input("Choisissez le nombre d'EPoch : "))
 print("L'apprentissage durera " + str(optn_epochs) + " EPOCH")
 print("\r\n")    
-    # FIN DU CHOIX DU NOMBRE D'EPOCH
+# FIN DU CHOIX DU NOMBRE D'EPOCH

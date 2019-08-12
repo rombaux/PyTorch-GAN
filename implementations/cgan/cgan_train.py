@@ -55,7 +55,7 @@ list1[11] = b[0]
 list1[12] = b[1]
 date_string = ''.join(list1)
 
-pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'gen09')
+pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'full')
 print ("Path \"generateur complet\" is created as " + pathimage)
 os.makedirs(pathimage, exist_ok=True)
 
@@ -270,7 +270,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/gen09/full_interval_%s.png" % (str(batches_done).zfill(4)), nrow=n_row, normalize=True)
+    save_image(gen_imgs.data,  "/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/full/full_interval_%s.png" % (str(batches_done).zfill(4)), nrow=n_row, normalize=True)
 
 # ----------
 #  Training
