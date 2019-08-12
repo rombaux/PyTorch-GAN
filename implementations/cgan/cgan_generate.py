@@ -156,20 +156,19 @@ pmodel = fileList[choice]
 
 a = os.path.dirname(pmodel)
 b = os.path.dirname(a)
-
-print("Root path of model.pth is " + str(a))
-print("Root path of model is " + str(b))
+#print("Root path of model.pth is " + str(a))
+#print("Root path of model is " + str(b))
 
 pathconfig = b + "/config.txt"
 fichier = open(pathconfig, "r")
 file_config = fichier.read()
 print("Config : " + file_config)
 config = file_config.split(', \'')
-print(config)
 config = []
 for param in file_config.split(', \''):
     if 'img_size=' in param :
         config.append(str(param))
+        config.append()
 print(config)
 fichier.close()
 
