@@ -2,8 +2,7 @@ import time
 from termcolor import colored
 from IPython.display import Image
 
-print('\r\nAll label')
-display(Image(filename='/content/PyTorch-GAN/assets/cgan/reseau.jpg'))
+display(Image(filename='/content/PyTorch-GAN/assets/umons.jpg'))
 
 print(colored("-------------------------------------------------","green"))
 print(colored("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN","green"))
@@ -23,7 +22,7 @@ print(colored("----------------------" + date_string[11:16] + "-----------------
 print(colored("-------------------------------------------------","green"))
 print(colored("---           ENTRAINEMENT DU MODELE          ---","green"))
 print(colored("-------------------------------------------------","green"))
-print(colored("---                                           ---","green"))
+display(Image(filename='/content/PyTorch-GAN/assets/reseau.jpg'))
 print(colored("-------------------------------------------------","green"))
 print(colored("---           MENU DE CONFIGURATION           ---","green"))
 print(colored("-------------------------------------------------","green"))
