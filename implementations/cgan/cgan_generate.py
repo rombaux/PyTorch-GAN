@@ -174,11 +174,11 @@ if index_of_latent_dim == -1:
     print('Not Found')
 else:
     print("Found at index" + str(index_of_latent_dim))
-print("Taille image dans le Training : " + file_config[(index_of_img_size+9):(index_of_latent_dim-2)] + " pixels")         
+print("Attentio, la taille de l'image dans le Training est de " + file_config[(index_of_img_size+9):(index_of_latent_dim-2)] + " pixels")         
 taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
 fichier.close()
 
-img_shape = (opt.channels, opt.img_size, opt.img_size)
+img_shape = (opt.channels, taille_img_train, taille_img_train)
 print(img_shape)
 
 generator = Generator()
