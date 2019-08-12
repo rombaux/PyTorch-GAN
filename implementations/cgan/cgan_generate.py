@@ -157,8 +157,8 @@ pmodel = fileList[choice]
 a = os.path.dirname(pmodel)
 b = os.path.dirname(a)
 
-#print("Root path of model.pth is " + str(a))
-#print("Root path of model is " + str(b))
+print("Root path of model.pth is " + str(a))
+print("Root path of model is " + str(b))
 
 generator = Generator()
 if cuda:
@@ -166,7 +166,6 @@ if cuda:
 generator.load_state_dict(torch.load(pmodel))
 
 print("Génération de l'image")
-
 
 pathimagemodel = b + "/modelimage"
 print ("Création du Path : " + pathimagemodel)
