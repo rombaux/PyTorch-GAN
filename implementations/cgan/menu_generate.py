@@ -82,6 +82,8 @@ if optdataset == 3 : LabeldatasetList = Labeldataset3List
 if optdataset == 4 : LabeldatasetList = Labeldataset4List
 if optdataset == 5 : LabeldatasetList = Labeldataset5List
 
+print(" Voici la liste des labels disponibles pour le Dataset " + str(optdataset))
+print(" ------------------------------------------------------- ")
 for cnt,listelabel in enumerate(LabeldatasetList, 0):
     print("[%d] %s" % (cnt, listelabel))    
 #optgenidlabel = int(input("Choisissez le label à générer [0-%s]: " % cnt))
