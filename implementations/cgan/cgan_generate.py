@@ -170,7 +170,7 @@ for param in file_config.split(', \''):
         config.append(str(param))
         print("ici " + str(param) +"\n\r")
         config.append('')
-    else
+    else:
     print(" iciii ")
 print(config)
 fichier.close()
