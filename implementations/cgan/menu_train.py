@@ -17,7 +17,7 @@ list1 = list(date_string)
 list1[11] = b[0]
 list1[12] = b[1]
 date_string = ''.join(list1)
-print(colored("---------------------------","green" + date_string[0:10] + "--------------------------","red"))
+print(colored("---------------------------" + date_string[0:10] + "--------------------------","green"))
 print(colored("-----------------------------" + date_string[11:16] + "-----------------------------","green"))
 print(colored("---------------------------------------------------------------","green"))
 print(colored("---                  ENTRAINEMENT DU MODELE                 ---","green"))
