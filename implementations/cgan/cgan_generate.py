@@ -36,8 +36,8 @@ parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - 
 opt = parser.parse_args()
 print(opt)
 
-
-#img_shape = (opt.channels, opt.img_size, opt.img_size)
+img_shape = (opt.channels, opt.img_size, opt.img_size)
+print(img_shape)
 
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
@@ -52,72 +52,8 @@ list1 = list(date_string)
 list1[11] = b[0]
 list1[12] = b[1]
 date_string = ''.join(list1)
+
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
-
-# Recherche du modèle
-fn = []
-cnt = 0
-
-pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
-for base, dirs, files in os.walk(pathmodel):
-        for file in files:
-            fn.append(os.path.join(base, file))
-print("Recherche dans : " + pathmodel + "\n\r") 
-fileList = [name for name in fn if name.endswith(".pth")]
-
-for cnt, fileName in enumerate(fileList, 0):
-    print("[%d] %s" % (cnt, fileName))
-
-choice = int(input("Choisissez le modèle à tester [0-%s]: " % cnt))
-
-print("Path of Model Choise is " + fileList[choice])
-pmodel = fileList[choice]
-
-a = os.path.dirname(pmodel)
-b = os.path.dirname(a)
-#print("Root path of model.pth is " + str(a))
-#print("Root path of model is " + str(b))
-
-pathconfig = b + "/config.txt"
-fichier = open(pathconfig, "r")
-file_config = fichier.read()
-print("Config : " + file_config)
-index_of_img_size = file_config.find('img_size')
-if index_of_img_size == -1:
-     print('Not Found')
-else:
-     print("Found at index" + str(index_of_img_size))
-index_of_latent_dim = file_config.find('latent_dim')
-if index_of_latent_dim == -1:
-     print('Not Found')
-else:
-     print("Found at index" + str(index_of_latent_dim))
-print(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])         
-taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
-fichier.close()
-
-img_shape = (opt.channels, opt.img_size, opt.img_size)
-print(img_shape)
-
-generator = Generator()
-if cuda:
-    generator.cuda()
-generator.load_state_dict(torch.load(pmodel))
-
-print("Génération de l'image")
-
-pathimagemodel = b + "/modelimage"
-print ("Création du Path : " + pathimagemodel)
-os.makedirs(pathimagemodel, exist_ok=True)
-
-sample_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
-sample_label_id_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
-print("Image generée dans " + pathimagemodel)
-
-
-img_shape = (opt.channels, opt.img_size, opt.img_size)
-
-
 
 class Generator(nn.Module):
     def __init__(self):
@@ -147,7 +83,7 @@ class Generator(nn.Module):
         img = self.model(gen_input)
         img = img.view(img.size(0), *img_shape)
         return img
-
+'''
 # Loss functions
 adversarial_loss = torch.nn.MSELoss()
 
@@ -160,7 +96,7 @@ if cuda:
 
 # Optimizers
 optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
-
+'''
 FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 
@@ -199,7 +135,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
         copyfile(src,dst)        
         print("Suite : "+str(opt.gennumber)+" générée")
 
-'''
+
 # Recherche du modèle
 fn = []
 cnt = 0
@@ -242,7 +178,6 @@ print(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
 taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
 fichier.close()
 
-img_shape = (opt.channels, opt.img_size, opt.img_size)
 print(img_shape)
 
 generator = Generator()
@@ -259,4 +194,4 @@ os.makedirs(pathimagemodel, exist_ok=True)
 sample_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 sample_label_id_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 print("Image generée dans " + pathimagemodel)
-'''
+
