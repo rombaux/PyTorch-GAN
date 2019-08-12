@@ -2,7 +2,7 @@ import time
 from termcolor import colored
 from IPython.display import Image
 
-display(Image(filename='/content/PyTorch-GAN/assets/umons.jpg'))
+display(Image(filename='/content/PyTorch-GAN/assets/umons.jpg'),retina(1))
 
 print(colored("-------------------------------------------------","green"))
 print(colored("BIENVENUE SUR LA PAGE DES RESEAUX CONDITIONAL GAN","green"))
