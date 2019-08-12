@@ -88,7 +88,7 @@ print("\r\n")
 
 # CHOIX DU BATCH SIZE
 for cnt,listebatch in enumerate(Batch_sizeList, 0):
-    print("[%d] %s" % (cnt, listebatch) + " soit " + str(int(DatasetSize[optdataset])/int(listebatch)))    
+    print("[%d] %s" % (cnt, listebatch) + "\t soit " + str(round(int(DatasetSize[optdataset])/int(listebatch))) + " images par Batch")    
 optbatch_size = int(input("Choisissez le batch size à tester [0-%s]: " % cnt))
 print("Batch de " + Batch_sizeList[optbatch_size] + " sélectionné")
 optbatch_size = Batch_sizeList[optbatch_size]
