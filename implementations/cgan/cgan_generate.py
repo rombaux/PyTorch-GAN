@@ -163,6 +163,11 @@ print("Root path of model is " + str(b))
 pathconfig = b + "/config.txt"
 fichier = open(pathconfig, "r")
 print (fichier.read())
+config = line.spit(',')
+Print(config)
+for param in line.split(','):
+    config.append(int(param))
+print(config)
 fichier.close()
 
 generator = Generator()
