@@ -36,8 +36,8 @@ parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - 
 opt = parser.parse_args()
 print(opt)
 
-img_shape = (opt.channels, opt.img_size, opt.img_size)
-print(img_shape)
+#img_shape = (opt.channels, opt.img_size, opt.img_size)
+#print(img_shape)
 
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
@@ -178,6 +178,7 @@ print("Taille image dans le Training : " + file_config[(index_of_img_size+9):(in
 taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
 fichier.close()
 
+img_shape = (opt.channels, opt.img_size, opt.img_size)
 print(img_shape)
 
 generator = Generator()
