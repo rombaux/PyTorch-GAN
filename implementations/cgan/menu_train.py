@@ -27,8 +27,7 @@ print(colored("---------------------------------------------------------------",
 print(colored("---                  MENU DE CONFIGURATION                  ---","green"))
 print(colored("---------------------------------------------------------------","green"))
 print("\r\n")
--------
--------
+
 DatasetList = [u"Dataset 0 - MNIST",u"Dataset 1 - CIFAR 10",u"Dataset 2 - CIFAR 100",u"Dataset 3 - STL 10",u"Dataset 4 - Fashion MNIST",u"Dataset 5 - EMNIST"]
 DatasetSize = [u"60000",u"50000",u"50000",u"5000",u"70000",u"697932"]
 Batch_sizeList = [u"2",u"4",u"8",u"16",u"32",u"64",u"128",u"256",u"512",u"1024",u"2048"]
