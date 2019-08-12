@@ -160,6 +160,11 @@ b = os.path.dirname(a)
 print("Root path of model.pth is " + str(a))
 print("Root path of model is " + str(b))
 
+pathconfig = b + "/config.txt"
+fichier = open(pathconfig, "r")
+print fichier.read()
+fichier.close()
+
 generator = Generator()
 if cuda:
     generator.cuda()
