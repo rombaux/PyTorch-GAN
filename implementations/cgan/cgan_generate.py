@@ -163,11 +163,10 @@ for idx,DirName in enumerate(DirList):
             fntemp.append(os.path.join(base, file))
             fntemp.reverse() 
 #            fn.append(os.path.join(base, file))
-        for idx,filepth in enumerate(fntemp[0:10])
+        for filepth in fntemp[0:9]
             fn.append(filepth)
             
 fileList = [name for name in fn if name.endswith(".pth")]
-
 
 for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
