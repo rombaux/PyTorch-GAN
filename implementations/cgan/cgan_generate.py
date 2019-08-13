@@ -159,10 +159,10 @@ for idx,DirName in enumerate(DirList):
         for file in files:
             #print("base :" + base)
             #print("dirs" + str(dirs))
-            fn.append(os.path.join(base, file))
-            print("Recherche dans : " + DirName + "\n\r") 
+            fn.append(os.path.join(base, file))           
 
-fileList = [name for name in fn if name.endswith(".pth")]
+fileList = [name for name in fn[0:10] if name.endswith(".pth")]
+
 
 for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
