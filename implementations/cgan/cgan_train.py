@@ -104,7 +104,7 @@ class Generator(nn.Module):
         for param_tensor in self.model.state_dict ():
             print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
         print("module.state_dict().keys() : ")     
-        print(module.state_dict().keys(bias))
+        print(self.state_dict().keys())
         
 
 
