@@ -156,12 +156,17 @@ DirList = [name for name in fndir if name.endswith("model")]
 
 for idx,DirName in enumerate(DirList):
     for base, dirs, files in os.walk(str(DirName)):
+        fntemp = []
         for file in files:
             #print("base :" + base)
             #print("dirs" + str(dirs))
-            fn.append(os.path.join(base, file))           
-
-fileList = [name for name in fn[0:10] if name.endswith(".pth")]
+            fntemp.append(os.path.join(base, file))
+            fntemp.reverse() 
+#            fn.append(os.path.join(base, file))
+        for idx,filepth in enumerate(fntemp[0:10])
+            fn.append(filepth)
+            
+fileList = [name for name in fn if name.endswith(".pth")]
 
 
 for cnt, fileName in enumerate(fileList, 0):
