@@ -108,7 +108,7 @@ class Generator(nn.Module):
            
         
         fmodel = open("/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/" + "model.txt", "a")
-        fmodel.write(str((self.state_dict(keep_vars=True))))
+        fmodel.write(((self.state_dict(keep_vars=True))))
         fmodel.close()
         print("Fichier du modèle créé")        
 
