@@ -83,20 +83,7 @@ class Generator(nn.Module):
         img = self.model(gen_input)
         img = img.view(img.size(0), *img_shape)
         return img
-'''
-# Loss functions
-adversarial_loss = torch.nn.MSELoss()
 
-# Initialize generator and discriminator
-generator = Generator()
-
-if cuda:
-    generator.cuda()
-    adversarial_loss.cuda()
-
-# Optimizers
-optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
-'''
 FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 
@@ -111,10 +98,7 @@ def sample_image(n_row, batches_done,date_string):
     labels = Variable(LongTensor(labels))
     print("labels == " + str(labels))
     gen_imgs = generator(z, labels)
-    save_image(gen_imgs.data, b + "/modelimage/full_" + date_string + "_%s.png" % (str(batches_done).zfill(4)), nrow=n_row, normalize=True)
-    src = b + '/modelimage/full_' + date_string + '_0001.png'
-    dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/full_0001.png'
-    copyfile(src,dst)
+    save_image(gen_imgs.data,  r'''C:\Users\Mic\tfe\modelimage\full_0001.png''', nrow=n_row, normalize=True)
 
 def sample_label_id_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
@@ -129,10 +113,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
         numbre =[]
         for a in str(toto):
             numbre.append(gen_imgs.data[int(a)])
-        save_image(numbre, b + "/modelimage/gen_number_" + str(opt.gennumber) + "_" + date_string + "_%s.png" % (str(batches_done).zfill(4)), nrow=n_row, normalize=True)
-        src = b +'/modelimage/gen_number_' + str(opt.gennumber) + '_' + date_string + '_0001.png'
-        dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/gen_multiple_0001.png'
-        copyfile(src,dst)        
+        save_image(numbre, r'''C:\Users\Mic\tfe\modelimage\gen_multiple_0001.png''', nrow=n_row, normalize=True)      
         print("Suite : "+str(opt.gennumber)+" générée")
 
 
@@ -140,12 +121,9 @@ def sample_label_id_image(n_row, batches_done,date_string):
 fn = []
 cnt = 0
 
-
-pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
+pathmodel = r'''C:\Users\Mic\tfe'''
 for base, dirs, files in os.walk(pathmodel):
         for file in files:
-            print("base " + base)
-            print("dirs" + dirs)
             fn.append(os.path.join(base, file))
 print("Recherche dans : " + pathmodel + "\n\r") 
 fileList = [name for name in fn if name.endswith(".pth")]
@@ -161,9 +139,9 @@ pmodel = fileList[choice]
 a = os.path.dirname(pmodel)
 b = os.path.dirname(a)
 #print("Root path of model.pth is " + str(a))
-#print("Root path of directory model is " + str(b))
+#print("Root path of model is " + str(b))
 
-pathconfig = b + "/config.txt"
+pathconfig = r'''C:\Users\Mic\tfe\config.txt'''
 fichier = open(pathconfig, "r")
 file_config = fichier.read()
 print("Config : " + file_config)
@@ -191,7 +169,7 @@ generator.load_state_dict(torch.load(pmodel))
 
 print("Génération de l'image")
 
-pathimagemodel = b + "/modelimage"
+pathimagemodel = r'''C:\Users\Mic\tfe'''
 print ("Création du Path : " + pathimagemodel)
 os.makedirs(pathimagemodel, exist_ok=True)
 
