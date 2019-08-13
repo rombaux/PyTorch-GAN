@@ -373,9 +373,13 @@ for epoch in range(opt.n_epochs):
             print(attime + " [Epoch %d/%d] [Batch %d/%d] [D loss: %f] [G loss: %f]" % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), g_loss.item()))
             a = float(d_loss.item())
             b = float(g_loss.item())
-            
+            c = float(d_real_loss.item())
+            d = float(d_fake_loss.item())
+
             dloss.append(a)
             gloss.append(b)
+            drealloss.append(c)
+            dfakeloss.append(d)
 
             xdloss.append(batches_done)
             xgloss.append(batches_done)
@@ -384,18 +388,21 @@ for epoch in range(opt.n_epochs):
             #  
             with open('/content/gdrive/My Drive/TFE/dataset/' + str(opt.dataset) + '/' + date_string +'/loss/loss.csv', mode='w') as loss_file:
                 loss_writer = csv.writer(loss_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                loss_writer.writerows(zip(*[dloss, gloss]))
+                loss_writer.writerows(zip(*[dloss, gloss, drealloss, dfakeloss ]))
 
             fig = plt.figure(figsize=(15, 15))
             ax = fig.add_subplot(3, 1, 1)
 
             ax.plot(dloss, color='xkcd:dark pink')
-            ax.plot(gloss, color='xkcd:navy blue')
+            ax.plot(gloss, color='xkcd:blue')
+            ax.plot(drealloss, color='xkcd:green')
+            ax.plot(dfakeloss, color='xkcd:red')
 
-            ax.set_xlabel("Samples")
+
+            ax.set_xlabel("Samples\n" + str(opt))
             ax.set_ylabel("LOSS")
-            ax.set_title("Evolution des Loss" + str(opt.sample_interval))
-            plt.legend(['Discriminator Loss', 'Generator Loss'])
+            ax.set_title("Evolution des Loss avec un sample interval de " + str(opt.sample_interval))
+            plt.legend(['Discriminator Loss', 'Generator Loss','D Real Loss', 'D Fake Loss'])
 
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss.png")
 
@@ -404,11 +411,13 @@ for epoch in range(opt.n_epochs):
 
             ax.plot(xdloss,dloss, color='xkcd:dark pink')
             ax.plot(xgloss,gloss, color='xkcd:navy blue')
+            ax.plot(drealloss, color='xkcd:green')
+            ax.plot(dfakeloss, color='xkcd:red')           
 
-            ax.set_xlabel("Samples")
+            ax.set_xlabel("BatchDones\n" + str(opt))
             ax.set_ylabel("LOSS")
-            ax.set_title("Evolution des Loss avec un interval de " + str(opt.sample_interval) + " images")
-            plt.legend(['Discriminator Loss', 'Generator Loss'])
+            ax.set_title("Evolution des Loss avec un sample interval de " + str(opt.sample_interval) + " images")
+            plt.legend(['Discriminator Loss', 'Generator Loss','D Real Loss', 'D Fake Loss'])
 
             plt.savefig("/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset) + '/' + date_string + "/loss/loss_dloss_xdloss.png")
 
