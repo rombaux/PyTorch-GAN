@@ -107,10 +107,10 @@ class Generator(nn.Module):
 #        print(self.state_dict(keep_vars=True))
            
         
-        fichier = open("/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/" + "model.txt", "a")
-        fichier.write(str((self.state_dict(keep_vars=True)))
-        fichier.close()
-        print("Fichier de configuration créé")        
+        fmodel = open("/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/" + "model.txt", "a")
+        fmodel.write(str((self.state_dict(keep_vars=True)))
+        fmodel.close()
+        print("Fichier du modèle créé")        
 
 
     def forward(self, noise, labels):
