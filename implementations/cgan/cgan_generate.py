@@ -139,6 +139,7 @@ def sample_label_id_image(n_row, batches_done,date_string):
 # Recherche du modèle
 fn = []
 cnt = 0
+fndir = []
 
 
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
@@ -150,7 +151,7 @@ for base, dirs, files in os.walk(pathmodel):
             fndir.append(os.path.dirname(os.path.join(base, file)))
 print("Recherche dans : " + pathmodel + "\n\r") 
 fileList = [name for name in fn if name.endswith(".pth")]
-DirList = [name for name in fndir if name.endswith(".pth")]
+DirList = [name for name in fndir]
 
 for cnt, fileNamedir in enumerate(DirList, 0):
     print("[%d] %s" % (cnt, fileNamedir))
