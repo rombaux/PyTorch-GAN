@@ -163,9 +163,8 @@ for idx,DirName in enumerate(DirList):
             fntemp.append(os.path.join(base, file))
             fntemp.reverse() 
 #            fn.append(os.path.join(base, file))
-        for filepth in range(0,9 or len(fntemp))
+        for filepth in range(0,9)
             fn.append(filepth)
-     
             
 fileList = [name for name in fn if name.endswith(".pth")]
 
