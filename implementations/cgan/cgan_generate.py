@@ -174,7 +174,7 @@ if index_of_latent_dim == -1:
     print('Not Found')
 else:
     print("Found at index" + str(index_of_latent_dim))
-print("Attentio, la taille de l'image dans le Training est de " + file_config[(index_of_img_size+9):(index_of_latent_dim-2)] + " pixels")         
+print("Attention, la taille de l'image dans le Training est de " + file_config[(index_of_img_size+9):(index_of_latent_dim-2)] + " pixels")         
 taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
 fichier.close()
 
