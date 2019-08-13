@@ -144,8 +144,8 @@ cnt = 0
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
 for base, dirs, files in os.walk(pathmodel):
         for file in files:
-            print("base " + base)
-            print("dirs" + dirs)
+            print("base :" + base)
+            print("dirs" + str(dirs))
             fn.append(os.path.join(base, file))
 print("Recherche dans : " + pathmodel + "\n\r") 
 fileList = [name for name in fn if name.endswith(".pth")]
