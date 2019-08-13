@@ -288,6 +288,8 @@ cpt = 0
 
 dloss = []
 gloss = []
+drealloss = []
+dfakeloss = []
 
 xdloss = []
 xgloss = []
