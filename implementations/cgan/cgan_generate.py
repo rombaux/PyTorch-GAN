@@ -201,7 +201,7 @@ taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)
 fichier.close()
 
 img_shape = (opt.channels, taille_img_train, taille_img_train)
-print("Dimension de l'image (channel,size x, size y) : " + img_shape)
+print("Dimension de l'image (channel,size x, size y) : " + str(img_shape))
 
 generator = Generator()
 if cuda:
