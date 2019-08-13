@@ -104,7 +104,7 @@ class Generator(nn.Module):
         for param_tensor in self.model.state_dict ():
             print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
         print("module.state_dict().keys() : ")     
-        print(module.state_dict().keys())
+        print(model.state_dict().keys())
 
     def forward(self, noise, labels):
         # Concatenate label embedding and image to produce input
