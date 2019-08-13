@@ -103,10 +103,10 @@ class Generator(nn.Module):
         print( "Model's state_dict : " )
         for param_tensor in self.model.state_dict ():
             print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
-        print("module.state_dict().keys(model.0.bias) : ")     
-        print(self.state_dict().keys(1))
+        print("self.state_dict(keep_vars=True) : ")     
+        print(self.state_dict(keep_vars=True))
         print("self._state_dict_hooks.values : ")
-        print(self._state_dict_hooks.values())
+        print(self._state_dict_hooks())
         
 
 
