@@ -105,6 +105,8 @@ class Generator(nn.Module):
             print(param_tensor , " \t " , self.model.state_dict ()[ param_tensor ] . size ())
         print("module.state_dict().keys() : ")     
         print(self.state_dict().keys())
+        print("self._state_dict_hooks.values : ")
+        print(self._state_dict_hooks.values())
         
 
 
