@@ -147,16 +147,23 @@ for base, dirs, files in os.walk(pathmodel):
         for file in files:
             #print("base :" + base)
             #print("dirs" + str(dirs))
-            fn.append(os.path.join(base, file))
+            #fn.append(os.path.join(base, file))
             pathallmodel = os.path.dirname(os.path.join(base, file))
             if pathallmodel not in fndir:
                 fndir.append(os.path.dirname(os.path.join(base, file)))
 print("Recherche dans : " + pathmodel + "\n\r") 
-fileList = [name for name in fn if name.endswith(".pth")]
+#fileList = [name for name in fn if name.endswith(".pth")]
 DirList = [name for name in fndir if name.endswith("model")]
 
-for cnt, fileNamedir in enumerate(DirList, 0):
-    print("[%d] %s" % (cnt, fileNamedir))
+for DirName in enumerate(DirList):
+    for base, dirs, files in os.walk(DirName):
+        for file in files:
+            #print("base :" + base)
+            #print("dirs" + str(dirs))
+            fn.append(os.path.join(base, file))
+            print("Recherche dans : " + DirName + "\n\r") 
+
+fileList = [name for name in fn if name.endswith(".pth")]
 
 for cnt, fileName in enumerate(fileList, 0):
     print("[%d] %s" % (cnt, fileName))
