@@ -147,7 +147,7 @@ for base, dirs, files in os.walk(pathmodel):
             print("base :" + base)
             print("dirs" + str(dirs))
             fn.append(os.path.join(base, file))
-            fndira = os.path.dirname(fn.append(os.path.join(base, file)))
+            fndir.append(os.path.dirname(os.path.join(base, file)))
 print("Recherche dans : " + pathmodel + "\n\r") 
 fileList = [name for name in fn if name.endswith(".pth")]
 DirList = [name for name in fndir if name.endswith(".pth")]
