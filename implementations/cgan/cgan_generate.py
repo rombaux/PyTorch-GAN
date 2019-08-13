@@ -145,13 +145,13 @@ fndir = []
 pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
 for base, dirs, files in os.walk(pathmodel):
         for file in files:
-            print("base :" + base)
-            print("dirs" + str(dirs))
+            #print("base :" + base)
+            #print("dirs" + str(dirs))
             fn.append(os.path.join(base, file))
             fndir.append(os.path.dirname(os.path.join(base, file)))
 print("Recherche dans : " + pathmodel + "\n\r") 
 fileList = [name for name in fn if name.endswith(".pth")]
-DirList = [name for name in fndir]
+DirList = [name for name in fndir if name.endswith("model")]
 
 for cnt, fileNamedir in enumerate(DirList, 0):
     print("[%d] %s" % (cnt, fileNamedir))
