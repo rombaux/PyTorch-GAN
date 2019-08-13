@@ -161,10 +161,9 @@ for idx,DirName in enumerate(DirList):
             #print("base :" + base)
             #print("dirs" + str(dirs))
             fntemp.append(os.path.join(base, file))
-         fntemp.reverse() 
-#            fn.append(os.path.join(base, file))
+        fntemp.reverse() 
         for i in range(0,min(9,len(fntemp))):
-            fn.append(fntemp)
+            fn.append(fntemp[i])
 
 
             
