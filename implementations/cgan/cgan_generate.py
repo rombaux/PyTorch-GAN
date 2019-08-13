@@ -104,12 +104,12 @@ def sample_image(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
     # Sample noise
     z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
-    print("z == " + str(z))
+    #print("z == " + str(z))
     # Get labels ranging from 0 to n_classes for n rows
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
-    print("labels == " + str(labels))
+    #print("labels == " + str(labels))
     labels = Variable(LongTensor(labels))
-    print("labels == " + str(labels))
+    #print("labels == " + str(labels))
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data, b + "/modelimage/full_" + date_string + "_%s.png" % (str(batches_done).zfill(4)), nrow=n_row, normalize=True)
     src = b + '/modelimage/full_' + date_string + '_0001.png'
@@ -187,21 +187,21 @@ fichier = open(pathconfig, "r")
 file_config = fichier.read()
 print("Config : " + file_config)
 index_of_img_size = file_config.find('img_size')
-if index_of_img_size == -1:
-    print('Not Found')
-else:
-    print("Found at index" + str(index_of_img_size))
+#if index_of_img_size == -1:
+#    print('Not Found')
+#else:
+#    print("Found at index" + str(index_of_img_size))
 index_of_latent_dim = file_config.find('latent_dim')
-if index_of_latent_dim == -1:
-    print('Not Found')
-else:
-    print("Found at index" + str(index_of_latent_dim))
+#if index_of_latent_dim == -1:
+#    print('Not Found')
+#else:
+#    print("Found at index" + str(index_of_latent_dim))
 print("Attention, la taille de l'image dans le Training est de " + file_config[(index_of_img_size+9):(index_of_latent_dim-2)] + " pixels")         
 taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
 fichier.close()
 
 img_shape = (opt.channels, taille_img_train, taille_img_train)
-print(img_shape)
+print("Dimension de l'image (channel,size x, size y) : " + img_shape)
 
 generator = Generator()
 if cuda:
