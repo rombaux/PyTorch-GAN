@@ -55,24 +55,22 @@ list1[11] = b[0]
 list1[12] = b[1]
 date_string = ''.join(list1)
 
+# Création de l'arboresence de travail
 pathimage = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'full')
 print ("Path \"generateur complet\" is created as " + pathimage)
 os.makedirs(pathimage, exist_ok=True)
-
 pathmodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'model')
 print ("Path of model is created as " + pathmodel)
 os.makedirs(pathmodel, exist_ok=True)
-
 pathmodel = os.path.join(os.path.sep,'content','gdrive','My Drive','TFE','dataset',str(opt.dataset),date_string,'loss')
 print ("Path of model is created as " + pathmodel)
 os.makedirs(pathmodel, exist_ok=True)
-
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
-
 fichier = open("/content/gdrive/My Drive/TFE/dataset/"+str(opt.dataset)+"/"+date_string+"/" + "config.txt", "a")
 fichier.write(str(opt))
 fichier.close()
 print("Fichier de configuration créé")
+# fin
 
 class Generator(nn.Module):
     def __init__(self):
@@ -117,7 +115,9 @@ class Generator(nn.Module):
         # Concatenate label embedding and image to produce input
         gen_input = torch.cat((self.label_emb(labels), noise), -1)
         img = self.model(gen_input)
+        print(img)
         img = img.view(img.size(0), *img_shape)
+        print(img)
         return img
 
 
