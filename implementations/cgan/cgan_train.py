@@ -115,9 +115,11 @@ class Generator(nn.Module):
         # Concatenate label embedding and image to produce input
         gen_input = torch.cat((self.label_emb(labels), noise), -1)
         img = self.model(gen_input)
-        print(img)
+        print("self.img " + img)
         img = img.view(img.size(0), *img_shape)
-        print(img)
+        print("img.size(0) " + img.size(0))
+        print("*img_shape : " + *img_shape)
+
         return img
 
 
