@@ -7,6 +7,7 @@ from datetime import datetime
 import numpy as np
 import math
 import array
+import cv2
 
 from shutil import copyfile
 
@@ -31,7 +32,7 @@ parser.add_argument("--latent_dim", type=int, default=100, help="dimensionality 
 parser.add_argument("--n_classes", type=int, default=10, help="number of classes for dataset")
 parser.add_argument("--img_size", type=int, default=32, help="size of each image dimension")
 parser.add_argument("--channels", type=int, default=1, help="number of image channels")
-parser.add_argument("--gennumber", type=str, default=0, help="generate number")
+parser.add_argument("--genword", type=str, default=0, help="generate number")
 parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - Nmist = 0 - cifar10 = 1 - cifar100 = 2")
 opt = parser.parse_args()
 print(opt)
@@ -51,6 +52,7 @@ dictotodataset5 = { '0':'0', '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
 
+# Correction l'heure en GMT+2  - A corriger pour 24h et 25h mais fonctionne
 heure = time.strftime("%Y-%m-%d_%H-%M")
 a = heure[11:13]
 a= str(a)
@@ -63,6 +65,10 @@ list1[12] = b[1]
 date_string = ''.join(list1)
 
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
+
+def Vice(pic, name):
+    pic = (255 - pic)
+    cv2.imwrite(name, pic)
 
 class Generator(nn.Module):
     def __init__(self):
@@ -117,13 +123,13 @@ def sample_label_id_image_without_random_noise(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    toto = opt.gennumber 
+    toto = opt.genword 
     word =[]
     for a in str(toto):
         a = dictotodataset5.get(a)
         word.append(gen_imgs.data[int(a)])
     save_image(word, r'''C:\Users\Mic\tfe\modelimage\mot_sans_random_noize_''' + str(date_string) + '''_dataset''' + str(opt.dataset) + '''.png''', nrow=len(str(toto)), normalize=True)
-    print("Suite : "+(opt.gennumber)+" générée")
+    print("Suite : "+(opt.genword)+" générée")
 
 def sample_label_id_image_with_random_noise(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
@@ -133,7 +139,7 @@ def sample_label_id_image_with_random_noise(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
 
-    toto = opt.gennumber 
+    toto = opt.genword 
     word =[]
     for a in str(toto):
         z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
@@ -141,7 +147,7 @@ def sample_label_id_image_with_random_noise(n_row, batches_done,date_string):
         a = dictotodataset5.get(a)
         word.append(gen_imgs.data[int(a)])
     save_image(word, r'''C:\Users\Mic\tfe\modelimage\mot_avec_random_noize_''' + str(date_string) + '''_dataset''' + str(opt.dataset) + '''.png''', nrow=len(str(toto)), normalize=True)
-    print("Suite : "+(opt.gennumber)+" générée")
+    print("Suite : "+(opt.genword)+" générée")
 
 # Recherche du modèle
 fn = []
@@ -164,30 +170,16 @@ pmodel = fileList[choice]
 
 a = os.path.dirname(pmodel)
 b = os.path.dirname(a)
-#print("Root path of model.pth is " + str(a))
-#print("Root path of model is " + str(b))
 
-pathconfig = r'''C:\Users\Mic\tfe\config.txt'''
-fichier = open(pathconfig, "r")
-file_config = fichier.read()
-print("Config : " + file_config)
-index_of_img_size = file_config.find('img_size')
-'''
-if index_of_img_size == -1:
-    print('Not Found')
-else:
-    print("Found at index" + str(index_of_img_size))
-'''
-index_of_latent_dim = file_config.find('latent_dim')
-'''
-if index_of_latent_dim == -1:
-    print('Not Found')
-else:
-    print("Found at index" + str(index_of_latent_dim))
-'''
-print("Attention, la taille de l'image dans le Training est de " + file_config[(index_of_img_size+9):(index_of_latent_dim-2)] + " pixels")         
-taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
-fichier.close()
+#pathconfig = r'''C:\Users\Mic\tfe\config.txt'''
+#fichier = open(pathconfig, "r")
+#file_config = fichier.read()
+#print("Config : " + file_config)
+#index_of_img_size = file_config.find('img_size')
+#index_of_latent_dim = file_config.find('latent_dim')
+#print("Attention, la taille de l'image dans le Training est de " + file_config[(index_of_img_size+9):(index_of_latent_dim-2)] + " pixels")         
+#taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
+#fichier.close()
 
 img_shape = (opt.channels, opt.img_size, opt.img_size)
 print(img_shape)
@@ -210,4 +202,10 @@ sample_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 sample_label_id_image_with_random_noise(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 sample_label_id_image_without_random_noise(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
 print("Image generée dans " + pathimagemodel + '\modelimage')
+         
+image = r'''C:\Users\Mic\tfe\modelimage\mot_avec_random_noize_''' + str(date_string) + '''_dataset''' + str(opt.dataset) + '''.png'''
+img = cv2.imread(image)
+gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+Vice(gray, r'''C:\Users\Mic\tfe\modelimage\mot_avec_random_noize_''' + str(date_string) + '''_dataset''' + str(opt.dataset) + '''_vice.png''')
 
+print("Ok")
