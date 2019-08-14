@@ -31,7 +31,7 @@ parser.add_argument("--latent_dim", type=int, default=100, help="dimensionality 
 parser.add_argument("--n_classes", type=int, default=10, help="number of classes for dataset")
 parser.add_argument("--img_size", type=int, default=32, help="size of each image dimension")
 parser.add_argument("--channels", type=int, default=1, help="number of image channels")
-parser.add_argument("--gennumber", type=int, default=0, help="generate number")
+parser.add_argument("--genword", type=str, default=0, help="generate number")
 parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - Nmist = 0 - cifar10 = 1 - cifar100 = 2")
 opt = parser.parse_args()
 print(opt)
@@ -83,20 +83,7 @@ class Generator(nn.Module):
         img = self.model(gen_input)
         img = img.view(img.size(0), *img_shape)
         return img
-'''
-# Loss functions
-adversarial_loss = torch.nn.MSELoss()
 
-# Initialize generator and discriminator
-generator = Generator()
-
-if cuda:
-    generator.cuda()
-    adversarial_loss.cuda()
-
-# Optimizers
-optimizer_G = torch.optim.Adam(generator.parameters(), lr=opt.lr, betas=(opt.b1, opt.b2))
-'''
 FloatTensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 LongTensor = torch.cuda.LongTensor if cuda else torch.LongTensor
 
@@ -124,16 +111,16 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    if opt.gennumber > 0:
-        toto = opt.gennumber
-        numbre =[]
-        for a in str(toto):
-            numbre.append(gen_imgs.data[int(a)])
-        save_image(numbre, b + "/modelimage/gen_number_" + str(opt.gennumber) + "_" + date_string + "_%s.png" % (str(batches_done).zfill(4)), nrow=n_row, normalize=True)
-        src = b +'/modelimage/gen_number_' + str(opt.gennumber) + '_' + date_string + '_0001.png'
-        dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/gen_multiple_0001.png'
-        copyfile(src,dst)        
-        print("Suite : "+str(opt.gennumber)+" générée")
+    toto = opt.genword
+    word =[]
+    for a in str(toto):
+        a = dictotodataset5.get(a)
+        word.append(gen_imgs.data[int(a)])
+    save_image(word, b + "/modelimage/gen_number_" + opt.genword + "_" + date_string + "_%s.png" % (str(batches_done).zfill(4)), nrow=n_row, normalize=True)
+    src = b +'/modelimage/gen_number_' + opt.genword + '_' + date_string + '_0001.png'
+    dst = '/content/gdrive/My Drive/TFE/dataset/modelimage/gen_multiple_0001.png'
+    copyfile(src,dst)        
+    print("Suite : "+ opt.genword +" générée")
 
 
 # Recherche du modèle

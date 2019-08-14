@@ -31,10 +31,19 @@ parser.add_argument("--latent_dim", type=int, default=100, help="dimensionality 
 parser.add_argument("--n_classes", type=int, default=10, help="number of classes for dataset")
 parser.add_argument("--img_size", type=int, default=32, help="size of each image dimension")
 parser.add_argument("--channels", type=int, default=1, help="number of image channels")
-parser.add_argument("--gennumber", type=int, default=0, help="generate number")
+parser.add_argument("--gennumber", type=str, default=0, help="generate number")
 parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - Nmist = 0 - cifar10 = 1 - cifar100 = 2")
 opt = parser.parse_args()
 print(opt)
+
+dictotodataset0 = { '0':'0', '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9'}
+dictotodataset5 = { '0':'0', '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9',
+                    'A':'10','B':'11','C':'12','D':'13','E':'14','F':'15','G':'16','H':'17','I':'18','J':'19',
+                    'K':'20','L':'21','M':'22','N':'23','O':'24','P':'25','Q':'26','R':'27','S':'28','T':'29',
+                    'U':'30','V':'31','W':'32','X':'33','Y':'34','Z':'35','a':'36','b':'37','c':'38','d':'39',
+                    'e':'40','f':'41','g':'42','h':'43','i':'44','j':'45','k':'46','l':'47','m':'48','n':'49',
+                    'o':'50','p':'51','q':'52','r':'53','s':'54','t':'55','u':'56','v':'57','w':'58','x':'59',
+                    'y':'60','z':'61'}
 
 #img_shape = (opt.channels, opt.img_size, opt.img_size)
 #print(img_shape)
@@ -94,13 +103,13 @@ def sample_image(n_row, batches_done,date_string):
     print("z == " + str(z))
     # Get labels ranging from 0 to n_classes for n rows
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
-    print("labels == " + str(labels))
+#    print("labels == " + str(labels))
     labels = Variable(LongTensor(labels))
-    print("labels == " + str(labels))
+ #   print("labels == " + str(labels))
     gen_imgs = generator(z, labels)
-    save_image(gen_imgs.data,  r'''C:\Users\Mic\tfe\modelimage\full_0001.png''', nrow=n_row, normalize=True)
+    save_image(gen_imgs.data,  r'''C:\Users\Mic\tfe\modelimage\full_avec_random_noize_'''+ str(date_string) + '''_dataset''' + str(opt.dataset) + '''.png''', nrow=n_row, normalize=True)
 
-def sample_label_id_image(n_row, batches_done,date_string):
+def sample_label_id_image_without_random_noise(n_row, batches_done,date_string):
     """Saves a grid of generated digits ranging from 0 to n_classes"""
     # Sample noise
     z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
@@ -108,14 +117,31 @@ def sample_label_id_image(n_row, batches_done,date_string):
     labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
-    if opt.gennumber > 0:
-        toto = opt.gennumber
-        numbre =[]
-        for a in str(toto):
-            numbre.append(gen_imgs.data[int(a)])
-        save_image(numbre, r'''C:\Users\Mic\tfe\modelimage\gen_multiple_0001.png''', nrow=n_row, normalize=True)      
-        print("Suite : "+str(opt.gennumber)+" générée")
+    toto = opt.gennumber 
+    word =[]
+    for a in str(toto):
+        a = dictotodataset5.get(a)
+        word.append(gen_imgs.data[int(a)])
+    save_image(word, r'''C:\Users\Mic\tfe\modelimage\mot_sans_random_noize_''' + str(date_string) + '''_dataset''' + str(opt.dataset) + '''.png''', nrow=len(str(toto)), normalize=True)
+    print("Suite : "+(opt.gennumber)+" générée")
 
+def sample_label_id_image_with_random_noise(n_row, batches_done,date_string):
+    """Saves a grid of generated digits ranging from 0 to n_classes"""
+    # Sample noise
+
+    # Get labels ranging from 0 to n_classes for n rows
+    labels = np.array([num for _ in range(n_row) for num in range(n_row)])
+    labels = Variable(LongTensor(labels))
+
+    toto = opt.gennumber 
+    word =[]
+    for a in str(toto):
+        z = Variable(FloatTensor(np.random.normal(0, 1, (n_row ** 2, opt.latent_dim))))
+        gen_imgs = generator(z, labels)
+        a = dictotodataset5.get(a)
+        word.append(gen_imgs.data[int(a)])
+    save_image(word, r'''C:\Users\Mic\tfe\modelimage\mot_avec_random_noize_''' + str(date_string) + '''_dataset''' + str(opt.dataset) + '''.png''', nrow=len(str(toto)), normalize=True)
+    print("Suite : "+(opt.gennumber)+" générée")
 
 # Recherche du modèle
 fn = []
@@ -146,26 +172,33 @@ fichier = open(pathconfig, "r")
 file_config = fichier.read()
 print("Config : " + file_config)
 index_of_img_size = file_config.find('img_size')
+'''
 if index_of_img_size == -1:
     print('Not Found')
 else:
     print("Found at index" + str(index_of_img_size))
+'''
 index_of_latent_dim = file_config.find('latent_dim')
+'''
 if index_of_latent_dim == -1:
     print('Not Found')
 else:
     print("Found at index" + str(index_of_latent_dim))
+'''
 print("Attention, la taille de l'image dans le Training est de " + file_config[(index_of_img_size+9):(index_of_latent_dim-2)] + " pixels")         
 taille_img_train = int(file_config[(index_of_img_size+9):(index_of_latent_dim-2)])
 fichier.close()
 
-img_shape = (opt.channels, taille_img_train, taille_img_train)
+img_shape = (opt.channels, opt.img_size, opt.img_size)
 print(img_shape)
+
+print("dataset : " + str(opt.dataset))
+print("Size of image : " + str(opt.img_size))
 
 generator = Generator()
 if cuda:
     generator.cuda()
-generator.load_state_dict(torch.load(pmodel))
+generator.load_state_dict(torch.load(pmodel, map_location='cpu'))
 
 print("Génération de l'image")
 
@@ -174,6 +207,7 @@ print ("Création du Path : " + pathimagemodel)
 os.makedirs(pathimagemodel, exist_ok=True)
 
 sample_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
-sample_label_id_image(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
-print("Image generée dans " + pathimagemodel)
+sample_label_id_image_with_random_noise(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
+sample_label_id_image_without_random_noise(n_row=opt.n_classes, batches_done = 1, date_string=date_string)
+print("Image generée dans " + pathimagemodel + '\modelimage')
 
