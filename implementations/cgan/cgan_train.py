@@ -77,6 +77,7 @@ class Generator(nn.Module):
         super(Generator, self).__init__()
 
         self.label_emb = nn.Embedding(opt.n_classes, opt.n_classes)
+        print(" self.label_emb : " +  self.label_emb)
 
         def block(in_feat, out_feat, normalize=True):
             layers = [nn.Linear(in_feat, out_feat)]
@@ -114,10 +115,11 @@ class Generator(nn.Module):
     def forward(self, noise, labels):
         # Concatenate label embedding and image to produce input
         gen_input = torch.cat((self.label_emb(labels), noise), -1)
+        print("gen_input) : " + gen_input)
         img = self.model(gen_input)
-        print("self.img " + img)
+        print("self.img : " + img)
         img = img.view(img.size(0), *img_shape)
-        print("img.size(0) " + img.size(0))
+        print("img.size(0) : " + img.size(0))
         print("*img_shape : " + *img_shape)
 
         return img
