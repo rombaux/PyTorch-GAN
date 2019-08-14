@@ -120,7 +120,7 @@ class Generator(nn.Module):
         print("self.img : " + img)
         img = img.view(img.size(0), *img_shape)
         print("img.size(0) : " + img.size(0))
-        print("*img_shape : " + *img_shape)
+        print("*img_shape : " + img_shape)
 
         return img
 
