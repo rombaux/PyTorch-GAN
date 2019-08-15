@@ -77,7 +77,7 @@ class Generator(nn.Module):
         super(Generator, self).__init__()
 
         self.label_emb = nn.Embedding(opt.n_classes, opt.n_classes)
-        print(" self.label_emb : " +  self.label_emb)
+        print(" self.label_emb : " +  label_emb)
 
         def block(in_feat, out_feat, normalize=True):
             layers = [nn.Linear(in_feat, out_feat)]
