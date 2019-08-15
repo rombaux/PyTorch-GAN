@@ -1,6 +1,6 @@
 import os, sys
 fn = []
-pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + str(opt.dataset)
+pathmodel = "/content/gdrive/My Drive/TFE/dataset/" + optdataset
 for base, dirs, files in os.walk(pathmodel):
         for file in files:
             fn.append(os.path.join(base, file))
