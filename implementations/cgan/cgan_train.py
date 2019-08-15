@@ -110,7 +110,6 @@ class Generator(nn.Module):
         fmodel.close()
         print("Fichier du modèle créé")        
 
-
     def forward(self, noise, labels):
         # Concatenate label embedding and image to produce input
         gen_input = torch.cat((self.label_emb(labels), noise), -1)
