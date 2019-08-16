@@ -119,4 +119,8 @@ print("\r\n")
 optgenword = str(input("Entrer le mot à générer : (Tapez \"Entrer\" pour suite par défaut) ") or 1234567890)
 print("La suite \"" + optgenword + "\" va être généré")
 print("\r\n")      
-    # FIN DU CHOIX DU NOMBRE     
+    # FIN DU CHOIX DU NOMBRE  
+
+print("le dataset choisi est " + str(optdataset))
+print("le mot choisi est " + optgenword) 
+   
