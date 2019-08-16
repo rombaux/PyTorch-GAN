@@ -116,7 +116,7 @@ print("\r\n")
     # FIN DU DU LABEL à GENERER
     
     # CHOIX DU NOMBRE à GENERER
-optgenword = (input("Entrer une suite de label à générer : (Tapez \"Entrer\" pour suite par défaut) ") or 1234567890)
+optgenword = str(input("Entrer le mot à générer : (Tapez \"Entrer\" pour suite par défaut) ") or 1234567890)
 print("La suite \"" + optgenword + "\" va être généré")
 print("\r\n")      
     # FIN DU CHOIX DU NOMBRE     
