@@ -23,12 +23,10 @@ import torch
 
 import torch.optim as optim
 
-
-print("gen le dataset choisi est " + str(optdataset))
-print("gen le mot choisi est " + optgenword) 
-
 print("gen le opt.dataset choisi est " + str(opt.dataset))
 print("gen le opt.word choisi est " + opt.genword) 
+print("gen le dataset choisi est " + str(optdataset))
+print("gen le mot choisi est " + optgenword) 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--latent_dim", type=int, default=100, help="dimensionality of the latent space")
