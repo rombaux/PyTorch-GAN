@@ -38,12 +38,6 @@ print(opt)
 print("gen le opt.dataset choisi est " + str(opt.dataset))
 print("gen le opt.word choisi est " + opt.genword) 
 
-print("gen le optdataset choisi est " + str(optdataset))
-print("gen le optword choisi est " + optgenword) 
-
-
-
-
 dictotodataset0 = { '0':'0', '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9'}
 dictotodataset5 = { '0':'0', '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9',
                     'A':'10','B':'11','C':'12','D':'13','E':'14','F':'15','G':'16','H':'17','I':'18','J':'19',
