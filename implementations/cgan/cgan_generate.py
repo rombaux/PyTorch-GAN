@@ -33,6 +33,9 @@ parser.add_argument("--dataset", type=int, default=0, help="choice of dataset - 
 opt = parser.parse_args()
 print(opt)
 
+print("gen le optdataset choisi est " + str(optdataset))
+print("gen le optword choisi est " + optgenword) 
+
 print("gen le opt.dataset choisi est " + str(opt.dataset))
 print("gen le opt.word choisi est " + opt.genword) 
 
