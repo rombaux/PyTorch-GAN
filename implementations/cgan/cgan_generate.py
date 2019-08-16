@@ -23,6 +23,9 @@ import torch
 
 import torch.optim as optim
 
+print("gen le optdataset choisi est " + str(optdataset))
+print("gen le optword choisi est " + optgenword)
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--latent_dim", type=int, default=100, help="dimensionality of the latent space")
 parser.add_argument("--n_classes", type=int, default=10, help="number of classes for dataset")
