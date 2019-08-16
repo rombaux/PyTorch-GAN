@@ -47,8 +47,6 @@ dictotodataset5 = { '0':'0', '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6
 
 #img_shape = (opt.channels, opt.img_size, opt.img_size)
 #print(img_shape)
-opt.genword = optgenword
-opt.dataset = optdataset
 
 cuda = True if torch.cuda.is_available() else False
 print("torch cuda is available => " + str(torch.cuda.is_available()))
