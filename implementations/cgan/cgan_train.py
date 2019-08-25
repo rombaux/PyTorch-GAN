@@ -311,21 +311,7 @@ for epoch in range(opt.n_epochs):
 
     for i, (imgs, labels) in enumerate(dataloader):
 
-        batch_size = imgs.shape[0]
-
-        print("batch_size " + str(batch_size))
-
-        batch_size1 = imgs.shape[1]
-
-        print("batch_size1 " + str(batch_size1))
-
-        batch_size2 = imgs.shape[2]
-
-        print("batch_size2 " + str(batch_size2))
-
-        batch_size3 = imgs.shape[3]
-
-        print("batch_size3 " + str(batch_size3))             
+        batch_size = imgs.shape[0]       
 
         # Adversarial ground truths
         valid = Variable(FloatTensor(batch_size, 1).fill_(1.0), requires_grad=False)
@@ -334,9 +320,6 @@ for epoch in range(opt.n_epochs):
         # Configure input
         real_imgs = Variable(imgs.type(FloatTensor))
         labels = Variable(labels.type(LongTensor))
-
-        print("real_imgs " + str(torch.Tensor(real_imgs)))
-        print("labels " + str(labels))
 
         # -----------------
         #  Train Generator
