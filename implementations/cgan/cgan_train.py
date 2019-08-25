@@ -305,14 +305,15 @@ xgloss = []
 compteur = 0
 sample_image(n_row=opt.n_classes, batches_done=compteur, date_string=date_string)
 print("image 0 sauvée" + str(compteur) + ".png")
+print("image redimensionné à " + str(opt.img_size))
 
 for epoch in range(opt.n_epochs):
-
-    print("image redimensionné à " + str(opt.img_size))
 
     for i, (imgs, labels) in enumerate(dataloader):
 
         batch_size = imgs.shape[0]
+
+        print("batch_size " + batch_size)
 
         # Adversarial ground truths
         valid = Variable(FloatTensor(batch_size, 1).fill_(1.0), requires_grad=False)
@@ -321,6 +322,9 @@ for epoch in range(opt.n_epochs):
         # Configure input
         real_imgs = Variable(imgs.type(FloatTensor))
         labels = Variable(labels.type(LongTensor))
+
+        print("real_imgs " + real_imgs)
+        print("labels " + labels)
 
         # -----------------
         #  Train Generator
