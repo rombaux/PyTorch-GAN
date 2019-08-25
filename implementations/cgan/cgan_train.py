@@ -325,11 +325,7 @@ for epoch in range(opt.n_epochs):
 
         batch_size3 = imgs.shape[3]
 
-        print("batch_size3 " + str(batch_size3))
-
-        batch_size4 = imgs.shape[4]
-
-        print("batch_size4 " + str(batch_size4))                
+        print("batch_size3 " + str(batch_size3))             
 
         # Adversarial ground truths
         valid = Variable(FloatTensor(batch_size, 1).fill_(1.0), requires_grad=False)
