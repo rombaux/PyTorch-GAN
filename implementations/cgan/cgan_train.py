@@ -335,8 +335,8 @@ for epoch in range(opt.n_epochs):
         real_imgs = Variable(imgs.type(FloatTensor))
         labels = Variable(labels.type(LongTensor))
 
-        print("real_imgs " + real_imgs.shape[0])
-        print("labels " + labels)
+        print("real_imgs " + str(real_imgs.shape[0]))
+        print("labels " + str(labels))
 
         # -----------------
         #  Train Generator
