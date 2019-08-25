@@ -321,7 +321,15 @@ for epoch in range(opt.n_epochs):
 
         batch_size2 = imgs.shape[2]
 
-        print("batch_size1 " + str(batch_size2))
+        print("batch_size2 " + str(batch_size2))
+
+        batch_size3 = imgs.shape[3]
+
+        print("batch_size3 " + str(batch_size3))
+
+        batch_size4 = imgs.shape[4]
+
+        print("batch_size4 " + str(batch_size4))                
 
         # Adversarial ground truths
         valid = Variable(FloatTensor(batch_size, 1).fill_(1.0), requires_grad=False)
@@ -331,7 +339,7 @@ for epoch in range(opt.n_epochs):
         real_imgs = Variable(imgs.type(FloatTensor))
         labels = Variable(labels.type(LongTensor))
 
-        print("real_imgs " + real_imgs.data[0])
+        print("real_imgs " + real_imgs.shape[0])
         print("labels " + labels)
 
         # -----------------
