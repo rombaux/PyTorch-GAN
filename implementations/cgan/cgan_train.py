@@ -323,7 +323,7 @@ for epoch in range(opt.n_epochs):
         real_imgs = Variable(imgs.type(FloatTensor))
         labels = Variable(labels.type(LongTensor))
 
-        print("real_imgs " + real_imgs)
+        print("real_imgs " + real_imgs.value)
         print("labels " + labels)
 
         # -----------------
