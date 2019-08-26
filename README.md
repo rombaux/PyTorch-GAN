@@ -56,7 +56,8 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
 	Il est possible de tester les modèles sur son CPU. Il faut que Python soit installer préalablement sur sa machine 
 
 	Commande: cgan_generate_on_cpu.py --n_classes 10 --dataset 0 --channels 1 --img_size 32 --genword 648748454
-	[[Code]](implementations/cgan/cgan_generate_on_cpu.py)
+
+[[Code]](implementations/cgan/cgan_generate_on_cpu.py)
 
 ### Conditional GAN
 _Conditional Generative Adversarial Nets_
