@@ -10,8 +10,23 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
     + [Conditional GAN](#conditional-gan)
 
 
-## Installation
-    $ git clone https://github.com/rombaux/PyTorch-GAN
+## Installation (Procédure en français)
+    1) Créer un compte sur Google Colaboratory à l'adresse https://colab.research.google.com/
+	2) Importer le dernier notebook à partir du dépot https://github.com/rombaux/PyTorch-GAN
+	3) Monter le Drive (ici, j'ai utiliser Gdrive
+		from google.colab import drive
+		drive.mount('/content/gdrive')
+	4) 	Télécharger le Github
+		!git clone https://github.com/rombaux/PyTorch-GAN
+	5) Installer les dépendances
+		cd /content/PyTorch-GAN
+		!sudo pip3 install -r requirements.txt
+	6) 	
+	
+	cd /content/PyTorch-GAN/implementations/cgan/
+		
+	
+	$ git clone https://github.com/rombaux/PyTorch-GAN
     $ cd PyTorch-GAN/
     $ sudo pip3 install -r requirements.txt
 
