@@ -12,89 +12,55 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
 
 ## Installation (Procédure en français)
     1) Créer un compte sur Google Colaboratory à l'adresse https://colab.research.google.com/
+	
 	2) Importer le dernier notebook à partir du dépot https://github.com/rombaux/PyTorch-GAN
+	
 	3) Monter le Drive (ici, j'ai utiliser Gdrive
 		from google.colab import drive
 		drive.mount('/content/gdrive')
-	4) 	Télécharger le Github
+	
+	4) Télécharger le Github
 		!git clone https://github.com/rombaux/PyTorch-GAN
+	
 	5) Installer les dépendances
 		cd /content/PyTorch-GAN
 		!sudo pip3 install -r requirements.txt
-	6) 	
 	
-	cd /content/PyTorch-GAN/implementations/cgan/
+	Vous pouvez maintenant choisir entre l'apprentissage et le test du modèles	
+	
+	6) Apprendre
 		
-	
-	$ git clone https://github.com/rombaux/PyTorch-GAN
-    $ cd PyTorch-GAN/
-    $ sudo pip3 install -r requirements.txt
+		cd /content/PyTorch-GAN/implementations/cgan/
+		%run menu_train.py
+		!python3 cgan_train.py --n_epochs $optn_epochs --sample_interval $optsample_interval --dataset $optdataset --channels $optchannel --n_classes $optn_classes --img_size $optimg_size --batch_size $optbatch_size
+		%run printloss.py
+		
+	7) Tester le modèle	
+		cd /content/PyTorch-GAN/implementations/cgan/
+		%run menu_generate.py
+		!python3 cgan_generate.py --dataset $optdataset --latent_dim 100 --channels $optchannels --genword $optgenword --img_size $optimg_size --n_classes $optn_classes
+		%run printresult.py
 
-## Implementations   
+	8) Suivez ensuite les instruction du menu.
+		Pour l'apprentissage
+		Choix du datataset
+		Choix du batch size
+		Choix de l'intervalle de générateur des samples
+		Choix du nombre d'Epoch
+		
+		Pour le test
+		Choix du datataset
+		Choix du mot à générer
+				 
 
 ### Conditional GAN
 _Conditional Generative Adversarial Nets_
 
 #### Authors
-Mehdi Mirza, Simon Osindero
+Rombaux Michael
 
 #### Abstract
 Generative Adversarial Nets [8] were recently introduced as a novel way to train generative models. In this work we introduce the conditional version of generative adversarial nets, which can be constructed by simply feeding the data, y, we wish to condition on to both the generator and discriminator. We show that this model can generate MNIST digits conditioned on class labels. We also illustrate how this model could be used to learn a multi-modal model, and provide preliminary examples of an application to image tagging in which we demonstrate how this approach can generate descriptive tags which are not part of training labels.
 
 [[Paper]](https://arxiv.org/abs/1411.1784) [[Code]](implementations/cgan/cgan.py)
 
-#### Run Example
-```
-$ cd implementations/cgan/
-$ python3 cgan.py
-```
-
-<p align="center">
-    <img src="assets/cgan.gif" width="360"\>
-</p>
-
-### Context-Conditional GAN
-_Semi-Supervised Learning with Context-Conditional Generative Adversarial Networks_
-
-#### Authors
-forked from eriklindernoren/PyTorch-GAN and ROMBAUX Michael
-	
-#### Abstract
-We introduce a simple semi-supervised learning approach for images based on in-painting using an adversarial loss. Images with random patches removed are presented to a generator whose task is to fill in the hole, based on the surrounding pixels. The in-painted images are then presented to a discriminator network that judges if they are real (unaltered training images) or not. This task acts as a regularizer for standard supervised training of the discriminator. Using our approach we are able to directly train large VGG-style networks in a semi-supervised fashion. We evaluate on STL-10 and PASCAL datasets, where our approach obtains performance comparable or superior to existing methods.
-
-[[Paper]](https://arxiv.org/abs/1611.06430) [[Code]](implementations/ccgan/ccgan.py)
-
-#### Run Example
-```
-$ cd implementations/ccgan/
-$ python3 ccgan.py
-```
-
-### Context Encoder
-_Context Encoders: Feature Learning by Inpainting_
-
-#### Authors
-Deepak Pathak, Philipp Krahenbuhl, Jeff Donahue, Trevor Darrell, Alexei A. Efros
-
-#### Abstract
-We present an unsupervised visual feature learning algorithm driven by context-based pixel prediction. By analogy with auto-encoders, we propose Context Encoders -- a convolutional neural network trained to generate the contents of an arbitrary image region conditioned on its surroundings. In order to succeed at this task, context encoders need to both understand the content of the entire image, as well as produce a plausible hypothesis for the missing part(s). When training context encoders, we have experimented with both a standard pixel-wise reconstruction loss, as well as a reconstruction plus an adversarial loss. The latter produces much sharper results because it can better handle multiple modes in the output. We found that a context encoder learns a representation that captures not just appearance but also the semantics of visual structures. We quantitatively demonstrate the effectiveness of our learned features for CNN pre-training on classification, detection, and segmentation tasks. Furthermore, context encoders can be used for semantic inpainting tasks, either stand-alone or as initialization for non-parametric methods.
-
-[[Paper]](https://arxiv.org/abs/1604.07379) [[Code]](implementations/context_encoder/context_encoder.py)
-
-#### Run Example
-```
-$ cd implementations/context_encoder/
-<follow steps at the top of context_encoder.py>
-$ python3 context_encoder.py
-```
-
-<p align="center">
-    <img src="assets/context_encoder.png" width="640"\>
-</p>
-<p align="center">
-    Rows: Masked | Inpainted | Original | Masked | Inpainted | Original
-</p>
-
-<p align="center">
-    <img src="assets/wgan_div.png" width="240"\>
-</p>
