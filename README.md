@@ -6,6 +6,7 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
 
 ## Table of Contents
   * [Installation](#installation)
+  * [Execution sur CPU](#Execution sur CPU)
   * Paper [Conditional GAN](#conditional-gan)
 
 
@@ -25,7 +26,7 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
 		cd /content/PyTorch-GAN
 		!sudo pip3 install -r requirements.txt
 	
-	Vous pouvez maintenant choisir entre l'apprentissage et le test du modèles	
+	Vous pouvez maintenant choisir entre l'apprentissage et le test du modèle
 	
 	6) Apprendre un dataset
 		cd /content/PyTorch-GAN/implementations/cgan/
@@ -49,7 +50,10 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
 		Pour le test
 		Choix du datataset
 		Choix du mot à générer
-				 
+
+## Execution sur CPU (Procédure en français)
+		
+	cgan_generate_on_cpu.py --n_classes 10 --dataset 0 --channels 1 --img_size 32 --genword 648748454
 
 ### Conditional GAN
 _Conditional Generative Adversarial Nets_
