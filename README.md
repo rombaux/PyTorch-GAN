@@ -6,8 +6,7 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
 
 ## Table of Contents
   * [Installation](#installation)
-  * [Implementations](#implementations)
-    + [Conditional GAN](#conditional-gan)
+  * Paper [Conditional GAN](#conditional-gan)
 
 
 ## Installation (Procédure en français)
