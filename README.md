@@ -14,7 +14,7 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
 	
 	2) Importer le dernier notebook à partir du dépot https://github.com/rombaux/PyTorch-GAN
 	
-	3) Monter le Drive (ici, j'ai utiliser Gdrive
+	3) Monter le Drive (ici, j'ai utilisé Gdrive
 		from google.colab import drive
 		drive.mount('/content/gdrive')
 	
@@ -27,8 +27,7 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
 	
 	Vous pouvez maintenant choisir entre l'apprentissage et le test du modèles	
 	
-	6) Apprendre
-		
+	6) Apprendre un dataset
 		cd /content/PyTorch-GAN/implementations/cgan/
 		%run menu_train.py
 		!python3 cgan_train.py --n_epochs $optn_epochs --sample_interval $optsample_interval --dataset $optdataset --channels $optchannel --n_classes $optn_classes --img_size $optimg_size --batch_size $optbatch_size
