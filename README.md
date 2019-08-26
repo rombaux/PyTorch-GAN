@@ -56,6 +56,7 @@ Collection of PyTorch implementations of Generative Adversarial Network varietie
 	Il est possible de tester les modèles sur son CPU. Il faut que Python soit installer préalablement sur sa machine 
 
 	Commande: cgan_generate_on_cpu.py --n_classes 10 --dataset 0 --channels 1 --img_size 32 --genword 648748454
+	[[Code]](implementations/cgan/cgan_generate_on_cpu.py)
 
 ### Conditional GAN
 _Conditional Generative Adversarial Nets_
@@ -66,5 +67,5 @@ Rombaux Michael
 #### Abstract
 Generative Adversarial Nets [8] were recently introduced as a novel way to train generative models. In this work we introduce the conditional version of generative adversarial nets, which can be constructed by simply feeding the data, y, we wish to condition on to both the generator and discriminator. We show that this model can generate MNIST digits conditioned on class labels. We also illustrate how this model could be used to learn a multi-modal model, and provide preliminary examples of an application to image tagging in which we demonstrate how this approach can generate descriptive tags which are not part of training labels.
 
-[[Paper]](https://arxiv.org/abs/1411.1784) [[Code]](implementations/cgan/cgan.py)
+[[Paper]](https://arxiv.org/abs/1411.1784) [[Code]](implementations/cgan/cgan_train.py)
 
