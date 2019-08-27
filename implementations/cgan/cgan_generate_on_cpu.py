@@ -206,20 +206,21 @@ gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 Vice(gray, r'''C:\Users\Mic\tfe\modelimage\mot_avec_random_noize_''' + str(date_string) + '''_dataset''' + str(opt.dataset) + '''_vice.png''')
 
 print("Ok")
+
 # Pour tester dataset 0
-#cgan_generate_win.py --dataset 0 --channels 1 --img_size 32 --n_classes 10 --genword 123456789
+#cgan_generate_on_cpu.py --dataset 0 --channels 1 --img_size 32 --n_classes 10 --genword 123456789
 
 # Pour tester dataset 1
-#cgan_generate_win.py --dataset 1 --channels 3 --img_size 32 --n_classes 10 --genword 123456789
+#cgan_generate_on_cpu.py --dataset 1 --channels 3 --img_size 32 --n_classes 10 --genword 123456789
 
 # Pour tester dataset 2
-#cgan_generate_win.py --dataset 2 --channels 3 --img_size 32 --n_classes 100 --genword 123456789
+#cgan_generate_on_cpu.py --dataset 2 --channels 3 --img_size 32 --n_classes 100 --genword 123456789
 
 # Pour tester dataset 3
-#cgan_generate_win.py --dataset 3 --channels 3 --img_size 32 --n_classes 10 --genword 123456789
+#cgan_generate_on_cpu.py --dataset 3 --channels 3 --img_size 32 --n_classes 10 --genword 123456789
 
 # Pour tester dataset 4
-#cgan_generate_win.py --dataset 4 --channels 1 --img_size 28 --n_classes 10 --genword 123456789
+#cgan_generate_on_cpu.py --dataset 4 --channels 1 --img_size 28 --n_classes 10 --genword 123456789
 
 # Pour tester dataset 5
-#cgan_generate_win.py --dataset 5 --channels 1 --img_size 28 --n_classes 62 --genword 123456789
+#cgan_generate_on_cpu.py --dataset 5 --channels 1 --img_size 28 --n_classes 62 --genword MERCIPourVotreAttention
