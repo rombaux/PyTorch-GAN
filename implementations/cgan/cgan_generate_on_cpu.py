@@ -61,6 +61,12 @@ list1[11] = b[0]
 list1[12] = b[1]
 date_string = ''.join(list1)
 
+clock = time.strftime("%Y%m%d%H%M")
+
+if (opt.genword == "date") : opt.genword = str(clock)
+
+print (opt.genword)
+
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
 def Vice(pic, name):
@@ -210,6 +216,9 @@ print("Ok")
 # Pour tester dataset 0
 #cgan_generate_on_cpu.py --dataset 0 --channels 1 --img_size 32 --n_classes 10 --genword 123456789
 
+# Pour tester dataset 0
+#cgan_generate_on_cpu.py --dataset 0 --channels 1 --img_size 32 --n_classes 10 --genword date
+
 # Pour tester dataset 1
 #cgan_generate_on_cpu.py --dataset 1 --channels 3 --img_size 32 --n_classes 10 --genword 123456789
 
@@ -223,4 +232,4 @@ print("Ok")
 #cgan_generate_on_cpu.py --dataset 4 --channels 1 --img_size 28 --n_classes 10 --genword 123456789
 
 # Pour tester dataset 5
-#cgan_generate_on_cpu.py --dataset 5 --channels 1 --img_size 28 --n_classes 62 --genword MERCIPourVotreAttention
+#cgan_generate_on_cpu.py --dataset 5 --channels 1 --img_size 28 --n_classes 62 --genword 9RuedeHoudain7000Mons
