@@ -78,6 +78,9 @@ if (opt.genword == "lotto") :
     listlotto = ''.join(lotto)
     opt.genword = str(listlotto)
 
+if (opt.genword == "polytech") :
+    opt.genword = "9RuedeHoudain7000Mons"   
+
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
 def Vice(pic, name):
@@ -243,7 +246,7 @@ print("Ok")
 #cgan_generate_on_cpu.py --dataset 4 --channels 1 --img_size 28 --n_classes 10 --genword 123456789
 
 # Pour tester dataset 5
-#cgan_generate_on_cpu.py --dataset 5 --channels 1 --img_size 28 --n_classes 62 --genword 9RuedeHoudain7000Mons
+#cgan_generate_on_cpu.py --dataset 5 --channels 1 --img_size 28 --n_classes 62 --genword polytech
 
 # Pour tester dataset 5
 #cgan_generate_on_cpu.py --dataset 5 --channels 1 --img_size 28 --n_classes 62 --genword lotto
