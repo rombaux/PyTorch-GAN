@@ -24,6 +24,8 @@ import torch
 
 import torch.optim as optim
 
+import random
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--latent_dim", type=int, default=100, help="dimensionality of the latent space")
 parser.add_argument("--n_classes", type=int, default=10, help="number of classes for dataset")
@@ -63,9 +65,18 @@ date_string = ''.join(list1)
 
 clock = time.strftime("%Y%m%d%H%M")
 
-if (opt.genword == "date") : opt.genword = str(clock)
+if (opt.genword == "date") :
+    opt.genword = str(clock)
+    print ("genration de la date " + opt.genword)
 
-print (opt.genword)
+if (opt.genword == "lotto") :
+    lotto =[]
+    for numerogagant in range(0,6) :
+        lotto.append(str(random.randint(1,42)))
+        if numerogagant < 5 : lotto.append("X")
+    print ("genration LOTTO " + str(lotto))
+    listlotto = ''.join(lotto)
+    opt.genword = str(listlotto)
 
 print("Dataset n: " + str(opt.dataset) + " selected and " + str(opt.n_classes) + " classes used")
 
@@ -233,3 +244,6 @@ print("Ok")
 
 # Pour tester dataset 5
 #cgan_generate_on_cpu.py --dataset 5 --channels 1 --img_size 28 --n_classes 62 --genword 9RuedeHoudain7000Mons
+
+# Pour tester dataset 5
+#cgan_generate_on_cpu.py --dataset 5 --channels 1 --img_size 28 --n_classes 62 --genword lotto
